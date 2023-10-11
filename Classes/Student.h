@@ -9,7 +9,7 @@ public:
 private:
     std::string StudentCode_;
     std::string StudentName_;
-    std::vector<std::pair<std::string,std::string>> CLasses;
+    std::vector<std::pair<std::string,std::string>> Horario;
 };
 
 
