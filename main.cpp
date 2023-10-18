@@ -17,13 +17,13 @@ void set_up_classes_per_uc(std::map<std::string ,std::vector<std::string>> &UCs)
 void set_up_classes(std::vector<Class> &classes);
 void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &classes);
 Class& get_CLass(std::string ClassCode,std::vector<Class> classes);
-Lesson& get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes);
+Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes);
 
 //main
 int main(int argc, char *argv[]) {
 
     // stores values from classes_per_uc.csv
-    std::map<std::string ,std::vector<std::string>> UCs; //map<UCcode,vector<Class Codes>>
+    std::map<std::string, std::vector<std::string>> UCs; //map<UCcode,vector<Class Codes>>
     set_up_classes_per_uc(UCs);
 
     // stores values from classes.csv
@@ -33,22 +33,22 @@ int main(int argc, char *argv[]) {
 
     // stores values from students_classes.csv
     std::vector<Student> StudentsList;
-    set_up_students(StudentsList,classes);
+    set_up_students(StudentsList, classes);
 
-    /*
-    for(auto x:StudentsList)
-    {
-        std::cout<<x.get_StudentCode()<<','<<x.get_StudentName()<<"-> classes=";
-        for(auto y:x.get_classes())
-        {
-            std::cout<<'/'<<y;
+
+    for (auto x: StudentsList) {
+        std::cout << x.get_StudentCode() << ',' << x.get_StudentName() << "-> classes=";
+        for (auto y: x.get_classes()) {
+            std::cout << y<<'/';
         }
-        std::cout<<" -> horario";
-        for(auto y:x.get_Horario().get_Schedule())
-        {
-            std::cout<<'('<<y.get_Day()<<'/'<<y.get_Start_hour()<<'/'<<y.get_Duration()<<'/'<<y.get_Type()<<')';
+        std::cout << " -> horario= ";
+        for (auto y: x.get_Horario().get_Schedule()) {
+            std::cout << '(' << y.get_Day() << '/' << y.get_Start_hour() << '/' << y.get_Duration() << '/'
+                      << y.get_Type() << ')';
         }
-    }*/
+        std::cout << std::endl;
+    }
+
 
     return 0;
 }
@@ -67,13 +67,9 @@ void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &clas
         getline(str, UcCode, ','); // gets the UcCode
         getline(str, ClassCode, ','); // gets the ClassCode
 
-        if(!in_vec(StudentsList,Student(StudentCode,StudentCode)))
+        if(!in_vec(StudentsList,Student(StudentCode,StudentName)))
         {
-            std::vector<Lesson> temp;
-            temp.push_back(get_Lesson(ClassCode,UcCode,classes));
-            std::vector<std::string> tmp;
-            tmp.push_back(ClassCode);
-            StudentsList.emplace_back(Student(StudentCode,StudentCode, Schedule(temp),tmp));
+            StudentsList.emplace_back(StudentCode,StudentName, std::vector<Lesson>{get_Lesson(ClassCode,UcCode,classes)},std::vector<std::string>{ClassCode});
         }
         else
         {
@@ -169,7 +165,7 @@ Class& get_CLass(std::string ClassCode,std::vector<Class> classes)
     }
 }
 
-Lesson& get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes)
+Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes)
 {
     Class temp= get_CLass(ClassCode,classes);
     for(auto x : temp.get_Schedule().get_Schedule())
