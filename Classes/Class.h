@@ -1,16 +1,24 @@
-//
-// Created by Bruno Esteves on 18/10/2023.
-//
-
 #ifndef AED_PROJECT_CLASS_H
 #define AED_PROJECT_CLASS_H
-
+#include <vector>
+#include <string>
+#include "Student.h"
+#include "Schedule.h"
 
 class Class {
 private:
-
+    std::vector<Student> ListStudents;
+    Schedule horario;
+    std::string ClassCode;
 public:
-    Class();
+    Class(Schedule horario_, std::vector<Student> Liststudents,std::string ClassCode);
+    Class(Schedule horario_,std::string ClassCode);
+    bool operator ==(const Class& c) const;
+    void add_lesson(Lesson aula);
+
+    std::string get_ClassCode();
+    Schedule get_Schedule();
+    std::vector<Student> get_ListStudents();
 };
 
 

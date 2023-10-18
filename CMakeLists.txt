@@ -8,4 +8,8 @@ add_executable(AED_Project main.cpp
         Classes/Student.h
         Classes/Class.cpp
         Classes/Class.h
+        Classes/Schedule.cpp
+        Classes/Schedule.h
+        Classes/Lesson.cpp
+        Classes/Lesson.h
 )
