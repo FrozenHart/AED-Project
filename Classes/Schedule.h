@@ -8,6 +8,7 @@ class Schedule {
 private:
     std::vector<Lesson> horario;
 public:
+    Schedule();
     Schedule(std::vector<Lesson> horario);
     std::vector<Lesson> get_Schedule();
     void add_Lesson(Lesson aula);

@@ -4,41 +4,98 @@
 #include <vector>
 #include <map>
 #include "Classes/Class.h"
+#include "Classes/Student.h"
+#include "Classes/Schedule.h"
+#include "Classes/Lesson.h"
 
 //funcions
 template<typename T, typename A>
 bool in_map( std::map<T ,A> map,T s);
 template<typename T>
 bool in_vec( std::vector<T> vec, T s);
-std::map<std::string ,std::vector<std::string>> set_up_classes_per_uc();
-std::vector<Class> set_up_classes();
+void set_up_classes_per_uc(std::map<std::string ,std::vector<std::string>> &UCs);
+void set_up_classes(std::vector<Class> &classes);
+void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &classes);
+Class& get_CLass(std::string ClassCode,std::vector<Class> classes);
+Lesson& get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes);
 
 //main
-int main() {
+int main(int argc, char *argv[]) {
 
     // stores values from classes_per_uc.csv
-    std::map<std::string ,std::vector<std::string>> UCs=set_up_classes_per_uc();
+    std::map<std::string ,std::vector<std::string>> UCs; //map<UCcode,vector<Class Codes>>
+    set_up_classes_per_uc(UCs);
 
-    // stores values from classes
-    std::vector<Class> classes=set_up_classes();
+    // stores values from classes.csv
+    std::vector<Class> classes;
+    set_up_classes(classes);
 
-    for(auto x:classes)
+
+    // stores values from students_classes.csv
+    std::vector<Student> StudentsList;
+    set_up_students(StudentsList,classes);
+
+    /*
+    for(auto x:StudentsList)
     {
-        std::cout<<x.get_ClassCode()<<"->";
-        for (auto y :x.get_Schedule().get_Schedule())
+        std::cout<<x.get_StudentCode()<<','<<x.get_StudentName()<<"-> classes=";
+        for(auto y:x.get_classes())
         {
-            std::cout<<"("<<y.get_UCcode()<<'/'<<y.get_Day()<<'/'<<y.get_Start_hour()<<'/'<<y.get_Duration()<<'/'<<y.get_Type()<<")";
+            std::cout<<'/'<<y;
         }
-        std::cout<<'\n';
-    }
+        std::cout<<" -> horario";
+        for(auto y:x.get_Horario().get_Schedule())
+        {
+            std::cout<<'('<<y.get_Day()<<'/'<<y.get_Start_hour()<<'/'<<y.get_Duration()<<'/'<<y.get_Type()<<')';
+        }
+    }*/
 
     return 0;
 }
 
-std::vector<Class> set_up_classes()
+void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &classes)
+{
+    // stores values from students_classes.csv
+    std::fstream fin;
+    fin.open("../schedule/students_classes.csv",std::ios::in);
+    std::string line,StudentCode,StudentName,UcCode,ClassCode;
+    std::getline(fin,line);
+    while(getline(fin, line)) {
+        std::stringstream str(line);
+        getline(str, StudentCode, ','); // gets the StudentCode
+        getline(str, StudentName, ','); // gets the StudentName
+        getline(str, UcCode, ','); // gets the UcCode
+        getline(str, ClassCode, ','); // gets the ClassCode
+
+        if(!in_vec(StudentsList,Student(StudentCode,StudentCode)))
+        {
+            std::vector<Lesson> temp;
+            temp.push_back(get_Lesson(ClassCode,UcCode,classes));
+            std::vector<std::string> tmp;
+            tmp.push_back(ClassCode);
+            StudentsList.emplace_back(Student(StudentCode,StudentCode, Schedule(temp),tmp));
+        }
+        else
+        {
+            for(auto &x:StudentsList)
+            {
+                if(x.get_StudentCode()==StudentCode)
+                {
+                    x.add_Lesson(get_Lesson(ClassCode,UcCode,classes));
+                    if(!in_vec(x.get_classes(),ClassCode))
+                    {
+                        x.add_class(ClassCode);
+                    }
+                }
+            }
+        }
+    }
+    fin.close();
+}
+
+void set_up_classes(std::vector<Class> &classes)
 {
     // stores values from classes.csv
-    std::vector<Class> classes;
     std::fstream fin;
     fin.open("../schedule/classes.csv",std::ios::in);
     std::string line,ClassCode,UcCode,Weekday,sh,d,Type;
@@ -56,10 +113,12 @@ std::vector<Class> set_up_classes()
         Duration = std::stof(d);
 
         bool temp = false;
-        for (auto c: classes) {
+        for (auto& c: classes) { // adds a Lesson to an existing Class and cheks if it already exists
             if (c.get_ClassCode() == ClassCode)
             {
+                c.add_lesson(Lesson(StartHour, Duration, Type, Weekday,UcCode));
                 temp = true;
+                break;
             }
         }
         if (!temp) // adds a new Class
@@ -67,26 +126,14 @@ std::vector<Class> set_up_classes()
             std::vector<Lesson> tempv;
             tempv.emplace_back(StartHour, Duration, Type, Weekday,UcCode);
             classes.emplace_back(Schedule(tempv), ClassCode);
-        } else // adds a Lesson to an existing Class
-        {
-            for(Class& c:classes)
-            {
-                if(c.get_ClassCode()==ClassCode)
-                {
-                    c.add_lesson(Lesson(StartHour, Duration, Type, Weekday,UcCode));
-                }
-            }
         }
     }
     fin.close();
-    return classes;
 }
 
-
-std::map<std::string ,std::vector<std::string>> set_up_classes_per_uc()
+void set_up_classes_per_uc(std::map<std::string ,std::vector<std::string>> &UCs)
 {
     // stores values from classes_per_uc.csv
-    std::map<std::string ,std::vector<std::string>> UCs;  //map<UCcode,vector<Class Codes>>
     std::fstream fin;
     fin.open("../schedule/classes_per_uc.csv",std::ios::in);
     std::string line,UcCode,ClassCode;
@@ -111,9 +158,31 @@ std::map<std::string ,std::vector<std::string>> set_up_classes_per_uc()
         }
     }
     fin.close();
-    return UCs;
 }
 
+Class& get_CLass(std::string ClassCode,std::vector<Class> classes)
+{
+    for(auto &x:classes)
+    {
+        if(x.get_ClassCode()==ClassCode)
+            return x;
+    }
+}
+
+Lesson& get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes)
+{
+    Class temp= get_CLass(ClassCode,classes);
+    for(auto x : temp.get_Schedule().get_Schedule())
+    {
+        if(x.get_UCcode()==UCcode)
+        {
+            return x;
+        }
+    }
+
+    // Handle the case where the lesson with the specified UCcode is not found
+    throw std::runtime_error("Lesson not found for given UCcode.");
+}
 
 template<typename T>
 bool in_vec( std::vector<T> vec, T s)

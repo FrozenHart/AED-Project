@@ -24,3 +24,8 @@ bool Schedule::operator==(const Schedule & s) const {
     return true;
 }
 
+Schedule::Schedule() {
+    std::vector<Lesson> empty;
+    horario=empty;
+}
+
