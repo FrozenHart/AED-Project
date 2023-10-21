@@ -1,11 +1,12 @@
 #include "Lesson.h"
 
-Lesson::Lesson(float start_hour, float duration, std::string Type,std::string Day,std::string UCcode) {
+Lesson::Lesson(float start_hour, float duration, std::string Type,std::string Day,std::string UCcode,std::string ClassCode) {
     this->start_hour=start_hour;
     this->duration=duration;
     this->Type=Type;
     this->Day=Day;
     this->UCcode=UCcode;
+    this->ClassCode=ClassCode;
 }
 
 bool Lesson::operator==(const Lesson &l) const {
@@ -36,5 +37,10 @@ std::string Lesson::get_Day() {
 
 std::string Lesson::get_UCcode() {
     std::string s=UCcode;
+    return s;
+}
+
+std::string Lesson::get_ClassCode() {
+    std::string s=ClassCode;
     return s;
 };

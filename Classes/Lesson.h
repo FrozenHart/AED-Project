@@ -12,8 +12,9 @@ private:
     std::string Type;
     std::string Day;
     std::string UCcode;
+    std::string ClassCode;
 public:
-    Lesson(float start_hour,float duration,std::string Type,std::string Day,std::string UCcode);
+    Lesson(float start_hour,float duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode);
     bool operator == (const Lesson& l) const;
 
     float get_Start_hour();
@@ -21,6 +22,7 @@ public:
     std::string get_Type();
     std::string get_Day();
     std::string get_UCcode();
+    std::string get_ClassCode();
 };
 
 

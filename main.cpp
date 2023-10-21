@@ -18,7 +18,7 @@ void set_up_classes(std::vector<Class> &classes);
 void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &classes);
 Class& get_CLass(std::string ClassCode,std::vector<Class> classes);
 Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes);
-
+void save(std::vector<Student> StudentsList,std::vector<Class> classes,std::map<std::string ,std::vector<std::string>> UCs);
 //main
 int main(int argc, char *argv[]) {
 
@@ -30,26 +30,12 @@ int main(int argc, char *argv[]) {
     std::vector<Class> classes;
     set_up_classes(classes);
 
-
     // stores values from students_classes.csv
     std::vector<Student> StudentsList;
     set_up_students(StudentsList, classes);
 
-
-    for (auto x: StudentsList) {
-        std::cout << x.get_StudentCode() << ',' << x.get_StudentName() << "-> classes=";
-        for (auto y: x.get_classes()) {
-            std::cout << y<<'/';
-        }
-        std::cout << " -> horario= ";
-        for (auto y: x.get_Horario().get_Schedule()) {
-            std::cout << '(' << y.get_Day() << '/' << y.get_Start_hour() << '/' << y.get_Duration() << '/'
-                      << y.get_Type() << ')';
-        }
-        std::cout << std::endl;
-    }
-
-
+    // stores values back in the files(students_classes.csv,classes.csv,classes_per_uc.csv)
+    save(StudentsList,classes,UCs);
     return 0;
 }
 
@@ -112,7 +98,7 @@ void set_up_classes(std::vector<Class> &classes)
         for (auto& c: classes) { // adds a Lesson to an existing Class and cheks if it already exists
             if (c.get_ClassCode() == ClassCode)
             {
-                c.add_lesson(Lesson(StartHour, Duration, Type, Weekday,UcCode));
+                c.add_lesson(Lesson(StartHour, Duration, Type, Weekday,UcCode,ClassCode));
                 temp = true;
                 break;
             }
@@ -120,7 +106,7 @@ void set_up_classes(std::vector<Class> &classes)
         if (!temp) // adds a new Class
         {
             std::vector<Lesson> tempv;
-            tempv.emplace_back(StartHour, Duration, Type, Weekday,UcCode);
+            tempv.emplace_back(StartHour, Duration, Type, Weekday,UcCode,ClassCode);
             classes.emplace_back(Schedule(tempv), ClassCode);
         }
     }
@@ -163,7 +149,10 @@ Class& get_CLass(std::string ClassCode,std::vector<Class> classes)
         if(x.get_ClassCode()==ClassCode)
             return x;
     }
+    // Handle the case where the Class with the specified ClassCode is not found
+    throw std::runtime_error("Class not found for given ClassCode.");
 }
+
 
 Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes)
 {
@@ -206,3 +195,38 @@ bool in_map( std::map<T ,A> map,T s)
     return false;
 }
 
+void save(std::vector<Student> StudentsList,std::vector<Class> classes,std::map<std::string ,std::vector<std::string>> UCs) {
+    //stores values from students_classes.csv
+    std::fstream fin;
+    fin.open("../schedule/students_classes.csv", std::ofstream::out | std::ofstream::trunc);
+    fin << "StudentCode,StudentName,UcCode,ClassCode\n";
+    for (auto x: StudentsList) {
+        for (auto y: x.get_Horario().get_Schedule()) {
+            fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","
+                << y.get_ClassCode() << "\n";
+        }
+    }
+    fin.close();
+
+    //stores values from classes.csv
+    std::fstream fin2;
+    fin2.open("../schedule/classes.csv", std::ofstream::out | std::ofstream::trunc);
+    fin2 << "ClassCode,UcCode,Weekday,StartHour,Duration,Type\n";
+    for(auto x: classes) {
+        for (auto y: x.get_Schedule().get_Schedule()) {
+            fin2 << x.get_ClassCode() << "," << y.get_UCcode() << "," << y.get_Day() << "," << y.get_Start_hour()<< "," << y.get_Duration() << "," << y.get_Type() << "\n";
+        }
+    }
+    fin2.close();
+
+    //stores values from classes_per_uc.csv
+    std::fstream fin3;
+    fin3.open("../schedule/classes_per_uc.csv", std::ofstream::out | std::ofstream::trunc);
+    fin3 << "UcCode,ClassCode\n";
+    for(auto x: UCs) {
+        for (auto y: x.second) {
+            fin3 << x.first << "," << y << "\n";
+        }
+    }
+    fin3.close();
+}
