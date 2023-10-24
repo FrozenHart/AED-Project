@@ -17,6 +17,7 @@ public:
     Lesson(float start_hour,float duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode);
     bool operator == (const Lesson& l) const;
 
+    //gets
     float get_Start_hour();
     float get_Duration();
     std::string get_Type();

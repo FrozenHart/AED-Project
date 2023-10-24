@@ -10,8 +10,10 @@ public:
     Student(std::string StudentCode_,std::string StudentName_);
     bool operator == (const Student& s) const;
 
+    //methods
     void add_Lesson(Lesson aula);
 
+    //gets
     std::string get_StudentCode();
     std::string get_StudentName();
     Schedule get_Horario();

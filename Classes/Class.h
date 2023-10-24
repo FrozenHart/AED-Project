@@ -14,8 +14,12 @@ public:
     Class(Schedule horario_, std::vector<Student> Liststudents,std::string ClassCode);
     Class(Schedule horario_,std::string ClassCode);
     bool operator ==(const Class& c) const;
+
+    //methods
     void add_lesson(Lesson aula);
 
+
+    //gets
     std::string get_ClassCode();
     Schedule get_Schedule();
     std::vector<Student> get_ListStudents();

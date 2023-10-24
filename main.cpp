@@ -199,8 +199,7 @@ void save(std::vector<Student> StudentsList,std::vector<Class> classes,std::map<
         fin << "StudentCode,StudentName,UcCode,ClassCode\n";
         for (auto x: StudentsList) {
             for (auto y: x.get_Horario().get_Schedule()) {
-                fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","
-                    << y.get_ClassCode() << "\n";
+                fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","<< y.get_ClassCode() << "\n";
             }
         }
         fin.close();

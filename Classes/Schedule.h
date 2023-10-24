@@ -10,9 +10,13 @@ private:
 public:
     Schedule();
     Schedule(std::vector<Lesson> horario);
-    std::vector<Lesson> get_Schedule();
-    void add_Lesson(Lesson aula);
     bool operator == (const Schedule& s) const;
+
+    //gets/
+    std::vector<Lesson> get_Schedule();
+
+    //methods
+    void add_Lesson(Lesson aula);
 };
 
 
