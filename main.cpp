@@ -55,7 +55,7 @@ void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &clas
 
         if(!in_vec(StudentsList,Student(StudentCode,StudentName)))
         {
-            StudentsList.emplace_back(StudentCode,StudentName, std::vector<Lesson>{get_Lesson(ClassCode,UcCode,classes)},std::vector<std::string>{ClassCode});
+            StudentsList.emplace_back(StudentCode,StudentName, std::vector<Lesson>{get_Lesson(ClassCode,UcCode,classes)});
         }
         else
         {
@@ -64,10 +64,6 @@ void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &clas
                 if(x.get_StudentCode()==StudentCode)
                 {
                     x.add_Lesson(get_Lesson(ClassCode,UcCode,classes));
-                    if(!in_vec(x.get_classes(),ClassCode))
-                    {
-                        x.add_class(ClassCode);
-                    }
                 }
             }
         }
@@ -196,37 +192,43 @@ bool in_map( std::map<T ,A> map,T s)
 }
 
 void save(std::vector<Student> StudentsList,std::vector<Class> classes,std::map<std::string ,std::vector<std::string>> UCs) {
-    //stores values from students_classes.csv
-    std::fstream fin;
-    fin.open("../schedule/students_classes.csv", std::ofstream::out | std::ofstream::trunc);
-    fin << "StudentCode,StudentName,UcCode,ClassCode\n";
-    for (auto x: StudentsList) {
-        for (auto y: x.get_Horario().get_Schedule()) {
-            fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","
-                << y.get_ClassCode() << "\n";
+    {
+        //stores values from students_classes.csv
+        std::fstream fin;
+        fin.open("../schedule/students_classes.csv", std::ofstream::out | std::ofstream::trunc);
+        fin << "StudentCode,StudentName,UcCode,ClassCode\n";
+        for (auto x: StudentsList) {
+            for (auto y: x.get_Horario().get_Schedule()) {
+                fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","
+                    << y.get_ClassCode() << "\n";
+            }
         }
+        fin.close();
     }
-    fin.close();
 
-    //stores values from classes.csv
-    std::fstream fin2;
-    fin2.open("../schedule/classes.csv", std::ofstream::out | std::ofstream::trunc);
-    fin2 << "ClassCode,UcCode,Weekday,StartHour,Duration,Type\n";
-    for(auto x: classes) {
-        for (auto y: x.get_Schedule().get_Schedule()) {
-            fin2 << x.get_ClassCode() << "," << y.get_UCcode() << "," << y.get_Day() << "," << y.get_Start_hour()<< "," << y.get_Duration() << "," << y.get_Type() << "\n";
+    {
+        //stores values from classes.csv
+        std::fstream fin;
+        fin.open("../schedule/classes.csv", std::ofstream::out | std::ofstream::trunc);
+        fin << "ClassCode,UcCode,Weekday,StartHour,Duration,Type\n";
+        for (auto x: classes) {
+            for (auto y: x.get_Schedule().get_Schedule()) {
+                fin << x.get_ClassCode() << "," << y.get_UCcode() << "," << y.get_Day() << "," << y.get_Start_hour()<< "," << y.get_Duration() << "," << y.get_Type() << "\n";
+            }
         }
+        fin.close();
     }
-    fin2.close();
 
-    //stores values from classes_per_uc.csv
-    std::fstream fin3;
-    fin3.open("../schedule/classes_per_uc.csv", std::ofstream::out | std::ofstream::trunc);
-    fin3 << "UcCode,ClassCode\n";
-    for(auto x: UCs) {
-        for (auto y: x.second) {
-            fin3 << x.first << "," << y << "\n";
+    {
+        //stores values from classes_per_uc.csv
+        std::fstream fin;
+        fin.open("../schedule/classes_per_uc.csv", std::ofstream::out | std::ofstream::trunc);
+        fin << "UcCode,ClassCode\n";
+        for (auto x: UCs) {
+            for (auto y: x.second) {
+                fin << x.first << "," << y << "\n";
+            }
         }
+        fin.close();
     }
-    fin3.close();
 }

@@ -6,8 +6,6 @@ Student::Student(std::string StudentCode_, std::string StudentName_,Schedule hor
     StudentName = StudentName_;
 }
 
-Student::Student(std::string StudentCode_, std::string StudentName_, Schedule horario,std::vector<std::string> classes): horario_student(horario),classes(classes),StudentCode(StudentCode_),StudentName(StudentName_) {}
-
 Student::Student(std::string StudentCode_, std::string StudentName_) {
     StudentCode=StudentCode_;
     StudentName=StudentName_;
@@ -37,13 +35,15 @@ std::string Student::get_StudentCode() {
 }
 
 std::vector<std::string> Student::get_classes() {
-    std::vector<std::string> s=classes;
+    std::vector<std::string> s;
+    for(auto x:horario_student.get_Schedule())
+    {
+        s.emplace_back(x.get_ClassCode());
+    }
     return s;
 }
 
-void Student::add_class(std::string Class) {
-    classes.push_back(Class);
-}
+
 
 void Student::add_Lesson(Lesson aula) {
     horario_student.add_Lesson(aula);
