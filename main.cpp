@@ -18,6 +18,9 @@ void set_up_classes(std::vector<Class> &classes);
 void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &classes);
 Class& get_CLass(std::string ClassCode,std::vector<Class> classes);
 Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes);
+std::string get_UcCode(std::string ClassCode,std::map<std::string ,std::vector<std::string>> Ucs);
+void add_UC();
+void remove_UC(std::string UcCode);
 void save(std::vector<Student> StudentsList,std::vector<Class> classes,std::map<std::string ,std::vector<std::string>> UCs);
 //main
 int main(int argc, char *argv[]) {
@@ -34,8 +37,141 @@ int main(int argc, char *argv[]) {
     std::vector<Student> StudentsList;
     set_up_students(StudentsList, classes);
 
+    //User Interface
+    static std::map<std::string,int> StringValue {{"Help",0},{"Student",1},{"Teacher",2},{"Admin",3}};
+    std::string inputuser;
+    std::cout<<"Are you a Student or a Teacher?\n";
+    std::cin>> inputuser;
+    std::string User;
+    std::string UserCode;
+    switch (StringValue[inputuser]) {
+        case 0:
+            std::cout<<"help";
+            break;
+        case 1:
+            User="Student";
+            std::cout<<"Insert Student Code\n";
+            std::cin>>UserCode;
+            break;
+        case 2:
+            User="Teacher";
+            break;
+        case 3:
+            User="Admin";
+            std::cout<<"Admin";
+            break;
+        default:
+            std::cout<<"Invalid input";
+            break;
+    }
+    if(User=="Student")
+    {
+        Student UserStudent;
+        for (auto &x: StudentsList) {
+            if (x.get_StudentCode() == UserCode) {
+            }
+        }
+        std::string input;
+        while ((input != "exit") || (input != "Exit")) {
+
+            std::cout << "Insert Command\n";
+            std::cin >> input;
+
+            if (input == "help"){
+                std::cout << "help";
+            }
+            else if (input == "Add") {
+                std::string ClassCode;
+                std::cout << "Insert Class Code\n";
+                std::cin >> ClassCode;
+                UserStudent.add_Lesson(get_Lesson(ClassCode,get_UcCode(ClassCode,UCs),classes));
+            }
+            else if (input== "Remove"){
+                std::string ClassCode;
+                std::cout << "Insert Class Code\n";
+                std::cin >> ClassCode;
+                UserStudent.remove_Lesson(get_Lesson(ClassCode,get_UcCode(ClassCode,UCs),classes));
+            }
+            else{
+                std::cout << "Invalid input";
+            }
+        }
+    } else if(User=="Teacher")
+    {
+        std::string input;
+        while ((input != "exit") || (input != "Exit")) {
+            std::cout << "Insert Command\n";
+            std::cin >> input;
+
+            if (input == "help"){
+                std::cout << "help";
+            }
+            else if (input == "Add UC") {
+                std::cout << "Insert UcCode\n";
+                std::cin >> UserCode;
+                add_UC();
+            }
+            else if (input == "Remove UC"){
+                std::cout << "Insert UcCode\n";
+                std::cin >> UserCode;
+                remove_UC(UserCode);
+            } else if(input == "Add Lesson")
+            {
+                std::cout << "Insert ClassCode\n";
+                std::cin >> UserCode;
+                get_CLass(UserCode,classes).add_lesson(get_Lesson(UserCode,get_UcCode(UserCode,UCs),classes));
+            } else if(input == "Remove Lesson")
+            {
+                std::cout << "Insert ClassCode\n";
+                std::cin >> UserCode;
+                get_CLass(UserCode,classes).remove_lesson(get_Lesson(UserCode,get_UcCode(UserCode,UCs),classes));
+            }
+            else{
+                std::cout << "Invalid input. Try again.";
+            }
+        }
+    } else if(User=="Admin")
+    {
+        std::string input;
+        while ((input != "exit") || (input != "Exit")) {
+            std::cout << "Insert Command\n";
+            std::cin >> input;
+
+            if (input == "help"){
+                std::cout << "help";
+            }
+            else if (input == "Add UC") {
+                std::cout << "Insert UcCode\n";
+                std::cin >> UserCode;
+                add_UC();
+            }
+            else if (input == "Remove UC"){
+                std::cout << "Insert UcCode\n";
+                std::cin >> UserCode;
+                remove_UC(UserCode);
+            } else if(input == "Add Lesson")
+            {
+                std::cout << "Insert ClassCode\n";
+                std::cin >> UserCode;
+                get_CLass(UserCode,classes).add_lesson(get_Lesson(UserCode,get_UcCode(UserCode,UCs),classes));
+            } else if(input == "Remove Lesson") {
+                std::cout << "Insert ClassCode\n";
+                std::cin >> UserCode;
+            }else if(input == "Add Student")
+            {
+
+            }else if(input == "Remove Student")
+            {
+
+            }
+        }
+    }
+
+
+
     // stores values back in the files(students_classes.csv,classes.csv,classes_per_uc.csv)
     save(StudentsList,classes,UCs);
+
     return 0;
 }
 
@@ -149,6 +285,18 @@ Class& get_CLass(std::string ClassCode,std::vector<Class> classes)
     throw std::runtime_error("Class not found for given ClassCode.");
 }
 
+std::string get_UcCode(std::string ClassCode,std::map<std::string ,std::vector<std::string>> Ucs)
+{
+    for(auto x:Ucs)
+    {
+        if(in_vec(x.second,ClassCode))
+        {
+            return x.first;
+        }
+    }
+    // Handle the case where the Class doesn't have a UCcode
+    throw std::runtime_error("Class doesn't have a UCcode.");
+}
 
 Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes)
 {
@@ -231,3 +379,15 @@ void save(std::vector<Student> StudentsList,std::vector<Class> classes,std::map<
         fin.close();
     }
 }
+
+void add_UC()
+{
+
+}
+
+void remove_UC(std::string UcCode)
+{
+
+}
+
+

@@ -13,6 +13,13 @@ Student::Student(std::string StudentCode_, std::string StudentName_) {
     horario_student=empty;
 }
 
+Student::Student() {
+    StudentCode="";
+    StudentName="";
+    Schedule empty;
+    horario_student=empty;
+}
+
 bool Student::operator==(const Student &s) const {
     if((StudentCode==s.StudentCode)&&(StudentName==s.StudentName))
         return true;
@@ -48,4 +55,9 @@ std::vector<std::string> Student::get_classes() {
 void Student::add_Lesson(Lesson aula) {
     horario_student.add_Lesson(aula);
 }
+
+void Student::remove_Lesson(Lesson aula) {
+    horario_student.remove_Lesson(aula);
+}
+
 

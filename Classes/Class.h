@@ -17,7 +17,7 @@ public:
 
     //methods
     void add_lesson(Lesson aula);
-
+    void remove_lesson(Lesson aula);
 
     //gets
     std::string get_ClassCode();

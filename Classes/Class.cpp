@@ -34,4 +34,8 @@ void Class::add_lesson(Lesson aula) {
     horario.add_Lesson(aula);
 }
 
+void Class::remove_lesson(Lesson aula) {
+    horario.remove_Lesson(aula);
+}
+
 

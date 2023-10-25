@@ -10,7 +10,7 @@ Lesson::Lesson(float start_hour, float duration, std::string Type,std::string Da
 }
 
 bool Lesson::operator==(const Lesson &l) const {
-    if((start_hour==l.start_hour)&&(duration==l.duration)&&(Type==l.Type)&&(Day==l.Day))
+    if((start_hour==l.start_hour)&&(duration==l.duration)&&(Type==l.Type)&&(Day==l.Day)&&(UCcode==l.UCcode)&&(ClassCode==l.ClassCode))
         return true;
     return false;
 }

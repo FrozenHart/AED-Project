@@ -29,3 +29,15 @@ Schedule::Schedule() {
     horario=empty;
 }
 
+void Schedule::remove_Lesson(Lesson aula) {
+    std::vector<Lesson> temp;
+    for (auto x:horario) {
+        if(x==aula)
+        {
+            continue;
+        }
+        temp.emplace_back(x);
+    }
+    horario=temp;
+}
+

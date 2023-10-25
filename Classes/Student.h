@@ -8,11 +8,12 @@ class Student {
 public:
     Student(std::string StudentCode_,std::string StudentName_,Schedule horario);
     Student(std::string StudentCode_,std::string StudentName_);
+    Student();
     bool operator == (const Student& s) const;
 
     //methods
     void add_Lesson(Lesson aula);
-
+    void remove_Lesson(Lesson aula);
     //gets
     std::string get_StudentCode();
     std::string get_StudentName();
