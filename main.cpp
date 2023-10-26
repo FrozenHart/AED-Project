@@ -7,6 +7,7 @@
 #include "Classes/Student.h"
 #include "Classes/Schedule.h"
 #include "Classes/Lesson.h"
+#include <queue>
 
 //funcions
 template<typename T, typename A>
@@ -18,7 +19,6 @@ void set_up_classes(std::vector<Class> &classes);
 void set_up_students(std::vector<Student> &StudentsList,std::vector<Class> &classes);
 Class& get_CLass(std::string ClassCode,std::vector<Class> classes);
 Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes);
-std::string get_UcCode(std::string ClassCode,std::map<std::string ,std::vector<std::string>> Ucs);
 void add_UC();
 void remove_UC(std::string UcCode);
 void save(std::vector<Student> StudentsList,std::vector<Class> classes,std::map<std::string ,std::vector<std::string>> UCs);
@@ -38,135 +38,200 @@ int main(int argc, char *argv[]) {
     set_up_students(StudentsList, classes);
 
     //User Interface
-    static std::map<std::string,int> StringValue {{"Help",0},{"Student",1},{"Teacher",2},{"Admin",3}};
+    static std::map<std::string,int> OperationValue{{"Check",0},
+                                                    {"Add",1},
+                                                    {"Remove",2},
+                                                    {"Undo Action",3}};
+
+    static std::map<std::string, int> MethodValue{{"Student Schedule",    0}, // check
+                                                  {"Class Schedule", 1},
+                                                  {"Lesson", 2},
+                                                  {"Lesson From Class",   3},
+                                                  {"Lesson From UC",   4},
+                                                  {"Classes From UC",   5},
+                                                  {"Students From UC",   6},
+                                                  {"Lesson to UC",   7}, // add
+                                                  {"Lesson to Student",   8},
+                                                  {"Students",   9},
+                                                  {"Class",   10},
+                                                  {"UC",   11},
+                                                  {"Lesson From Students",   12}, // remove
+                                                  {"Lesson From Class",   13},
+                                                  {"Students",   14},
+                                                  {"Class",   15},
+                                                  {"UC",   16}};
+
     std::string inputuser;
-    std::cout<<"Are you a Student or a Teacher?\n";
-    std::cin>> inputuser;
+    std::queue<std::string> ActionQueue;
+        std::cout<<"           Welcome to the Schedule Manager\n";
+    while (true) {
+        std::cout<<"                Chose an Operation\n";
+        std::cout<<"-------------------------------------------------------\n";
+        std::cout<<"|  Check  |  Add  |  Remove  |  Undo Action  |  Exit  |\n";
+        std::cout<<"-------------------------------------------------------\n";
+
+        getline(std::cin,inputuser);
+        if(inputuser=="Check")
+        {
+            std::string method;
+            while (true) {
+                std::cout<<"                   Chose Check Method\n";
+                std::cout<<"---------------------------------------------------------------------------\n";
+                std::cout<<"| Student Schedule   -> Checks a Student Schedule                         |\n";
+                std::cout<<"| Class Schedule     -> Checks a Class Schedule                           |\n";
+                std::cout<<"| Lesson             -> Checks the time and type of a Lesson              |\n";
+                std::cout<<"| Lessons From Class -> Checks all the Lessons time and Type from a Class |\n";
+                std::cout<<"| Lessons From UC    -> Checks all the Lessons time and type from UC      |\n";
+                std::cout<<"| Classes From UC    -> Checks all the Classes from a UC                  |\n";
+                std::cout<<"| Students From UC   -> Checks all the Students from a UC                 |\n";
+                std::cout<<"| Back                                                                    |\n";
+                std::cout<<"---------------------------------------------------------------------------\n";
+
+                getline(std::cin, method);
+                if (method=="Back") {
+                    break;
+                }else if(!in_map(MethodValue, method))
+                {
+                    std::cout << "Invalid Method Try Again\n";
+                }
+                else {
+                    std::string temp = "Check/" + method;
+                    bool valid = true;
+                    while (valid) {
+                        switch (MethodValue[method]) {
+                            case 0: {   //Student Schedule
+                                std::string element;
+                                std::cout << "Student Code: \n";
+                                std::cin >> element;
+                                temp += '/' + element;
+                            }
+                                break;
+                            case 1: {   //Class Schedule
+                                std::string element;
+                                std::cout << "Class Code: \n";
+                                std::cin >> element;
+                                temp += '/' + element;
+                            }
+                                break;
+                            case 2: {   //Lesson
+                                std::string element1, element2;
+                                std::cout << "UC Code: \n";
+                                std::cin >> element1;
+                                std::cout << "Class Code: \n";
+                                std::cin >> element2;
+                                temp += ('/' + element1 + '/' + element2);
+                            }
+                                break;
+                            case 3: {   //Lessons From Class
+                                std::string element;
+                                std::cout << "Class Code: \n";
+                                std::cin >> element;
+                                temp += '/' + element;
+                            }
+                                break;
+                            case 4: {   //Lessons From UC
+                                std::string element;
+                                std::cout << "UC Code: \n";
+                                std::cin >> element;
+                                temp += '/' + element;
+                            }
+                                break;
+                            case 5: {   //Classes From UC
+                                std::string element;
+                                std::cout << "UC Code: \n";
+                                std::cin >> element;
+                                temp += '/' + element;
+                            }
+                                break;
+                            case 6: {   //Students From UC
+                                std::string element;
+                                std::cout << "UC Code: \n";
+                                std::cin >> element;
+                                temp += '/' + element;
+                            }
+                                break;
+                        }
+                        ActionQueue.push(temp);
+                        break;
+                    }
+                }
+
+            }
+        }else if(inputuser=="Add")
+        {
+            std::string method;
+            while (true) {
+                std::cout<<"                      Chose Add Method\n";
+                std::cout<<"---------------------------------------------------------------\n";
+                std::cout<<"| Lesson to UC      -> Adds a Lesson to a UC                  |\n";
+                std::cout<<"| Lesson to Student -> Adds a Lesson to a Student Schedule    |\n";
+                std::cout<<"| Student           -> Adds a Student to the System           |\n";
+                std::cout<<"| Class             -> Adds a Class to the System             |\n";
+                std::cout<<"| UC                -> Adds a UC to the System                |\n";
+                std::cout<<"| Back                                                        |\n";
+                std::cout<<"---------------------------------------------------------------\n";
+
+                getline(std::cin, method);
+                if (method=="Back") {
+                    break;
+                }else if(!in_map(MethodValue, method))
+                {
+                    std::cout << "Invalid Method Try Again\n";
+                }
+                else {
+                    std::string temp = "Add/" + method;
+                    ActionQueue.push(temp);
+                    break;
+                }
+            }
+        }else if(inputuser=="Remove")
+        {
+            std::string method;
+            while (true) {
+                std::cout<<"                       Chose Remove Method\n";
+                std::cout<<"--------------------------------------------------------------------\n";
+                std::cout<<"| Lesson From Students -> Removes a Lesson from a Student Schedule |\n";
+                std::cout<<"| Lesson From Clas     -> Removes a Lesson from a Class Schedule   |\n";
+                std::cout<<"| Student              -> Removes a Student from the System        |\n";
+                std::cout<<"| Class                -> Removes a Class from the System          |\n";
+                std::cout<<"| UC                   -> Removes a UC from the System             |\n";
+                std::cout<<"| Back                                                             |\n";
+                std::cout<<"--------------------------------------------------------------------\n";
+
+                getline(std::cin, method);
+                if (method=="Back") {
+                    break;
+                }else if(!in_map(MethodValue, method))
+                {
+                    std::cout << "Invalid Method Try Again\n";
+                }
+                else {
+                    std::string temp = "Remove/" + method;
+                    ActionQueue.push(temp);
+                    break;
+                }
+            }
+
+        }else if(inputuser=="Undo Action")
+        {
+
+        }else if(inputuser=="Exit") {
+            break;
+        }
+        else
+        {
+            std::cout << "              Invalid input Try Again\n";
+        }
+    }
+
     std::string User;
     std::string UserCode;
-    switch (StringValue[inputuser]) {
-        case 0:
-            std::cout<<"help";
-            break;
-        case 1:
-            User="Student";
-            std::cout<<"Insert Student Code\n";
-            std::cin>>UserCode;
-            break;
-        case 2:
-            User="Teacher";
-            break;
-        case 3:
-            User="Admin";
-            std::cout<<"Admin";
-            break;
+    switch (OperationValue[inputuser],MethodValue[inputuser]) {
+
         default:
-            std::cout<<"Invalid input";
+            std::cout << "Invalid Operation or Method\n";
             break;
     }
-    if(User=="Student")
-    {
-        Student UserStudent;
-        for (auto &x: StudentsList) {
-            if (x.get_StudentCode() == UserCode) {
-            }
-        }
-        std::string input;
-        while ((input != "exit") || (input != "Exit")) {
-
-            std::cout << "Insert Command\n";
-            std::cin >> input;
-
-            if (input == "help"){
-                std::cout << "help";
-            }
-            else if (input == "Add") {
-                std::string ClassCode;
-                std::cout << "Insert Class Code\n";
-                std::cin >> ClassCode;
-                UserStudent.add_Lesson(get_Lesson(ClassCode,get_UcCode(ClassCode,UCs),classes));
-            }
-            else if (input== "Remove"){
-                std::string ClassCode;
-                std::cout << "Insert Class Code\n";
-                std::cin >> ClassCode;
-                UserStudent.remove_Lesson(get_Lesson(ClassCode,get_UcCode(ClassCode,UCs),classes));
-            }
-            else{
-                std::cout << "Invalid input";
-            }
-        }
-    } else if(User=="Teacher")
-    {
-        std::string input;
-        while ((input != "exit") || (input != "Exit")) {
-            std::cout << "Insert Command\n";
-            std::cin >> input;
-
-            if (input == "help"){
-                std::cout << "help";
-            }
-            else if (input == "Add UC") {
-                std::cout << "Insert UcCode\n";
-                std::cin >> UserCode;
-                add_UC();
-            }
-            else if (input == "Remove UC"){
-                std::cout << "Insert UcCode\n";
-                std::cin >> UserCode;
-                remove_UC(UserCode);
-            } else if(input == "Add Lesson")
-            {
-                std::cout << "Insert ClassCode\n";
-                std::cin >> UserCode;
-                get_CLass(UserCode,classes).add_lesson(get_Lesson(UserCode,get_UcCode(UserCode,UCs),classes));
-            } else if(input == "Remove Lesson")
-            {
-                std::cout << "Insert ClassCode\n";
-                std::cin >> UserCode;
-                get_CLass(UserCode,classes).remove_lesson(get_Lesson(UserCode,get_UcCode(UserCode,UCs),classes));
-            }
-            else{
-                std::cout << "Invalid input. Try again.";
-            }
-        }
-    } else if(User=="Admin")
-    {
-        std::string input;
-        while ((input != "exit") || (input != "Exit")) {
-            std::cout << "Insert Command\n";
-            std::cin >> input;
-
-            if (input == "help"){
-                std::cout << "help";
-            }
-            else if (input == "Add UC") {
-                std::cout << "Insert UcCode\n";
-                std::cin >> UserCode;
-                add_UC();
-            }
-            else if (input == "Remove UC"){
-                std::cout << "Insert UcCode\n";
-                std::cin >> UserCode;
-                remove_UC(UserCode);
-            } else if(input == "Add Lesson")
-            {
-                std::cout << "Insert ClassCode\n";
-                std::cin >> UserCode;
-                get_CLass(UserCode,classes).add_lesson(get_Lesson(UserCode,get_UcCode(UserCode,UCs),classes));
-            } else if(input == "Remove Lesson") {
-                std::cout << "Insert ClassCode\n";
-                std::cin >> UserCode;
-            }else if(input == "Add Student")
-            {
-
-            }else if(input == "Remove Student")
-            {
-
-            }
-        }
-    }
-
 
 
     // stores values back in the files(students_classes.csv,classes.csv,classes_per_uc.csv)
@@ -285,18 +350,6 @@ Class& get_CLass(std::string ClassCode,std::vector<Class> classes)
     throw std::runtime_error("Class not found for given ClassCode.");
 }
 
-std::string get_UcCode(std::string ClassCode,std::map<std::string ,std::vector<std::string>> Ucs)
-{
-    for(auto x:Ucs)
-    {
-        if(in_vec(x.second,ClassCode))
-        {
-            return x.first;
-        }
-    }
-    // Handle the case where the Class doesn't have a UCcode
-    throw std::runtime_error("Class doesn't have a UCcode.");
-}
 
 Lesson get_Lesson(std::string ClassCode,std::string UCcode,std::vector<Class> classes)
 {
