@@ -178,7 +178,7 @@ int main(int argc, char *argv[]) {
                                 }
                             }
                                 break;
-                            case 3: {   //Lessons From Class
+                            case 3: {   //Lessons From Class RR sort byday and hour
                                 std::string element;
                                 std::cout << "Class Code: \n";
                                 std::getline(std::cin,element);
@@ -199,7 +199,7 @@ int main(int argc, char *argv[]) {
                                 }
                             }
                                 break;
-                            case 4: {   //Lessons From UC
+                            case 4: {   //Lessons From UC RR sort byday and hour
                                 std::string element;
                                 std::cout << "UC Code: \n";
                                 std::getline(std::cin,element);
