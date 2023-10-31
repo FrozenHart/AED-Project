@@ -178,7 +178,7 @@ int main(int argc, char *argv[]) {
                                 }
                             }
                                 break;
-                            case 3: {   //Lessons From Class RR sort byday and hour
+                            case 3: {   //Lessons From Class RaquelRenata sort byday and hour
                                 std::string element;
                                 std::cout << "Class Code: \n";
                                 std::getline(std::cin,element);
@@ -917,12 +917,14 @@ bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type)
         return false;
     }
 }
+
+//RaquelRenata
 bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode)
 {
 
     return true;
 }
-
+//RaquelRenata
 bool validate_Student_Structure(std::string StudentCode,std::string StudentName)
 {
 

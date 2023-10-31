@@ -80,7 +80,7 @@ std::string Schedule::print() {
 
         }
 
-        //sort by start hour RR
+        //sort by start hour RaquelRenata
         for(auto y:horario)
         {
             if(y.get_Day()==x)
