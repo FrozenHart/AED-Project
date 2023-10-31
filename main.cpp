@@ -9,7 +9,6 @@
 #include "Classes/Lesson.h"
 #include <queue>
 
-
 std::vector<Class> classes;
 std::map<std::string, std::vector<std::string>> UCs; //map<UCcode,vector<Class Codes>>
 std::vector<Student> StudentsList;
@@ -24,37 +23,60 @@ void set_up_classes_per_uc();
 void set_up_classes();
 void set_up_students();
 Class& get_CLass(std::string ClassCode);
+std::vector<Student> get_Students_from_uc(std::string UCcode);
 std::vector<Lesson> get_Lessons(std::string ClassCode,std::string UCcode,std::string Type="T");
 Student get_Student(std::string StudentCode);
 bool validate_UC(std::string UCcode);
 bool validate_Class(std::string ClassCode);
 bool validate_Student(std::string StudentCode);
-bool validate_Lesson_Structure(Lesson l);
-bool validate_Student_Structure(Student s);
+bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode);
+bool validate_Student_Structure(std::string StudentCode,std::string StudentName);
 bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type="T");
 void save();
 //main
 int main(int argc, char *argv[]) {
     // stores values from classes_per_uc.csv
     set_up_classes_per_uc();
-
+   /* std::cout << "Classes per uc done" << std::endl;
+    for(auto x:UCs)
+    {
+        std::cout << x.first << " -> ";
+        for(auto y:x.second)
+        {
+            std::cout << y << " ";
+        }
+        std::cout << '\n';
+    }*/
     // stores values from classes.csv
     set_up_classes();
-
+   /* std::cout << "Classes done" << std::endl;
+    for(auto x:classes)
+    {
+        std::cout << x.get_ClassCode() << " -> ";
+        for(auto y:x.get_Schedule().get_Schedule())
+        {
+            std::cout << y.get_UCcode() << " ";
+        }
+        std::cout << '\n';
+    }*/
     // stores values from students_classes.csv
     set_up_students();
-
+   /* std::cout << "Students done" << std::endl;
+    for(auto x:StudentsList)
+    {
+        std::cout << x.get_StudentCode()<<" -> "<<x.get_StudentName() << " ; " <<'\n'<< x.get_Horario().print() << '\n';
+    }*/
     //User Interface
     static std::map<std::string,int> OperationValue{{"Check",0},
                                                     {"Add",1},
                                                     {"Remove",2},
                                                     {"Undo Action",3}};
 
-    static std::map<std::string, int> MethodValue{{"Student Schedule",    0}, // check
-                                                  {"Class Schedule", 1},
-                                                  {"Lesson", 2},
-                                                  {"Lesson From Class",   3},
-                                                  {"Lesson From UC",   4},
+    static std::map<std::string, int> MethodValue{{"Student Schedule",   0},
+                                                  {"Class Schedule",   1},
+                                                  {"Lesson",   2},
+                                                  {"Lessons From Class",   3},
+                                                  {"Lessons From UC",   4},
                                                   {"Classes From UC",   5},
                                                   {"Students From UC",   6},
                                                   {"Lesson to UC",   7}, // add
@@ -66,17 +88,19 @@ int main(int argc, char *argv[]) {
                                                   {"Lesson From Class",   13},
                                                   {"Students",   14},
                                                   {"Class",   15},
-                                                  {"UC",   16}};
+                                                  {"UC",   16},
+                                                  {"UCs",    17}, // Switch
+                                                  {"Classes", 18}};
 
     std::queue<std::string> ActionQueue;
     std::cout<<"           Welcome to the Schedule Manager\n";
 
     while (true) {
         std::string inputuser;
-        std::cout<<"                Chose an Operation\n";
-        std::cout<<"-------------------------------------------------------\n";
-        std::cout<<"|  Check  |  Add  |  Remove  |  Undo Action  |  Exit  |\n";
-        std::cout<<"-------------------------------------------------------\n";
+        std::cout<<"                              Chose an Operation\n";
+        std::cout<<"----------------------------------------------------------------------------------\n";
+        std::cout<<"|  Check  |  Add  |  Remove  | Switch |  Undo Action  |  Run  |  Queue  |  Exit  |\n";
+        std::cout<<"----------------------------------------------------------------------------------\n";
 
         getline(std::cin,inputuser);
         if(inputuser=="Check")
@@ -106,7 +130,6 @@ int main(int argc, char *argv[]) {
                     c= true;
                 }
                 else {
-                    std::string temp = "Check/" + method;
                     bool validc = true;
                     while (validc) {
                         validc = false;
@@ -116,8 +139,8 @@ int main(int argc, char *argv[]) {
                                 std::cout << "Student Code: \n";
                                 std::getline(std::cin,element);
                                 if (validate_Student(element)) {
-                                    temp += ('/' + element);
-                                    ActionQueue.push(temp);
+                                    std::cout <<get_Student(element).get_StudentName()<<"Schedule "<<'\n';
+                                    std::cout << get_Student(element).get_Horario().print() <<'\n';
                                 }else {
                                     std::cout << "Invalid Student Code Try Again\n";
                                     validc = true;
@@ -129,8 +152,8 @@ int main(int argc, char *argv[]) {
                                 std::cout << "Class Code: \n";
                                 std::getline(std::cin,element);
                                 if (validate_Class(element)) {
-                                    temp += ('/' + element);
-                                    ActionQueue.push(temp);
+                                    std::cout << element << " Schedule "<<'\n';
+                                    std::cout << get_CLass(element).get_Schedule().print() <<'\n';
                                 }else {
                                     std::cout << "Invalid Class Code Try Again\n";
                                     validc = true;
@@ -144,8 +167,11 @@ int main(int argc, char *argv[]) {
                                 std::cout << "Class Code: \n";
                                 std::getline(std::cin,element2);
                                 if(validate_Lesson(element1,element2)) {
-                                    temp += ('/' + element1 + '/' + element2 );
-                                    ActionQueue.push(temp);
+                                    std::cout << "Lesson From " << element1 << " in Class " << element2 << '\n';
+                                    for(auto x:get_Lessons(element2,element1))
+                                    {
+                                        std::cout << x.print() << '\n';
+                                    }
                                 }else {
                                     std::cout << "Invalid Lesson Try Again\n";
                                     validc = true;
@@ -157,8 +183,16 @@ int main(int argc, char *argv[]) {
                                 std::cout << "Class Code: \n";
                                 std::getline(std::cin,element);
                                 if (validate_Class(element)) {
-                                    temp += ('/' + element);
-                                    ActionQueue.push(temp);
+                                    std::cout << "Lessons From Class " << element << '\n';
+                                    std::cout << "------------------------------------------------------------------------------------------------------\n";
+                                    std::cout << "| Weekday | UCcode | Type | Start | Finish |\n";
+                                    std::cout << "------------------------------------------------------------------------------------------------------\n";
+                                    for(auto x:get_CLass(element).get_Schedule().get_Schedule())
+                                    {
+                                        std::cout << x.print() ;
+                                    }
+                                    std::cout <<  "------------------------------------------------------------------------------------------------------\n";
+
                                 }else {
                                     std::cout << "Invalid Class Code Try Again\n";
                                     validc = true;
@@ -170,8 +204,19 @@ int main(int argc, char *argv[]) {
                                 std::cout << "UC Code: \n";
                                 std::getline(std::cin,element);
                                 if (validate_UC(element)) {
-                                    temp += ('/' + element);
-                                    ActionQueue.push(temp);
+                                    for(auto x:UCs[element])
+                                    {
+                                        std::cout << x << " Schedule "<<'\n';
+                                        std::cout << "------------------------------------------------------------------------------------------------------\n";
+                                        std::cout << "| Weekday | UCcode | Type | Start | Finish |\n";
+                                        std::cout << "------------------------------------------------------------------------------------------------------\n";
+                                        for(auto y:get_CLass(x).get_Schedule().get_Schedule())
+                                        {
+                                            if(y.get_UCcode()==element)
+                                                std::cout << y.print() ;
+                                        }
+                                        std::cout <<  "------------------------------------------------------------------------------------------------------\n";
+                                    }
                                 }else {
                                     std::cout << "Invalid UC Code Try Again\n";
                                     validc = true;
@@ -183,8 +228,12 @@ int main(int argc, char *argv[]) {
                                 std::cout << "UC Code: \n";
                                 std::getline(std::cin,element);
                                 if (validate_UC(element)) {
-                                    temp += ('/' + element);
-                                    ActionQueue.push(temp);
+                                    std::cout << "Classes From " << element << '\n';
+                                    for(auto x:UCs[element])
+                                    {
+                                        std::cout << x << " | ";
+                                    }
+                                    std::cout << '\n';
                                 }else {
                                     std::cout << "Invalid UC Code Try Again\n";
                                     validc = true;
@@ -196,13 +245,14 @@ int main(int argc, char *argv[]) {
                                 std::cout << "UC Code: \n";
                                 std::getline(std::cin,element);
                                 if (validate_UC(element)) {
-                                    temp += ('/' + element);
-                                    ActionQueue.push(temp);
                                 }else {
                                     std::cout << "Invalid UC Code Try Again\n";
                                     validc = true;
                                 }
                             }
+                                break;
+                            default:
+                                std::cout << "Invalid Method Try Again\n";
                                 break;
                         }
                     }
@@ -252,7 +302,7 @@ int main(int argc, char *argv[]) {
                                 std::getline(std::cin,d);
                                 std::cout << "Type: \n";
                                 std::getline(std::cin,t);
-                                if(validate_Lesson_Structure(Lesson(std::stof(sh), std::stof(d), t, w, uc, cc))) {
+                                if(validate_Lesson_Structure(sh, d, t, w, uc, cc)) {
                                     temp += '/' + uc + '/' + cc + '/' + w + '/' + sh + '/' + d + '/' + t;
                                     ActionQueue.push(temp);
                                 }else {
@@ -284,7 +334,7 @@ int main(int argc, char *argv[]) {
                                 std::getline(std::cin,sc);
                                 std::cout << "Student Name: \n";
                                 std::getline(std::cin,sn);
-                                if(validate_Student_Structure(Student())) {
+                                if(validate_Student_Structure(sc,sn)) {
                                     temp += ('/' + sc + '/' + sn);
                                     ActionQueue.push(temp);
                                 }else {
@@ -326,7 +376,7 @@ int main(int argc, char *argv[]) {
                                         std::getline(std::cin, d);
                                         std::cout << "Type: \n";
                                         std::getline(std::cin, t);
-                                        if (validate_Lesson_Structure(Lesson(std::stof(sh), std::stof(d), t, w, uc, cc))) {
+                                        if (validate_Lesson_Structure(sh,d, t, w, uc, cc)) {
                                             temp += '/' + cc + '/' + w + '/' + sh + '/' + d + '/' + t;
                                             x++;
                                         } else {
@@ -336,6 +386,9 @@ int main(int argc, char *argv[]) {
                                     ActionQueue.push(temp);
                                 }
                             }
+                                break;
+                            default:
+                                std::cout << "Invalid Method Try Again\n";
                                 break;
                         }
                     }
@@ -445,6 +498,78 @@ int main(int argc, char *argv[]) {
                                 }
                             }
                                 break;
+                            default:
+                                std::cout << "Invalid Method Try Again\n";
+                                break;
+                        }
+                    }
+                }
+            }
+            continue;
+        }else if(inputuser=="Switch")
+        {
+            std::string method;
+            bool a= true;
+            while (a) {
+                a=false;
+                std::cout<<"                      Chose Switch Method\n";
+                std::cout<<"----------------------------------------------------------------\n";
+                std::cout<<"| UCs      -> Changes a Student previous UC to a new UC        |\n";
+                std::cout<<"| Classes  -> Changes a Student previous Class to a new Class  |\n";
+                std::cout<<"| Back                                                         |\n";
+                std::cout<<"----------------------------------------------------------------\n";
+
+                getline(std::cin, method);
+                if (method=="Back") {
+                    continue;
+                }else if(!in_map(MethodValue, method))
+                {
+                    std::cout << "Invalid Method Try Again\n";
+                    a=true;
+                }
+                else {
+                    std::string temp = "Switch/" + method;
+                    bool valids = true;
+                    while (valids) {
+                        valids = false;
+                        switch (MethodValue[method]) {
+                            case 17: {   //UCs
+                                std::string puc,nuc,sc;
+                                std::cout << "Student Code: \n";
+                                std::getline(std::cin,sc);
+                                std::cout << "Previous UC Code: \n";
+                                std::getline(std::cin,puc);
+                                std::cout << "New UC Code: \n";
+                                std::getline(std::cin,nuc);
+                                if (validate_UC(puc)&&(validate_UC(nuc))&&(validate_Student(sc))) {
+                                    temp += ('/' + sc+'/'+puc+'/'+nuc);
+                                    ActionQueue.push(temp);
+                                }else {
+                                    std::cout << "Invalid UC Code/Student Code Try Again\n";
+                                    valids = true;
+                                }
+                            }
+                                break;
+                            case 18: {   //Classes
+                                std::string pcc,ncc,sc;
+                                std::cout << "Student Code: \n";
+                                std::getline(std::cin,sc);
+                                std::cout << "Previous UC Code: \n";
+                                std::getline(std::cin,pcc);
+                                std::cout << "New UC Code: \n";
+                                std::getline(std::cin,ncc);
+                                if (validate_Class(pcc)&&(validate_Class(ncc))&&(validate_Student(sc))) {
+                                    temp += ('/' + sc+'/'+pcc+'/'+ncc);
+                                    ActionQueue.push(temp);
+                                }else {
+                                    std::cout << "Invalid UC Code/Student Code Try Again\n";
+                                    valids = true;
+                                }
+                            }
+                                break;
+                            default:
+                                std::cout << "Invalid Method Try Again\n";
+                                break;
                         }
                     }
                 }
@@ -453,7 +578,54 @@ int main(int argc, char *argv[]) {
         }else if(inputuser=="Undo Action")
         {
 
-        }else if(inputuser=="Exit") {
+        }else if(inputuser=="Run")
+        {
+            std::cout <<"Running Actions: ";
+            for(int x=0;x<=ActionQueue.size();x++)
+            {
+                std::cout <<ActionQueue.front()<<'\n';
+                std::string acao=ActionQueue.front();
+                switch (MethodValue[ActionQueue.front().substr(ActionQueue.front().find('/')+1,ActionQueue.front().find('/',ActionQueue.front().find('/')+1))])
+                {
+                    case 7: //Add Lesson to UC
+                        break;
+                    case 8: //Add Lesson to Student
+                        break;
+                    case 9: //Add Student
+                        break;
+                    case 10: //Add Class
+                        break;
+                    case 11: //Add UC
+                        break;
+                    case 12: //Remove Lesson From Students
+                        break;
+                    case 13: //Remove Lesson From Class
+                        break;
+                    case 14: //Remove Student
+                        break;
+                    case 15: //Remove Class
+                        break;
+                    case 16: //Remove UC
+                        break;
+                    case 17: //Switch UCs
+                        break;
+                    case 18: //Switch Classes
+                        break;
+                }
+                ActionQueue.pop();
+            }
+
+        } else if(inputuser=="Queue")
+        {
+            std::queue<std::string> temp=ActionQueue;
+            std::cout <<"Action Queue: ";
+            for(int x=0;x<=temp.size();x++)
+            {
+                std::cout <<temp.front()<<'\n';
+                temp.pop();
+            }
+        }
+        else if(inputuser=="Exit") {
             break;
         }
         else
@@ -477,7 +649,7 @@ void set_up_students()
 {
     // stores values from students_classes.csv
     std::fstream fin;
-    fin.open("../schedule/students_classes.csv",std::ios::in);
+    fin.open("../Original Data/schedule/students_classes.csv",std::ios::in);
     std::string line,StudentCode,StudentName,UcCode,ClassCode;
     std::getline(fin,line);
     while(getline(fin, line)) {
@@ -486,7 +658,6 @@ void set_up_students()
         getline(str, StudentName, ','); // gets the StudentName
         getline(str, UcCode, ','); // gets the UcCode
         getline(str, ClassCode, ','); // gets the ClassCode
-
         if(!in_vec(StudentsList,Student(StudentCode,StudentName)))
         {
             std::vector<Lesson> temp=get_Lessons(ClassCode,UcCode,"ALL");
@@ -614,7 +785,7 @@ std::vector<Lesson> get_Lessons(std::string ClassCode,std::string UCcode,std::st
                 tempv.emplace_back(x);
             }
         }
-        return tempv;
+        if (tempv.size()!=0){return tempv;}
     } else
     {
         std::vector<Lesson> tempv;
@@ -625,7 +796,7 @@ std::vector<Lesson> get_Lessons(std::string ClassCode,std::string UCcode,std::st
                 tempv.emplace_back(x);
             }
         }
-        return tempv;
+        if (tempv.size()!=0){return tempv;}
     }
 
     // Handle the case where the lesson with the specified UCcode is not found
@@ -662,11 +833,16 @@ void save() {
     {
         //stores values from students_classes.csv
         std::fstream fin;
+        std::string prevUCcode="";
         fin.open("../schedule/students_classes.csv", std::ofstream::out | std::ofstream::trunc);
         fin << "StudentCode,StudentName,UcCode,ClassCode\n";
         for (auto x: StudentsList) {
             for (auto y: x.get_Horario().get_Schedule()) {
-                fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","<< y.get_ClassCode() << "\n";
+                if(prevUCcode!=y.get_UCcode()) {
+                    fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","
+                        << y.get_ClassCode() << "\n";
+                    prevUCcode=y.get_UCcode();
+                }
             }
         }
         fin.close();
@@ -737,15 +913,24 @@ bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type)
     }
     catch (std::runtime_error &e)
     {
+
         return false;
     }
 }
-bool validate_Lesson_Structure(Lesson l)
+bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode)
 {
+
     return true;
 }
-bool validate_Student_Structure(Student s)
+
+bool validate_Student_Structure(std::string StudentCode,std::string StudentName)
 {
+
     return true;
+}
+
+std::vector<Student> get_Students_from_uc(std::string UCcode)
+{
+
 }
 

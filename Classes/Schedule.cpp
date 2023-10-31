@@ -41,3 +41,91 @@ void Schedule::remove_Lesson(Lesson aula) {
     horario=temp;
 }
 
+std::string Schedule::print() {
+    std::string ss;
+    ss+=  "                   Horario                    \n";
+    ss += "----------------------------------------------\n";
+    ss += "|                    Day                     |\n";
+    ss += "----------------------------------------------\n";
+    ss+=  "| ClassCode | UCcode | Type | Start | Finish |\n";
+    ss+=  "----------------------------------------------\n\n";
+
+    std::vector<std::string> dias={"Monday","Tuesday","Wednesday","Thursday","Friday"};
+    for(auto x:dias)
+    {
+        if(x=="Monday") {
+            ss += "-------------------------------------------\n";
+            ss += "|                  Monday                 |\n";
+            ss += "-------------------------------------------\n";
+
+        } else if (x=="Tuesday") {
+            ss += "-------------------------------------------\n";
+            ss += "|                  Tuesday                |\n";
+            ss += "-------------------------------------------\n";
+
+        } else if (x=="Wednesday") {
+            ss += "-------------------------------------------\n";
+            ss += "|                 Wednesday               |\n";
+            ss += "-------------------------------------------\n";
+
+        } else if (x=="Thursday") {
+            ss += "-------------------------------------------\n";
+            ss += "|                 Thursday                |\n";
+            ss += "-------------------------------------------\n";
+
+        } else if (x=="Friday") {
+            ss += "-------------------------------------------\n";
+            ss += "|                  Friday                 |\n";
+            ss += "-------------------------------------------\n";
+
+        }
+
+        //sort by start hour
+        for(auto y:horario)
+        {
+            if(y.get_Day()==x)
+            {
+                if(y.get_Type()=="T")
+                    ss+="| "+y.get_ClassCode()+" | "+y.get_UCcode()+" | "+y.get_Type()+"  | "+ formathours(y.get_Start_hour())+" | "+formathours(y.get_Start_hour()+y.get_Duration())+" |"+'\n';
+                else
+                    ss+="| "+y.get_ClassCode()+" | "+y.get_UCcode()+" | "+y.get_Type()+" | "+formathours(y.get_Start_hour())+" | "+formathours(y.get_Start_hour()+y.get_Duration())+" |"+'\n';
+            }
+        }
+        ss += "-------------------------------------------\n";
+        ss+='\n';
+    }
+    return ss;
+}
+
+std::string Schedule::formathours(float hours) {
+    std::string ss;
+    int h=hours;
+    int m=(hours-h)*60;
+    if (m==0)
+    {
+    if(h<10)
+        ss="0"+std::to_string(h)+":00";
+    else
+        ss=std::to_string(h)+":00";
+    }
+    else if(m<10)
+    {
+        if(h<10)
+            ss="0"+std::to_string(h)+":0"+std::to_string(m);
+        else
+            ss=std::to_string(h)+":0"+std::to_string(m);
+    }
+    else
+    {
+        if(h<10)
+            ss="0"+std::to_string(h)+":"+std::to_string(m);
+        else
+            ss=std::to_string(h)+":"+std::to_string(m);
+    }
+    return ss;
+}
+
+
+
+
+

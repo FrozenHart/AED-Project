@@ -13,9 +13,11 @@ private:
     std::string Day;
     std::string UCcode;
     std::string ClassCode;
+    std::string formathours(float hours);
 public:
     Lesson(float start_hour,float duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode);
     bool operator == (const Lesson& l) const;
+    std::string print();
 
     //gets
     float get_Start_hour();

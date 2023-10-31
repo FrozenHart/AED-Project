@@ -7,17 +7,22 @@
 class Schedule {
 private:
     std::vector<Lesson> horario;
+    std::string formathours(float hours);
 public:
     Schedule();
     Schedule(std::vector<Lesson> horario);
-    bool operator == (const Schedule& s) const;
 
-    //gets/
+    //operators
+    bool operator == (const Schedule& s) const;
+    std::string print();
+
+    //gets
     std::vector<Lesson> get_Schedule();
 
     //methods
     void add_Lesson(Lesson aula);
     void remove_Lesson(Lesson aula);
+
 };
 
 

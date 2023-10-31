@@ -43,4 +43,38 @@ std::string Lesson::get_UCcode() {
 std::string Lesson::get_ClassCode() {
     std::string s=ClassCode;
     return s;
-};
+}
+
+std::string Lesson::print() {
+    std::string ss;
+    ss+=  "| "+Day+" | "+ClassCode+" | "+UCcode+" | "+Type+" | "+ formathours(start_hour)+" | "+ formathours(start_hour+duration)+" |\n";
+    return ss;
+}
+
+std::string Lesson::formathours(float hours) {
+    std::string ss;
+    int h=hours;
+    int m=(hours-h)*60;
+    if (m==0)
+    {
+        if(h<10)
+            ss="0"+std::to_string(h)+":00";
+        else
+            ss=std::to_string(h)+":00";
+    }
+    else if(m<10)
+    {
+        if(h<10)
+            ss="0"+std::to_string(h)+":0"+std::to_string(m);
+        else
+            ss=std::to_string(h)+":0"+std::to_string(m);
+    }
+    else
+    {
+        if(h<10)
+            ss="0"+std::to_string(h)+":"+std::to_string(m);
+        else
+            ss=std::to_string(h)+":"+std::to_string(m);
+    }
+    return ss;
+}
