@@ -633,12 +633,15 @@ int main(int argc, char *argv[]) {
             std::cout << "              Invalid input Try Again\n";
         }
     }
+    
+    /*
     std::cout <<"Action Queue: ";
     for(int x=0;x<=ActionQueue.size();x++)
     {
         std::cout <<ActionQueue.front()<<'\n';
         ActionQueue.pop();
-    }
+    }*/
+
     // stores values back in the files(students_classes.csv,classes.csv,classes_per_uc.csv)
     save();
 
