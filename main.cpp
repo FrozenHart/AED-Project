@@ -33,6 +33,7 @@ bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::
 bool validate_Student_Structure(std::string StudentCode,std::string StudentName);
 bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type="T");
 void save();
+bool validate_hour(std::string hour);
 //main
 int main(int argc, char *argv[]) {
     // stores values from classes_per_uc.csv
@@ -924,7 +925,16 @@ bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type)
 //RaquelRenata
 bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode)
 {
-
+    if(validate_hour(start_hour)){
+        int hour, minutes;
+        hour = std::stoi(start_hour.substr(start_hour.front(), start_hour.find(':') - 1));
+        minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1 ,start_hour.back()));
+        if(hour > 24 and minutes > 59){
+            return false;
+        }
+    }
+    else
+        return false;
     return true;
 }
 //RaquelRenata
@@ -938,4 +948,16 @@ std::vector<Student> get_Students_from_uc(std::string UCcode)
 {
 
 }
+bool validate_hour(std::string hour){
 
+    bool two_points = true;
+    for(char c : hour){
+        if(c == ':' and two_points){
+            two_points = false;
+        }
+        else if(!isdigit(c)){
+            return false;
+        }
+    }
+   return true;
+}
