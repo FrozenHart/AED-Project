@@ -36,6 +36,8 @@ void save();
 bool validate_hour(std::string hour);
 //main
 int main(int argc, char *argv[]) {
+    std::string s="12v21.1a";
+    std::cout << std::stof(s) << '\n';
     // stores values from classes_per_uc.csv
     set_up_classes_per_uc();
    /* std::cout << "Classes per uc done" << std::endl;
@@ -87,7 +89,7 @@ int main(int argc, char *argv[]) {
                                                   {"UC",   11},
                                                   {"Lesson From Students",   12}, // remove
                                                   {"Lesson From Class",   13},
-                                                  {"Students",   14},
+                                                  {"Student",   14},
                                                   {"Class",   15},
                                                   {"UC",   16},
                                                   {"UCs",    17}, // Switch
@@ -586,19 +588,69 @@ int main(int argc, char *argv[]) {
             {
                 std::cout <<ActionQueue.front()<<'\n';
                 std::string acao=ActionQueue.front();
+                size_t ni =ActionQueue.front().find('/',ActionQueue.front().find('/')+1);
                 switch (MethodValue[ActionQueue.front().substr(ActionQueue.front().find('/')+1,ActionQueue.front().find('/',ActionQueue.front().find('/')+1))])
                 {
                     case 7: //Add Lesson to UC
+                        {
+                            std::string uc = acao.substr(ni + 1, acao.find('/', ni + 1) - ni - 1);
+                            std::string cc = acao.substr(acao.find('/', ni + 1) + 1,acao.find('/', acao.find('/', ni + 1) + 1) -acao.find('/', ni + 1) - 1);
+                            std::string w = acao.substr(acao.find('/', acao.find('/', ni + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) -acao.find('/', acao.find('/', ni + 1) + 1) - 1);
+                            std::string sh = acao.substr(acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) -acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) - 1);
+                            std::string d = acao.substr(acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) -acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) - 1);
+                            std::string t = acao.substr(acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) + 1) -acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) - 1);
+                            get_CLass(cc).add_lesson(Lesson(std::stof(sh),std::stof(d),t,w,uc,cc));
+                        }
                         break;
                     case 8: //Add Lesson to Student
+                    {
+                        std::string sc = acao.substr(ni + 1, acao.find('/', ni + 1) - ni - 1);
+                        std::string uc = acao.substr(acao.find('/', ni + 1) + 1,
+                                                     acao.find('/', acao.find('/', ni + 1) + 1) -
+                                                     acao.find('/', ni + 1) - 1);
+                        std::string cc = acao.substr(acao.find('/', acao.find('/', ni + 1) + 1) + 1,
+                                                     acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) -
+                                                     acao.find('/', acao.find('/', ni + 1) + 1) - 1);
+                        for (auto lesson: get_Lessons(cc, uc, "ALL"))
+                            get_Student(sc).add_Lesson(lesson);
+                    }
                         break;
                     case 9: //Add Student
+                    {
+                        std::string sc = acao.substr(ni + 1, acao.find('/', ni + 1) - ni - 1);
+                        std::string sn = acao.substr(acao.find('/', ni + 1) + 1,acao.find('/', acao.find('/', ni + 1) + 1) - acao.find('/', ni + 1) - 1);
+                        StudentsList.emplace_back(sc,sn);
+                    }
                         break;
                     case 10: //Add Class
+                    {
+                        std::string cc = acao.substr(ni + 1, acao.find('/', ni + 1) - ni - 1);
+                        std::string uc = acao.substr(acao.find('/', ni + 1) + 1,acao.find('/', acao.find('/', ni + 1) + 1) - acao.find('/', ni + 1) - 1);
+                        classes.emplace_back(Schedule(),cc);
+                    }
                         break;
                     case 11: //Add UC
+                    {
+                        std::string uc = acao.substr(ni + 1, acao.find('/', ni + 1) - ni - 1);
+                        std::string n = acao.substr(acao.find('/', ni + 1) + 1,acao.find('/', acao.find('/', ni + 1) + 1) - acao.find('/', ni + 1) - 1);
+                        for(auto x:n)
+                        {
+                            std::string cc = acao.substr(acao.find('/', acao.find('/', ni + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) - acao.find('/', acao.find('/', ni + 1) + 1) - 1);
+                            std::string w = acao.substr(acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) - acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) - 1);
+                            std::string sh = acao.substr(acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) - acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) - 1);
+                            std::string d = acao.substr(acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) + 1) - acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) - 1);
+                            std::string t = acao.substr(acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) + 1) + 1) + 1) - acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) + 1) + 1) + 1) - 1);
+                            get_CLass(cc).add_lesson(Lesson(std::stof(sh),std::stof(d),t,w,uc,cc));
+                        }
+                    }
                         break;
                     case 12: //Remove Lesson From Students
+                    {
+                        std::string uc = acao.substr(ni + 1, acao.find('/', ni + 1) - ni - 1);
+                        std::string sc = acao.substr(acao.find('/', ni + 1) + 1,acao.find('/', acao.find('/', ni + 1) + 1) - acao.find('/', ni + 1) - 1);
+                        std::string t = acao.substr(acao.find('/', acao.find('/', ni + 1) + 1) + 1,acao.find('/', acao.find('/', acao.find('/', ni + 1) + 1) + 1) - acao.find('/', acao.find('/', ni + 1) + 1) - 1);
+
+                    }
                         break;
                     case 13: //Remove Lesson From Class
                         break;
@@ -634,7 +686,7 @@ int main(int argc, char *argv[]) {
             std::cout << "              Invalid input Try Again\n";
         }
     }
-    
+
     /*
     std::cout <<"Action Queue: ";
     for(int x=0;x<=ActionQueue.size();x++)
@@ -950,6 +1002,7 @@ std::vector<Student> get_Students_from_uc(std::string UCcode)
 }
 bool validate_hour(std::string hour){
 
+<<<<<<< Updated upstream
     bool two_points = true;
     for(char c : hour){
         if(c == ':' and two_points){
@@ -961,3 +1014,6 @@ bool validate_hour(std::string hour){
     }
    return true;
 }
+=======
+
+>>>>>>> Stashed changes
