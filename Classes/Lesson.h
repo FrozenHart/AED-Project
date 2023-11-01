@@ -16,6 +16,7 @@ private:
     std::string formathours(float hours);
 public:
     Lesson(float start_hour,float duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode);
+    ~Lesson();
     bool operator == (const Lesson& l) const;
     std::string print();
 

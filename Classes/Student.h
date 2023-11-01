@@ -9,6 +9,7 @@ public:
     Student(std::string StudentCode_,std::string StudentName_,Schedule horario);
     Student(std::string StudentCode_,std::string StudentName_);
     Student();
+    ~Student();
     bool operator == (const Student& s) const;
 
     //methods

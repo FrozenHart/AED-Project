@@ -78,3 +78,7 @@ std::string Lesson::formathours(float hours) {
     }
     return ss;
 }
+
+Lesson::~Lesson() {
+
+}

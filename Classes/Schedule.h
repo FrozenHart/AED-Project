@@ -10,6 +10,7 @@ private:
     std::string formathours(float hours);
 public:
     Schedule();
+    ~Schedule();
     Schedule(std::vector<Lesson> horario);
 
     //operators

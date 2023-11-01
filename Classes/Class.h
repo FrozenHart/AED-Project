@@ -13,6 +13,7 @@ private:
 public:
     Class(Schedule horario_, std::vector<Student> Liststudents,std::string ClassCode);
     Class(Schedule horario_,std::string ClassCode);
+    ~Class();
     bool operator ==(const Class& c) const;
 
     //methods

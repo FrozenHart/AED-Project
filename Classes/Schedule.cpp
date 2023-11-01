@@ -125,6 +125,10 @@ std::string Schedule::formathours(float hours) {
     return ss;
 }
 
+Schedule::~Schedule() {
+
+}
+
 
 
 

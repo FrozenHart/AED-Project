@@ -60,4 +60,8 @@ void Student::remove_Lesson(Lesson aula) {
     horario_student.remove_Lesson(aula);
 }
 
+Student::~Student() {
+
+}
+
 
