@@ -1,5 +1,6 @@
 
 #include "Schedule.h"
+#include <algorithm>
 
 Schedule::Schedule(std::vector<Lesson> horario) {
 this->horario=horario;
@@ -11,6 +12,7 @@ std::vector<Lesson> Schedule::get_Schedule() {
 }
 
 void Schedule::add_Lesson(Lesson aula) {
+    std::sort(horario.begin(), horario.end());
     horario.emplace_back(aula);
 }
 
@@ -128,7 +130,7 @@ Schedule::~Schedule() {
 }
 
 void Schedule::sorted() {
-
+    std::sort(horario.begin(), horario.end());
 }
 
 

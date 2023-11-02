@@ -41,6 +41,7 @@ void remove_Class(std::string ClassCode);
 void remove_UC(std::string UCcode);
 bool validate_Day(std::string Day);
 float unformathour(std::string h);
+
 //main
 int main(int argc, char *argv[]) {
     // stores values from classes_per_uc.csv
@@ -837,6 +838,7 @@ void set_up_classes()
             std::vector<Lesson> tempv;
             tempv.emplace_back(StartHour, Duration, Type, Weekday,UcCode,ClassCode);
             classes.emplace_back(Schedule(tempv), ClassCode);
+            classes[classes.size() - 1].get_Schedule().sorted();
         }
     }
     fin.close();

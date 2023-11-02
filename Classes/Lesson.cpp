@@ -1,3 +1,4 @@
+#include <map>
 #include "Lesson.h"
 
 Lesson::Lesson(float start_hour, float duration, std::string Type,std::string Day,std::string UCcode,std::string ClassCode) {
@@ -81,4 +82,13 @@ std::string Lesson::formathours(float hours) {
 
 Lesson::~Lesson() {
 
+}
+bool Lesson::operator<(const Lesson& other) const {
+
+    if (Day != other.Day) {
+        std::map<std::string,int> dias={{"Monday",0},{"Tuesday", 1}, {"Wednesday", 2}, {"Thursday", 3}, {"Friday", 4}};
+        return dias[Day] < dias[other.Day];
+    }
+
+    return start_hour < other.start_hour;
 }
