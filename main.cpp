@@ -31,7 +31,7 @@ Student &get_Student(std::string StudentCode);
 bool validate_UC(std::string UCcode);
 bool validate_Class(std::string ClassCode);
 bool validate_Student(std::string StudentCode);
-bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode);
+bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode,bool new_class);
 bool validate_Student_Structure(std::string StudentCode,std::string StudentName);
 bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type="T");
 void save();
@@ -340,7 +340,7 @@ int main(int argc, char *argv[]) {
                                 std::getline(std::cin,d);
                                 std::cout << "Type: (T,TP,PL)\n";
                                 std::getline(std::cin,t);
-                                if(validate_Lesson_Structure(sh, d, t, w, uc, cc)) {
+                                if(validate_Lesson_Structure(sh, d, t, w, uc, cc, false)) {
                                     temp += '/' + uc + '/' + cc + '/' + w + '/' + sh + '/' + d + '/' + t+'/';
                                     ActionQueue.push(temp);
                                 }else {
@@ -411,7 +411,7 @@ int main(int argc, char *argv[]) {
                                         std::getline(std::cin,d);
                                         std::cout << "Type: (T,TP,PL)\n";
                                         std::getline(std::cin,t);
-                                        if(validate_Lesson_Structure(sh,d, t, w, uc, cc)) {
+                                        if(validate_Lesson_Structure(sh,d, t, w, uc, cc, true)) {
                                             temp += '/' + uc + '/' + w + '/' + sh + '/' + d + '/' + t+'/';
                                             x++;
                                         }else {
@@ -448,7 +448,7 @@ int main(int argc, char *argv[]) {
                                         std::getline(std::cin, d);
                                         std::cout << "Type: (T,TP,PL)\n";
                                         std::getline(std::cin, t);
-                                        if (validate_Lesson_Structure(sh,d, t, w, uc, cc)) {
+                                        if (validate_Lesson_Structure(sh,d, t, w, uc, cc, false)) {
                                             temp += '/' + cc + '/' + w + '/' + sh + '/' + d + '/' + t+'/';
                                             x++;
                                         } else {
@@ -1089,7 +1089,7 @@ bool validate_UC(std::string UCcode)
         UCs.at(UCcode);
         return true;
     }
-    catch (std::runtime_error &e) {
+    catch (std::out_of_range &e) {
         return false;
     }
 }
@@ -1126,19 +1126,33 @@ bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type)
 }
 
 //RaquelRenata
-bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode)
+bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode,bool new_class)
 {
-    if(validate_hour(start_hour)&&validate_hour(duration)&&validate_UC(UCcode)&&validate_Class(ClassCode)&&validate_Day(Day)&&validate_Type(Type)){
-        int hour=0, minutes=0;
-        hour = std::stoi(start_hour.substr(0, start_hour.find(':') ));
-        minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1 ,start_hour.size()));
-        if(hour > 23 or minutes > 59){
+    if(new_class) {
+        if (validate_hour(start_hour) && validate_hour(duration) && validate_UC(UCcode) && validate_Day(Day) &&
+            validate_Type(Type)) {
+            int hour = 0, minutes = 0;
+            hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
+            minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
+            if (hour > 23 or minutes > 59) {
+                return false;
+            }
+        } else
             return false;
-        }
+        return true;
+    }else
+    {
+        if (validate_hour(start_hour) && validate_hour(duration) && validate_UC(UCcode) && validate_Day(Day) &&validate_Class(ClassCode)&&validate_Type(Type)) {
+            int hour = 0, minutes = 0;
+            hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
+            minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
+            if (hour > 23 or minutes > 59) {
+                return false;
+            }
+        } else
+            return false;
+        return true;
     }
-    else
-        return false;
-    return true;
 }
 
 bool validate_Day(std::string Day)
@@ -1220,10 +1234,8 @@ bool validate_Type(std::string Type)
 }
 bool valdate_StudentCode(std::string StudentCode)
 {
-    for(auto x:StudentsList)
-    {
-        if(x.get_StudentCode()==StudentCode)
-            return false;
-    }
-    return true;
+    if(StudentsCodes.find(StudentCode)==StudentsCodes.end())
+        return false;
+    else
+        return true;
 }
