@@ -32,11 +32,6 @@
 *.app
 
 # CMAKE
-cmake-build-debug/
-cmake-build-debug-coverage/
-cmake-build-debug/Testing/Temporary/LastTest.log
-cmake-build-debug/Testing/Temporary/LastTest.log
-cmake-build-debug/CMakeFiles/AED_Project.dir/main.cpp.obj
-cmake-build-debug/AED_Project.exe
-cmake-build-debug/.ninja_log
-cmake-build-debug/.ninja_deps
+./cmake-build-debug/
+./cmake-build-debug-coverage/
+*.log
