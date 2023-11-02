@@ -39,3 +39,10 @@
 *.json
 cmake-build-debug-coverage/.ninja_deps
 cmake-build-debug-coverage/.ninja_log
+cmake-build-debug-coverage/.cmake/api/v1/reply/index-2023-10-18T16-20-49-0982.json
+cmake-build-debug-coverage/.ninja_deps
+cmake-build-debug-coverage/.ninja_log
+cmake-build-debug-coverage/AED_Project.exe
+cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin
+cmake-build-debug-coverage/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin
+cmake-build-debug-coverage/CMakeFiles/3.26.4/CompilerIdC/a-CMakeCCompilerId.gcno
