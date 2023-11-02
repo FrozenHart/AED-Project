@@ -36,3 +36,6 @@
 ./cmake-build-debug-coverage/
 *.log
 *.json
+*.json
+cmake-build-debug-coverage/.ninja_deps
+cmake-build-debug-coverage/.ninja_log
