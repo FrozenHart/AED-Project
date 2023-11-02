@@ -12,8 +12,9 @@ std::vector<Lesson> Schedule::get_Schedule() {
 }
 
 void Schedule::add_Lesson(Lesson aula) {
+
     std::sort(horario.begin(), horario.end());
-    horario.emplace_back(aula);
+    horario.push_back(aula);
 }
 
 bool Schedule::operator==(const Schedule & s) const {
