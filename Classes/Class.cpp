@@ -39,7 +39,10 @@ void Class::remove_lesson(Lesson aula) {
 }
 
 Class::~Class() {
+}
 
+void Class::add_student(Student student) {
+    ListStudents.emplace_back(student);
 }
 
 

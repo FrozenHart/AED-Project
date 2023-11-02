@@ -1,5 +1,4 @@
 
-
 #include "Schedule.h"
 
 Schedule::Schedule(std::vector<Lesson> horario) {
@@ -126,6 +125,9 @@ std::string Schedule::formathours(float hours) {
 }
 
 Schedule::~Schedule() {
+}
+
+void Schedule::sorted() {
 
 }
 

@@ -64,4 +64,8 @@ Student::~Student() {
 
 }
 
+std::string Student::print_Student() {
+    return StudentCode+"->"+StudentName;
+}
+
 

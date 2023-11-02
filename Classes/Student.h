@@ -11,7 +11,7 @@ public:
     Student();
     ~Student();
     bool operator == (const Student& s) const;
-
+    std::string print_Student();
     //methods
     void add_Lesson(Lesson aula);
     void remove_Lesson(Lesson aula);

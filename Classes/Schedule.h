@@ -23,7 +23,7 @@ public:
     //methods
     void add_Lesson(Lesson aula);
     void remove_Lesson(Lesson aula);
-
+    void sorted();
 };
 
 
