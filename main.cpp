@@ -27,7 +27,6 @@ void set_up_classes_per_uc();
 void set_up_classes();
 void set_up_students();
 Class& get_CLass(std::string ClassCode);
-std::vector<Student> get_Students_from_uc(std::string UCcode);
 std::vector<Lesson> get_Lessons(std::string ClassCode,std::string UCcode,std::string Type="T");
 Student &get_Student(std::string StudentCode);
 bool validate_UC(std::string UCcode);
@@ -97,11 +96,11 @@ int main(int argc, char *argv[]) {
                                                   {"Student",   9},
                                                   {"Class",   10},
                                                   {"UC",   11},
-                                                  {"Lesson From Students",   12}, // remove
+                                                  {"Lesson From Student",   12}, // remove
                                                   {"Lesson From Class",   13},
-                                                  {"Student",   14},
-                                                  {"Class",   15},
-                                                  {"UC",   16},
+                                                  {"Remove Student",   14},
+                                                  {"Remove Class",   15},
+                                                  {"Remove UC",   16},
                                                   {"UCs",    17}, // Switch
                                                   {"Classes", 18},
                                                   {"List of UC",19}};
@@ -391,7 +390,7 @@ int main(int argc, char *argv[]) {
                                 std::getline(std::cin,cc);
                                 std::cout << "How Many NEW Lessons? \n";
                                 std::getline(std::cin,n);
-                                if(std::stoi(n)<=0)
+                                if((!validate_hour(n))||std::stoi(n)<=0)
                                 {
                                     std::cout << "Invalid Number of Lessons Try Again\n You need to have at least 1 Lesson\n";
                                     valida = true;
@@ -402,6 +401,7 @@ int main(int argc, char *argv[]) {
                                     int x=0;
                                     while(x<std::stoi(n))
                                     {
+                                        std::cout << "Lesson " << x+1 << '\n';
                                         std::string sh, d, t, w, uc;
                                         std::cout << "UC Code: \n";
                                         std::getline(std::cin,uc);
@@ -430,7 +430,7 @@ int main(int argc, char *argv[]) {
                                 std::getline(std::cin,uc);
                                 std::cout << "How Many NEW Lessons? \n";
                                 std::getline(std::cin,n);
-                                if(std::stoi(n) <= 0)
+                                if((!validate_hour(n))||std::stoi(n) <= 0)
                                 {
                                     std::cout << "Invalid Number of Lessons Try Again\n You need to have at least 1 Lesson\n";
                                     valida = true;
@@ -439,6 +439,7 @@ int main(int argc, char *argv[]) {
                                     temp += '/' + uc + '/' + n;
                                     int x = 0;
                                     while (x < std::stoi(n)) {
+                                        std::cout << "Lesson " << x+1 << '\n';
                                         std::string sh, d, t, w, cc;
                                         std::cout << "Class Code: \n";
                                         std::getline(std::cin, cc);
@@ -477,11 +478,11 @@ int main(int argc, char *argv[]) {
                 r=false;
                 std::cout<<"                       Chose Remove Method\n";
                 std::cout<<"--------------------------------------------------------------------\n";
-                std::cout<<"| Lesson From Students -> Removes a Lesson from a Student Schedule |\n";
-                std::cout<<"| Lesson From Clas     -> Removes a Lesson from a Class Schedule   |\n";
-                std::cout<<"| Student              -> Removes a Student from the System        |\n";
-                std::cout<<"| Class                -> Removes a Class from the System          |\n";
-                std::cout<<"| UC                   -> Removes a UC from the System             |\n";
+                std::cout<<"| Lesson From Student  -> Removes a Lesson from a Student Schedule |\n";
+                std::cout<<"| Lesson From Class    -> Removes a Lesson from a Class Schedule   |\n";
+                std::cout<<"| Remove Student       -> Removes a Student from the System        |\n";
+                std::cout<<"| Remove Class         -> Removes a Class from the System          |\n";
+                std::cout<<"| Remove UC            -> Removes a UC from the System             |\n";
                 std::cout<<"| Back                                                             |\n";
                 std::cout<<"--------------------------------------------------------------------\n";
 
@@ -509,7 +510,7 @@ int main(int argc, char *argv[]) {
                                 std::getline(std::cin,cc);
                                 std::cout << "Type: \n";
                                 std::getline(std::cin,t);
-                                if(validate_Student(sc)&&validate_UC(uc)&&validate_Lesson(uc,"",t)) {
+                                if(validate_Student(sc)&&validate_UC(uc)&&validate_Lesson(uc,cc,t)) {
                                     temp += '/' + sc + '/' + uc + '/' + t+'/'+cc;
                                     ActionQueue.push(temp);
                                 } else {
@@ -527,7 +528,7 @@ int main(int argc, char *argv[]) {
                                 std::cout << "Type: \n";
                                 std::getline(std::cin,t);
                                 if(validate_Class(cc)&&validate_UC(uc)) {
-                                    temp += '/' + cc + '/' + uc;
+                                    temp += '/' + cc + '/' + uc+'/'+t;
                                     ActionQueue.push(temp);
                                 } else {
                                     std::cout << "Invalid Lesson/Class Try Again\n";
@@ -658,13 +659,16 @@ int main(int argc, char *argv[]) {
         {
             std::fstream fin;
             fin.open("../schedule/ActionQueue.txt", std::ofstream::out );
-            std::queue<std::string> temp;
-            int v=ActionQueue.size();
+            std::queue<std::string> temp=ActionQueue;
+            int v=temp.size();
             for(int i=0;i<v;i++)
             {
-                fin << ActionQueue.front() << '\n';
+                fin << temp.front() << '\n';
+                temp.pop();
             }
-            std::cout <<"Running Actions: ";
+            fin.close();
+
+            std::cout <<"Running Actions: \n";
             int nt=ActionQueue.size();
             for (int x = 0; x < nt; x++)
             {
@@ -717,9 +721,11 @@ int main(int argc, char *argv[]) {
                         std::string cc,n;
                         getline(ss,cc,'/');
                         getline(ss,n,'/');
-                        std::vector<std::string> temp;
+                        std::cout << cc << " " << n << '\n';
+                        classes.emplace_back(Schedule(),cc);//empty schedule
                         bool first= true;
-                        for(int x;x<std::stoi(n);x++)
+                        std::cout << "adiciona";
+                        for(int i = 0; i < std::stoi(n); i++)
                         {
                             std::string uc,w,sh,d,t;
                             getline(ss,uc,'/');
@@ -728,6 +734,7 @@ int main(int argc, char *argv[]) {
                             getline(ss,d,'/');
                             getline(ss,t,'/');
                             std::cout << "adiciona";
+                            std::cout << uc << " " << w << " " << sh << " " << d << " " << t << '\n';
                             get_CLass(cc).add_lesson(Lesson(std::stof(sh),std::stof(d),t,w,uc,cc));
                             if(first)
                             {
@@ -735,7 +742,6 @@ int main(int argc, char *argv[]) {
                                 first= false;
                             }
                         }
-                        classes.emplace_back(Schedule(),cc);
                     }
                         break;
                     case 11: //Add UC
@@ -744,7 +750,7 @@ int main(int argc, char *argv[]) {
                         getline(ss,uc,'/');
                         getline(ss,n,'/');
                         std::vector<std::string> temp;
-                        for(int x;x<std::stoi(n);x++)
+                        for(int x=0;x<std::stoi(n);x++)
                         {
                             std::string cc,w,sh,d,t;
                             getline(ss,cc,'/');
@@ -781,13 +787,11 @@ int main(int argc, char *argv[]) {
                         getline(ss,cc,'/');
                         getline(ss,uc,'/');
                         getline(ss,t,'/');
-                        if(t=="T") {
-                            for (auto aula: get_Lessons(cc, uc, t)) {
-                                get_CLass(cc).remove_lesson(aula);
-                            }
+                        std::cout << cc << " " << uc << " " << t << '\n';
+                        for (auto aula: get_Lessons(cc, uc, t)){
+                            std::cout << aula.print();
+                            get_CLass(cc).remove_lesson(aula);
                         }
-                        else
-                            get_CLass(cc).remove_lesson(get_Lessons(cc, uc, t)[0]);
                     }
                         break;
                     case 14: //Remove Student
@@ -1030,7 +1034,7 @@ std::vector<Lesson> get_Lessons(std::string ClassCode,std::string UCcode,std::st
         {
             if(x.get_UCcode()==UCcode&&x.get_Type()==Type)
             {
-                tempv.emplace_back(x);
+                tempv.push_back(x);
             }
         }
         if (tempv.size()!=0){return tempv;}
@@ -1228,10 +1232,6 @@ bool validate_Student_Structure(std::string StudentCode,std::string StudentName)
     return false;
 }
 
-std::vector<Student> get_Students_from_uc(std::string UCcode)
-{
-
-}
 
 bool validate_hour(std::string hour){
     bool two_points = true;
@@ -1268,11 +1268,51 @@ void remove_Class(std::string ClassCode)
             break;
         }
     }
+    for(auto v:UCs)
+    {
+        for(size_t x=0;x<=v.second.size();x++)
+        {
+            if(v.second[x]==ClassCode)
+            {
+                v.second.erase(v.second.begin()+x, v.second.begin()+x+1);
+                break;
+            }
+        }
+    }
+    for (auto x:StudentsList) {
+        for(auto y:x.get_Horario().get_Schedule())
+        {
+            if(y.get_ClassCode()==ClassCode)
+            {
+                x.remove_Lesson(y);
+            }
+        }
+    }
 }
 
 void remove_UC(std::string UCcode)
 {
+    for(auto x:classes)
+    {
+        for(auto y:x.get_Schedule().get_Schedule())
+        {
+            if(y.get_UCcode()==UCcode)
+            {
+                x.remove_lesson(y);
+            }
+        }
+    }
+    for (auto x:StudentsList) {
+        for(auto y:x.get_Horario().get_Schedule())
+        {
+            if(y.get_UCcode()==UCcode)
+            {
+                x.remove_Lesson(y);
+            }
+        }
 
+    }
+    UCs.erase(UCcode);
 }
 
 float unformathour(std::string h)
