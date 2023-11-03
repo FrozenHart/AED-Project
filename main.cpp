@@ -19,6 +19,8 @@ std::vector<std::string> dias={"Monday","Tuesday","Wednesday","Thursday","Friday
 //funcions
 template<typename T, typename A>
 bool in_map( std::map<T ,A> map,T s);
+bool checkbalance_UC();
+bool checkbalance_Class();
 template<typename T>
 bool in_vec( std::vector<T> vec, T s);
 void set_up_classes_per_uc();
@@ -31,7 +33,7 @@ Student &get_Student(std::string StudentCode);
 bool validate_UC(std::string UCcode);
 bool validate_Class(std::string ClassCode);
 bool validate_Student(std::string StudentCode);
-bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode,bool new_class);
+bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode,bool new_class,bool new_UC);
 bool validate_Student_Structure(std::string StudentCode,std::string StudentName);
 bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type="T");
 void save();
@@ -48,7 +50,7 @@ float unformathour(std::string h);
 int main(int argc, char *argv[]) {
     // stores values from classes_per_uc.csv
     set_up_classes_per_uc();
-    std::cout << "Classes per uc done" << std::endl;
+   /* std::cout << "Classes per uc done" << std::endl;
     for(auto x:UCs)
     {
         std::cout << x.first << " -> ";
@@ -57,10 +59,10 @@ int main(int argc, char *argv[]) {
             std::cout << y << " ";
         }
         std::cout << '\n';
-    }
+    }*/
     // stores values from classes.csv
     set_up_classes();
-    std::cout << "Classes done" << std::endl;
+    /*std::cout << "Classes done" << std::endl;
     for(auto x:classes)
     {
         std::cout << x.get_ClassCode() << " -> ";
@@ -69,14 +71,14 @@ int main(int argc, char *argv[]) {
             std::cout << y.get_UCcode() << " ";
         }
         std::cout << '\n';
-    }
+    }*/
     // stores values from students_classes.csv
     set_up_students();
-   std::cout << "Students done" << std::endl;
+    /*std::cout << "Students done" << std::endl;
     for(auto x:StudentsList)
     {
         std::cout << x.get_StudentCode()<<" -> "<<x.get_StudentName() << " ; " <<'\n'<< x.get_Horario().print() << '\n';
-    }
+    }*/
     //User Interface
     static std::map<std::string,int> OperationValue{{"Check",0},
                                                     {"Add",1},
@@ -340,7 +342,7 @@ int main(int argc, char *argv[]) {
                                 std::getline(std::cin,d);
                                 std::cout << "Type: (T,TP,PL)\n";
                                 std::getline(std::cin,t);
-                                if(validate_Lesson_Structure(sh, d, t, w, uc, cc, false)) {
+                                if(validate_Lesson_Structure(sh, d, t, w, uc, cc, false, false)) {
                                     temp += '/' + uc + '/' + cc + '/' + w + '/' + sh + '/' + d + '/' + t+'/';
                                     ActionQueue.push(temp);
                                 }else {
@@ -411,7 +413,7 @@ int main(int argc, char *argv[]) {
                                         std::getline(std::cin,d);
                                         std::cout << "Type: (T,TP,PL)\n";
                                         std::getline(std::cin,t);
-                                        if(validate_Lesson_Structure(sh,d, t, w, uc, cc, true)) {
+                                        if(validate_Lesson_Structure(sh,d, t, w, uc, cc, true, false)) {
                                             temp += '/' + uc + '/' + w + '/' + sh + '/' + d + '/' + t+'/';
                                             x++;
                                         }else {
@@ -426,7 +428,7 @@ int main(int argc, char *argv[]) {
                                 std::string uc,n;
                                 std::cout << "UC Code: \n";
                                 std::getline(std::cin,uc);
-                                std::cout << "How Many Lessons? \n";
+                                std::cout << "How Many NEW Lessons? \n";
                                 std::getline(std::cin,n);
                                 if(std::stoi(n) <= 0)
                                 {
@@ -448,7 +450,7 @@ int main(int argc, char *argv[]) {
                                         std::getline(std::cin, d);
                                         std::cout << "Type: (T,TP,PL)\n";
                                         std::getline(std::cin, t);
-                                        if (validate_Lesson_Structure(sh,d, t, w, uc, cc, false)) {
+                                        if (validate_Lesson_Structure(sh,d, t, w, uc, cc, false,true)) {
                                             temp += '/' + cc + '/' + w + '/' + sh + '/' + d + '/' + t+'/';
                                             x++;
                                         } else {
@@ -654,19 +656,24 @@ int main(int argc, char *argv[]) {
 
         }else if(inputuser=="Run")
         {
+            std::fstream fin;
+            fin.open("../schedule/ActionQueue.txt", std::ofstream::out );
+            std::queue<std::string> temp;
+            int v=ActionQueue.size();
+            for(int i=0;i<v;i++)
+            {
+                fin << ActionQueue.front() << '\n';
+            }
             std::cout <<"Running Actions: ";
             int nt=ActionQueue.size();
             for (int x = 0; x < nt; x++)
             {
-                std::cout <<ActionQueue.front()<<'\n';
                 std::string acao=ActionQueue.front();
                 std::stringstream ss(acao);
                 std::string temp;
                 getline(ss,temp,'/');
-                std::cout << temp << '\n';
                 std::string method ;
                 getline(ss,method,'/');
-                std::cout << method << '\n';
                 switch (MethodValue[method])
                 {
                     case 7: //Add Lesson to UC
@@ -678,7 +685,6 @@ int main(int argc, char *argv[]) {
                             getline(ss,sh,'/');
                             getline(ss,d,'/');
                             getline(ss,t,'/');
-                            std::cout << uc << " " << cc << " " << w << " " << sh << " " << d << " " << t << '\n';
                             get_CLass(cc).add_lesson(Lesson(unformathour(sh), unformathour(d),t,w,uc,cc));
                         }
                         break;
@@ -689,7 +695,6 @@ int main(int argc, char *argv[]) {
                         getline(ss,uc,'/');
                         getline(ss,cc,'/');
                         getline(ss,t,'/');
-                        std::cout << sc << " " << uc << " " << cc << " " << t<<'\n';
                         for (auto l: get_Lessons(cc, uc, t))
                         {
                             std::cout << l.print();
@@ -703,7 +708,6 @@ int main(int argc, char *argv[]) {
                         std::string sc,sn;
                         getline(ss,sc,'/');
                         getline(ss,sn,'/');
-                        std::cout << sc << " " << sn << '\n';
                         StudentsCodes.insert(sc);
                         StudentsList.emplace_back(sc,sn);
                     }
@@ -715,7 +719,7 @@ int main(int argc, char *argv[]) {
                         getline(ss,n,'/');
                         std::vector<std::string> temp;
                         bool first= true;
-                        for(auto x:n)
+                        for(int x;x<std::stoi(n);x++)
                         {
                             std::string uc,w,sh,d,t;
                             getline(ss,uc,'/');
@@ -723,6 +727,7 @@ int main(int argc, char *argv[]) {
                             getline(ss,sh,'/');
                             getline(ss,d,'/');
                             getline(ss,t,'/');
+                            std::cout << "adiciona";
                             get_CLass(cc).add_lesson(Lesson(std::stof(sh),std::stof(d),t,w,uc,cc));
                             if(first)
                             {
@@ -739,7 +744,7 @@ int main(int argc, char *argv[]) {
                         getline(ss,uc,'/');
                         getline(ss,n,'/');
                         std::vector<std::string> temp;
-                        for(auto x:n)
+                        for(int x;x<std::stoi(n);x++)
                         {
                             std::string cc,w,sh,d,t;
                             getline(ss,cc,'/');
@@ -856,18 +861,33 @@ void set_up_students()
     // stores values from students_classes.csv
     std::fstream fin;
     fin.open("../Original Data/schedule/students_classes.csv",std::ios::in);
-    std::string line,StudentCode,StudentName,UcCode,ClassCode;
+    std::string line,StudentCode,StudentName,UcCode,ClassCode,Type;
     std::getline(fin,line);
+    bool nfirst= false;
+    if(line.find("Type")!=std::string::npos)  // checks if the file has the Type column
+        nfirst= true;
     while(getline(fin, line)) {
         std::stringstream str(line);
         getline(str, StudentCode, ','); // gets the StudentCode
         getline(str, StudentName, ','); // gets the StudentName
         getline(str, UcCode, ','); // gets the UcCode
         getline(str, ClassCode, ','); // gets the ClassCode
+        if(nfirst)
+        {
+            getline(str, Type, ','); // gets the Type
+        }
         if(!in_vec(StudentsList,Student(StudentCode,StudentName))) // new student
         {
             StudentsCodes.insert(StudentCode);
-            std::vector<Lesson> temp=get_Lessons(ClassCode,UcCode,"ALL");
+            std::vector<Lesson>temp;
+            if(nfirst)
+            {
+                temp=get_Lessons(ClassCode,UcCode,Type);
+            }
+            else
+            {
+                temp=get_Lessons(ClassCode,UcCode,"ALL");
+            }
             StudentsList.emplace_back(StudentCode,StudentName, temp);
             get_CLass(ClassCode).add_student(StudentsList.back());
         }
@@ -877,9 +897,16 @@ void set_up_students()
             {
                 if(x.get_StudentCode()==StudentCode)
                 {
-                    for(auto y: get_Lessons(ClassCode,UcCode,"ALL"))
+                    if(nfirst)
                     {
-                        x.add_Lesson(y);
+                        for (auto y: get_Lessons(ClassCode, UcCode, Type)) {
+                            x.add_Lesson(y);
+                        }
+                    }
+                    else {
+                        for (auto y: get_Lessons(ClassCode, UcCode, "ALL")) {
+                            x.add_Lesson(y);
+                        }
                     }
                 }
             }
@@ -912,6 +939,7 @@ void set_up_classes()
             if (c.get_ClassCode() == ClassCode)
             {
                 c.add_lesson(Lesson(StartHour, Duration, Type, Weekday,UcCode,ClassCode));
+
                 temp = true;
                 break;
             }
@@ -1043,12 +1071,11 @@ void save() {
         std::fstream fin;
         std::string prevUCcode="";
         fin.open("../schedule/students_classes.csv", std::ofstream::out | std::ofstream::trunc);
-        fin << "StudentCode,StudentName,UcCode,ClassCode\n";
+        fin << "StudentCode,StudentName,UcCode,ClassCode,Type\n";
         for (auto x: StudentsList) {
             for (auto y: x.get_Horario().get_Schedule()) {
                 if(prevUCcode!=y.get_UCcode()) {
-                    fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","
-                        << y.get_ClassCode() << "\n";
+                    fin << x.get_StudentCode() << "," << x.get_StudentName() << "," << y.get_UCcode() << ","<< y.get_ClassCode() <<","<< y.get_Type()<<"\n";
                     prevUCcode=y.get_UCcode();
                 }
             }
@@ -1126,32 +1153,62 @@ bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type)
 }
 
 //RaquelRenata
-bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode,bool new_class)
+bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode,bool new_class,bool new_UC)
 {
+
     if(new_class) {
-        if (validate_hour(start_hour) && validate_hour(duration) && validate_UC(UCcode) && validate_Day(Day) &&
-            validate_Type(Type)) {
-            int hour = 0, minutes = 0;
-            hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
-            minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
-            if (hour > 23 or minutes > 59) {
+        if(new_UC)
+        {
+            if (validate_hour(start_hour) && validate_hour(duration) && validate_Day(Day) &&validate_Type(Type)) {
+                int hour = 0, minutes = 0;
+                hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
+                minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
+                if (hour > 23 or minutes > 59) {
+                    return false;
+                }
+            } else
                 return false;
-            }
-        } else
-            return false;
-        return true;
+            return true;
+        }else
+        {
+            if (validate_hour(start_hour) && validate_hour(duration)  && validate_UC(UCcode) && validate_Day(Day) &&validate_Type(Type)) {
+                int hour = 0, minutes = 0;
+                hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
+                minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
+                if (hour > 23 or minutes > 59) {
+                    return false;
+                }
+            } else
+                return false;
+            return true;
+        }
     }else
     {
-        if (validate_hour(start_hour) && validate_hour(duration) && validate_UC(UCcode) && validate_Day(Day) &&validate_Class(ClassCode)&&validate_Type(Type)) {
-            int hour = 0, minutes = 0;
-            hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
-            minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
-            if (hour > 23 or minutes > 59) {
+        if(new_UC)
+        {
+            if (validate_hour(start_hour) && validate_hour(duration)&& validate_Class(ClassCode) && validate_Day(Day) &&validate_Type(Type)) {
+                int hour = 0, minutes = 0;
+                hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
+                minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
+                if (hour > 23 or minutes > 59) {
+                    return false;
+                }
+            } else
                 return false;
-            }
-        } else
-            return false;
-        return true;
+            return true;
+        }else
+        {
+            if (validate_hour(start_hour) && validate_hour(duration) && validate_Class(ClassCode) && validate_UC(UCcode) && validate_Day(Day) &&validate_Type(Type)) {
+                int hour = 0, minutes = 0;
+                hour = std::stoi(start_hour.substr(0, start_hour.find(':')));
+                minutes = std::stoi(start_hour.substr(start_hour.find(':') + 1, start_hour.size()));
+                if (hour > 23 or minutes > 59) {
+                    return false;
+                }
+            } else
+                return false;
+            return true;
+        }
     }
 }
 
@@ -1234,8 +1291,18 @@ bool validate_Type(std::string Type)
 }
 bool valdate_StudentCode(std::string StudentCode)
 {
-    if(StudentsCodes.find(StudentCode)==StudentsCodes.end())
-        return false;
-    else
+    if(StudentsCodes.find(StudentCode)==StudentsCodes.end()) {
         return true;
+    }else {
+        return false;
+    }
+}
+
+bool checkbalance_UC()
+{
+
+}
+bool checkbalance_Class()
+{
+
 }

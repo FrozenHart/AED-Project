@@ -54,6 +54,7 @@ std::vector<std::string> Student::get_classes() {
 
 void Student::add_Lesson(Lesson aula) {
     horario_student.add_Lesson(aula);
+    horario_student.sorted();
 }
 
 void Student::remove_Lesson(Lesson aula) {

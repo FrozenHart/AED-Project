@@ -131,7 +131,7 @@ Schedule::~Schedule() {
 }
 
 void Schedule::sorted() {
-    std::sort(horario.begin(), horario.end());
+    std::sort(horario.begin(), horario.begin()+horario.size());
 }
 
 

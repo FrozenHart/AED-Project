@@ -32,6 +32,7 @@ std::string Class::get_ClassCode() {
 
 void Class::add_lesson(Lesson aula) {
     horario.add_Lesson(aula);
+    horario.sorted();
 }
 
 void Class::remove_lesson(Lesson aula) {
