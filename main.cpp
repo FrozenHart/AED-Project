@@ -48,7 +48,7 @@ float unformathour(std::string h);
 int main(int argc, char *argv[]) {
     // stores values from classes_per_uc.csv
     set_up_classes_per_uc();
-   /* std::cout << "Classes per uc done" << std::endl;
+    std::cout << "Classes per uc done" << std::endl;
     for(auto x:UCs)
     {
         std::cout << x.first << " -> ";
@@ -57,10 +57,10 @@ int main(int argc, char *argv[]) {
             std::cout << y << " ";
         }
         std::cout << '\n';
-    }*/
+    }
     // stores values from classes.csv
     set_up_classes();
-   /* std::cout << "Classes done" << std::endl;
+    std::cout << "Classes done" << std::endl;
     for(auto x:classes)
     {
         std::cout << x.get_ClassCode() << " -> ";
@@ -69,14 +69,14 @@ int main(int argc, char *argv[]) {
             std::cout << y.get_UCcode() << " ";
         }
         std::cout << '\n';
-    }*/
+    }
     // stores values from students_classes.csv
     set_up_students();
-   /* std::cout << "Students done" << std::endl;
+   std::cout << "Students done" << std::endl;
     for(auto x:StudentsList)
     {
         std::cout << x.get_StudentCode()<<" -> "<<x.get_StudentName() << " ; " <<'\n'<< x.get_Horario().print() << '\n';
-    }*/
+    }
     //User Interface
     static std::map<std::string,int> OperationValue{{"Check",0},
                                                     {"Add",1},
