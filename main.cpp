@@ -1110,6 +1110,22 @@ Class& get_CLass(std::string ClassCode)
     throw std::runtime_error("Class not found for given ClassCode.");
 }
 
+/**
+ * @brief Realiza uma pesquisa binária em uma lista ordenada de objetos Student pelo código do aluno.
+ *
+ * Esta função implementa um algoritmo de pesquisa binária para encontrar um objeto Student
+ * na lista fornecida com base no código do aluno.
+ *
+ * @param list Vetor contendo a lista de objetos Student (deve estar ordenado previamente pelo código do aluno).
+ * @param SC Código do aluno a ser pesquisado.
+ *
+ * @return Referência para o objeto Student com o código do aluno correspondente.
+ *
+ * @throws std::runtime_error Se o Student com o StudentCode especificado não for encontrado na lista.
+ *
+ * @note A lista fornecida deve estar ordenada pelo código do aluno para garantir a corretude da pesquisa binária.
+ * A complexidade de tempo deste algoritmo é O(log n), onde n é o número total de elementos na lista.
+ */
 Student &BinarySearch(std::vector<Student> &list,std::string SC)
 {
     int left = 0;
@@ -1141,6 +1157,17 @@ Student &BinarySearch(std::vector<Student> &list,std::string SC)
     throw std::runtime_error("Student not found for given StudentCode.");
 }
 
+/**
+ * @brief Junta duas sub-arrays ordenadas dentro do vetor.
+ *
+ * Esta função junta duas sub-arrays ordenadas dentro do vetor dado.
+ *
+ * @param StudentsLists Vetor contendo a lista de objetos Student.
+ * @param left Índice do elemento mais à esquerda da primeira sub-array.
+ * @param mid Índice do último elemento da primeira sub-array.
+ * @param right Índice do último elemento da segunda sub-array.
+ * @note A complexidade de tempo desta operação é O(n), onde n é o número total de elementos a serem unidos.
+ */
 void merge_students(std::vector<Student> &StudentsLists,int left, int mid, int right) //joins
 {
     int fsi = mid - left + 1;
@@ -1177,6 +1204,16 @@ void merge_students(std::vector<Student> &StudentsLists,int left, int mid, int r
         indice_3++;
     }
 }
+/**
+ * @brief Função recursiva para realizar a ordenação por merge no vetor de estudantes.
+ *
+ * Esta função implementa o algoritmo de ordenação por merge de forma recursiva.
+ *
+ * @param StudentsLists Vetor contendo a lista de objetos Student.
+ * @param left Índice do elemento mais à esquerda da sub-array.
+ * @param right Índice do elemento mais à direita da sub-array.
+ * @note A complexidade de tempo deste algoritmo é O(n log n), onde n é o número total de elementos no vetor.
+ */
 void merge_sort_students(std::vector<Student> &StudentsLists,int left,int right)
 {
     if(left<right)
@@ -1187,6 +1224,13 @@ void merge_sort_students(std::vector<Student> &StudentsLists,int left,int right)
         merge_students(StudentsLists,left,middle,right);
     }
 }
+/**
+ * @brief Realiza a ordenação por merge no vetor de estudantes.
+ *
+ * Esta função inicia o processo de ordenação por merge no vetor dado.
+ *
+ * @param StudentsLists Vetor contendo a lista de objetos Student.
+ */
 void merge_sort_students(std::vector<Student> &StudentsLists)
 {
     merge_sort_students(StudentsLists,0,StudentsLists.size()-1);

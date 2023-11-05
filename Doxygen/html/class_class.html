@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Schedule Manage System: Class Class Reference</title>
+<title>My Project: Class Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Schedule Manage System<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">My Project<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">O nosso sistema de gestão de horários organiza diversos horários do curso de Engenharia Informática e Computação, dependendo das escolhas de cada estudante ou docente. Ou seja, consegue adicionar ou remover aulas a um horário, alterar a hora de uma certa aula, alterar a turma pertencente a um estudante e corrigir o seu horário consoante a turma nova</div>
   </td>
  </tr>
  </tbody>
@@ -76,32 +77,47 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Classe que representa uma turma de estudantes com informações sobre o horário, lista de estudantes e código da turma.  
+ <a href="class_class.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_class_8h_source.html">Class.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af60921d373c4d70391f4d2e06bfb82bc" id="r_af60921d373c4d70391f4d2e06bfb82bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#af60921d373c4d70391f4d2e06bfb82bc">Class</a> (<a class="el" href="class_schedule.html">Schedule</a> horario_, std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; Liststudents, std::string ClassCode)</td></tr>
+<tr class="memdesc:af60921d373c4d70391f4d2e06bfb82bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que inicializa uma turma com um horário, uma lista de estudantes e um código de turma.  <br /></td></tr>
 <tr class="separator:af60921d373c4d70391f4d2e06bfb82bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafc03415166865a99b25416d3a084ec1" id="r_aafc03415166865a99b25416d3a084ec1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#aafc03415166865a99b25416d3a084ec1">Class</a> (<a class="el" href="class_schedule.html">Schedule</a> horario_, std::string ClassCode)</td></tr>
+<tr class="memdesc:aafc03415166865a99b25416d3a084ec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que inicializa uma turma com um horário e um código de turma.  <br /></td></tr>
 <tr class="separator:aafc03415166865a99b25416d3a084ec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac770cd40c7a9cd79c4a0e640b9f58649" id="r_ac770cd40c7a9cd79c4a0e640b9f58649"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#ac770cd40c7a9cd79c4a0e640b9f58649">~Class</a> ()</td></tr>
+<tr class="memdesc:ac770cd40c7a9cd79c4a0e640b9f58649"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="class_class.html" title="Classe que representa uma turma de estudantes com informações sobre o horário, lista de estudantes e ...">Class</a>.  <br /></td></tr>
 <tr class="separator:ac770cd40c7a9cd79c4a0e640b9f58649"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a493c660f130d7b1f1a34fd786e51838f" id="r_a493c660f130d7b1f1a34fd786e51838f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#a493c660f130d7b1f1a34fd786e51838f">operator==</a> (const <a class="el" href="class_class.html">Class</a> &amp;c) const</td></tr>
+<tr class="memdesc:a493c660f130d7b1f1a34fd786e51838f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de igualdade para comparar duas turmas.  <br /></td></tr>
 <tr class="separator:a493c660f130d7b1f1a34fd786e51838f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afac6d22887c1163201bc706f56550d70" id="r_afac6d22887c1163201bc706f56550d70"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#afac6d22887c1163201bc706f56550d70">add_lesson</a> (<a class="el" href="class_lesson.html">Lesson</a> aula)</td></tr>
+<tr class="memdesc:afac6d22887c1163201bc706f56550d70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma aula ao horário da turma.  <br /></td></tr>
 <tr class="separator:afac6d22887c1163201bc706f56550d70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac77762e77a95a39684ed5676c30b10c0" id="r_ac77762e77a95a39684ed5676c30b10c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#ac77762e77a95a39684ed5676c30b10c0">remove_lesson</a> (<a class="el" href="class_lesson.html">Lesson</a> aula)</td></tr>
+<tr class="memdesc:ac77762e77a95a39684ed5676c30b10c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove uma aula do horário da turma.  <br /></td></tr>
 <tr class="separator:ac77762e77a95a39684ed5676c30b10c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac95d41961e99dd4e8226c53fdd978656" id="r_ac95d41961e99dd4e8226c53fdd978656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#ac95d41961e99dd4e8226c53fdd978656">add_student</a> (<a class="el" href="class_student.html">Student</a> student)</td></tr>
+<tr class="memdesc:ac95d41961e99dd4e8226c53fdd978656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona um estudante à lista de estudantes da turma.  <br /></td></tr>
 <tr class="separator:ac95d41961e99dd4e8226c53fdd978656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a457f7e3828f102ab9c448b353c4d0365" id="r_a457f7e3828f102ab9c448b353c4d0365"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#a457f7e3828f102ab9c448b353c4d0365">get_ClassCode</a> ()</td></tr>
+<tr class="memdesc:a457f7e3828f102ab9c448b353c4d0365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o código da turma.  <br /></td></tr>
 <tr class="separator:a457f7e3828f102ab9c448b353c4d0365"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7aaaa2bd303320ac088251a3d0e63b3" id="r_ac7aaaa2bd303320ac088251a3d0e63b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_schedule.html">Schedule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#ac7aaaa2bd303320ac088251a3d0e63b3">get_Schedule</a> ()</td></tr>
+<tr class="memdesc:ac7aaaa2bd303320ac088251a3d0e63b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o horário da turma.  <br /></td></tr>
 <tr class="separator:ac7aaaa2bd303320ac088251a3d0e63b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d3515dca05cacee5f6a8af471cfd3ac" id="r_a0d3515dca05cacee5f6a8af471cfd3ac"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_class.html#a0d3515dca05cacee5f6a8af471cfd3ac">get_ListStudents</a> ()</td></tr>
+<tr class="memdesc:a0d3515dca05cacee5f6a8af471cfd3ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém a lista de estudantes na turma.  <br /></td></tr>
 <tr class="separator:a0d3515dca05cacee5f6a8af471cfd3ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe que representa uma turma de estudantes com informações sobre o horário, lista de estudantes e código da turma. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af60921d373c4d70391f4d2e06bfb82bc" name="af60921d373c4d70391f4d2e06bfb82bc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af60921d373c4d70391f4d2e06bfb82bc">&#9670;&#160;</a></span>Class() <span class="overload">[1/2]</span></h2>
 
@@ -134,6 +150,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor que inicializa uma turma com um horário, uma lista de estudantes e um código de turma. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">horario_</td><td>Horário da turma (objeto <a class="el" href="class_schedule.html" title="Classe que representa um horário de aulas.">Schedule</a>). </td></tr>
+    <tr><td class="paramname">Liststudents</td><td>Lista de estudantes na turma. </td></tr>
+    <tr><td class="paramname">ClassCode</td><td>Código da turma. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aafc03415166865a99b25416d3a084ec1" name="aafc03415166865a99b25416d3a084ec1"></a>
@@ -162,6 +188,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor que inicializa uma turma com um horário e um código de turma. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">horario_</td><td>Horário da turma (objeto <a class="el" href="class_schedule.html" title="Classe que representa um horário de aulas.">Schedule</a>). </td></tr>
+    <tr><td class="paramname">ClassCode</td><td>Código da turma. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac770cd40c7a9cd79c4a0e640b9f58649" name="ac770cd40c7a9cd79c4a0e640b9f58649"></a>
@@ -178,6 +213,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destrutor da classe <a class="el" href="class_class.html" title="Classe que representa uma turma de estudantes com informações sobre o horário, lista de estudantes e ...">Class</a>. </p>
 
 </div>
 </div>
@@ -198,6 +235,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adiciona uma aula ao horário da turma. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aula</td><td>Aula a ser adicionada ao horário da turma. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ac95d41961e99dd4e8226c53fdd978656" name="ac95d41961e99dd4e8226c53fdd978656"></a>
@@ -216,6 +261,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adiciona um estudante à lista de estudantes da turma. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">student</td><td>Estudante a ser adicionado à turma. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a457f7e3828f102ab9c448b353c4d0365" name="a457f7e3828f102ab9c448b353c4d0365"></a>
@@ -232,6 +285,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém o código da turma. </p>
+<dl class="section return"><dt>Returns</dt><dd>Código da turma. </dd></dl>
 
 </div>
 </div>
@@ -250,6 +306,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Obtém a lista de estudantes na turma. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor de estudantes na turma. </dd></dl>
+
 </div>
 </div>
 <a id="ac7aaaa2bd303320ac088251a3d0e63b3" name="ac7aaaa2bd303320ac088251a3d0e63b3"></a>
@@ -266,6 +325,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém o horário da turma. </p>
+<dl class="section return"><dt>Returns</dt><dd>Horário da turma (objeto <a class="el" href="class_schedule.html" title="Classe que representa um horário de aulas.">Schedule</a>). </dd></dl>
 
 </div>
 </div>
@@ -285,6 +347,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador de igualdade para comparar duas turmas. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>Turma com a qual se vai comparar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se as turmas forem iguais, false caso contrário. </dd></dl>
+
 </div>
 </div>
 <a id="ac77762e77a95a39684ed5676c30b10c0" name="ac77762e77a95a39684ed5676c30b10c0"></a>
@@ -303,11 +374,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Remove uma aula do horário da turma. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aula</td><td>Aula a ser removida do horário da turma. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_class_8h_source.html">Class.h</a></li>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_class_8cpp.html">Class.cpp</a></li>
+<li>Classes/<a class="el" href="_class_8h_source.html">Class.h</a></li>
+<li>Classes/<a class="el" href="_class_8cpp.html">Class.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

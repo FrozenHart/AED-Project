@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Schedule Manage System: Schedule Class Reference</title>
+<title>My Project: Schedule Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Schedule Manage System<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">My Project<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">O nosso sistema de gestão de horários organiza diversos horários do curso de Engenharia Informática e Computação, dependendo das escolhas de cada estudante ou docente. Ou seja, consegue adicionar ou remover aulas a um horário, alterar a hora de uma certa aula, alterar a turma pertencente a um estudante e corrigir o seu horário consoante a turma nova</div>
   </td>
  </tr>
  </tbody>
@@ -76,30 +77,44 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Classe que representa um horário de aulas.  
+ <a href="class_schedule.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_schedule_8h_source.html">Schedule.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a878716f4043a016224a14f78974edf1d" id="r_a878716f4043a016224a14f78974edf1d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a878716f4043a016224a14f78974edf1d">Schedule</a> ()</td></tr>
+<tr class="memdesc:a878716f4043a016224a14f78974edf1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão que inicializa um horário vazio.  <br /></td></tr>
 <tr class="separator:a878716f4043a016224a14f78974edf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4806b985197d35c00b9e707c0ed87998" id="r_a4806b985197d35c00b9e707c0ed87998"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a4806b985197d35c00b9e707c0ed87998">~Schedule</a> ()</td></tr>
+<tr class="memdesc:a4806b985197d35c00b9e707c0ed87998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="class_schedule.html" title="Classe que representa um horário de aulas.">Schedule</a>.  <br /></td></tr>
 <tr class="separator:a4806b985197d35c00b9e707c0ed87998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d67e831638f0911506c39bfdb991927" id="r_a8d67e831638f0911506c39bfdb991927"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a8d67e831638f0911506c39bfdb991927">Schedule</a> (std::vector&lt; <a class="el" href="class_lesson.html">Lesson</a> &gt; horario)</td></tr>
+<tr class="memdesc:a8d67e831638f0911506c39bfdb991927"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que inicializa um horário com um vetor de aulas.  <br /></td></tr>
 <tr class="separator:a8d67e831638f0911506c39bfdb991927"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2e26fe125d7aea41efccf20a685d8cd" id="r_ad2e26fe125d7aea41efccf20a685d8cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#ad2e26fe125d7aea41efccf20a685d8cd">operator==</a> (const <a class="el" href="class_schedule.html">Schedule</a> &amp;s) const</td></tr>
+<tr class="memdesc:ad2e26fe125d7aea41efccf20a685d8cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de igualdade para comparar dois horários.  <br /></td></tr>
 <tr class="separator:ad2e26fe125d7aea41efccf20a685d8cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af346eb379e87b3f6752c6f968f8d18a9" id="r_af346eb379e87b3f6752c6f968f8d18a9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#af346eb379e87b3f6752c6f968f8d18a9">print</a> ()</td></tr>
+<tr class="memdesc:af346eb379e87b3f6752c6f968f8d18a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna uma representação em cadeia de texto do horário.  <br /></td></tr>
 <tr class="separator:af346eb379e87b3f6752c6f968f8d18a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc04bf57eb1e32391f1014ca3842a5e9" id="r_acc04bf57eb1e32391f1014ca3842a5e9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_lesson.html">Lesson</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#acc04bf57eb1e32391f1014ca3842a5e9">get_Schedule</a> ()</td></tr>
+<tr class="memdesc:acc04bf57eb1e32391f1014ca3842a5e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o vetor de aulas no horário.  <br /></td></tr>
 <tr class="separator:acc04bf57eb1e32391f1014ca3842a5e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d834084df6f6f6b99e43cbab156addb" id="r_a7d834084df6f6f6b99e43cbab156addb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a7d834084df6f6f6b99e43cbab156addb">add_Lesson</a> (<a class="el" href="class_lesson.html">Lesson</a> aula)</td></tr>
+<tr class="memdesc:a7d834084df6f6f6b99e43cbab156addb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma aula ao horário.  <br /></td></tr>
 <tr class="separator:a7d834084df6f6f6b99e43cbab156addb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa08b6eea68690c048fc1bbe3f15e887d" id="r_aa08b6eea68690c048fc1bbe3f15e887d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#aa08b6eea68690c048fc1bbe3f15e887d">remove_Lesson</a> (<a class="el" href="class_lesson.html">Lesson</a> aula)</td></tr>
+<tr class="memdesc:aa08b6eea68690c048fc1bbe3f15e887d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove uma aula do horário.  <br /></td></tr>
 <tr class="separator:aa08b6eea68690c048fc1bbe3f15e887d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4408da72a29a9bb2defa81dda007b9ef" id="r_a4408da72a29a9bb2defa81dda007b9ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_schedule.html#a4408da72a29a9bb2defa81dda007b9ef">sorted</a> ()</td></tr>
+<tr class="memdesc:a4408da72a29a9bb2defa81dda007b9ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ordena as aulas no horário com base em algum critério específico.  <br /></td></tr>
 <tr class="separator:a4408da72a29a9bb2defa81dda007b9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe que representa um horário de aulas. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a878716f4043a016224a14f78974edf1d" name="a878716f4043a016224a14f78974edf1d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a878716f4043a016224a14f78974edf1d">&#9670;&#160;</a></span>Schedule() <span class="overload">[1/2]</span></h2>
 
@@ -114,6 +129,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor padrão que inicializa um horário vazio. </p>
 
 </div>
 </div>
@@ -132,6 +149,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Destrutor da classe <a class="el" href="class_schedule.html" title="Classe que representa um horário de aulas.">Schedule</a>. </p>
+
 </div>
 </div>
 <a id="a8d67e831638f0911506c39bfdb991927" name="a8d67e831638f0911506c39bfdb991927"></a>
@@ -149,6 +168,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Construtor que inicializa um horário com um vetor de aulas. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">horario</td><td>Vetor de aulas a ser associado ao horário. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -169,6 +196,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adiciona uma aula ao horário. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aula</td><td>Aula a ser adicionada ao horário. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="acc04bf57eb1e32391f1014ca3842a5e9" name="acc04bf57eb1e32391f1014ca3842a5e9"></a>
@@ -185,6 +220,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém o vetor de aulas no horário. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor de aulas no horário. </dd></dl>
 
 </div>
 </div>
@@ -204,6 +242,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador de igualdade para comparar dois horários. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Horário com o qual se vai comparar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se os horários forem iguais, false caso contrário. </dd></dl>
+
 </div>
 </div>
 <a id="af346eb379e87b3f6752c6f968f8d18a9" name="af346eb379e87b3f6752c6f968f8d18a9"></a>
@@ -220,6 +267,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Retorna uma representação em cadeia de texto do horário. </p>
+<dl class="section return"><dt>Returns</dt><dd>Cadeia de texto com informações sobre as aulas no horário. </dd></dl>
 
 </div>
 </div>
@@ -239,6 +289,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Remove uma aula do horário. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aula</td><td>Aula a ser removida do horário. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a4408da72a29a9bb2defa81dda007b9ef" name="a4408da72a29a9bb2defa81dda007b9ef"></a>
@@ -256,11 +314,13 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ordena as aulas no horário com base em algum critério específico. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_schedule_8h_source.html">Schedule.h</a></li>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_schedule_8cpp.html">Schedule.cpp</a></li>
+<li>Classes/<a class="el" href="_schedule_8h_source.html">Schedule.h</a></li>
+<li>Classes/<a class="el" href="_schedule_8cpp.html">Schedule.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

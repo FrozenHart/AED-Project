@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Schedule Manage System: C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/main.cpp File Reference</title>
+<title>My Project: main.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Schedule Manage System<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">My Project<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">O nosso sistema de gestão de horários organiza diversos horários do curso de Engenharia Informática e Computação, dependendo das escolhas de cada estudante ou docente. Ou seja, consegue adicionar ou remover aulas a um horário, alterar a hora de uma certa aula, alterar a turma pertencente a um estudante e corrigir o seu horário consoante a turma nova</div>
   </td>
  </tr>
  </tbody>
@@ -67,10 +68,6 @@ $(function() {
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_52edaccda629a8747e40f3724db99138.html">LDTS</a></li><li class="navelem"><a class="el" href="dir_bdbcea8f2ed23f0c1eeb80ea6d7d4b52.html">AED-Project</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -90,16 +87,33 @@ $(function() {
 <code>#include &quot;<a class="el" href="_lesson_8h_source.html">Classes/Lesson.h</a>&quot;</code><br />
 <code>#include &lt;queue&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a06cc22c7fddb6c61d14f3f39f618d91c" id="r_a06cc22c7fddb6c61d14f3f39f618d91c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename A &gt; </td></tr>
 <tr class="memitem:a06cc22c7fddb6c61d14f3f39f618d91c"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a06cc22c7fddb6c61d14f3f39f618d91c">in_map</a> (std::map&lt; T, A &gt; map, T s)</td></tr>
 <tr class="separator:a06cc22c7fddb6c61d14f3f39f618d91c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8292062abcdddb6f6000b3ec4a536070" id="r_a8292062abcdddb6f6000b3ec4a536070"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a8292062abcdddb6f6000b3ec4a536070">checkbalance_UC</a> ()</td></tr>
-<tr class="separator:a8292062abcdddb6f6000b3ec4a536070"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa54a1d6104eec5b43abf71b1ef3b555a" id="r_aa54a1d6104eec5b43abf71b1ef3b555a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa54a1d6104eec5b43abf71b1ef3b555a">checkbalance_Class</a> ()</td></tr>
-<tr class="separator:aa54a1d6104eec5b43abf71b1ef3b555a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecc2a035528b95e4a0387f915c5d1170" id="r_aecc2a035528b95e4a0387f915c5d1170"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aecc2a035528b95e4a0387f915c5d1170">checkbalance</a> (std::string metodo, std::string sc=&quot;&quot;, std::string cc=&quot;&quot;, std::string uc=&quot;&quot;, std::string fcc=&quot;&quot;)</td></tr>
+<tr class="separator:aecc2a035528b95e4a0387f915c5d1170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33b34fc0d3867acad23324295f9eaf92" id="r_a33b34fc0d3867acad23324295f9eaf92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a33b34fc0d3867acad23324295f9eaf92">Trade_class</a> (std::string sc, std::string old_class, std::string new_class, std::string uc)</td></tr>
+<tr class="separator:a33b34fc0d3867acad23324295f9eaf92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa841ca27d8daf1b0e41887f3b53855f5" id="r_aa841ca27d8daf1b0e41887f3b53855f5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aa841ca27d8daf1b0e41887f3b53855f5">Trade_UC</a> (std::string sc, std::string old_uc, std::string new_uc, std::string classcode)</td></tr>
+<tr class="separator:aa841ca27d8daf1b0e41887f3b53855f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac52a478722fe7adaee7591ed74970523" id="r_ac52a478722fe7adaee7591ed74970523"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ac52a478722fe7adaee7591ed74970523">checkbalance_Schedule</a> (<a class="el" href="class_schedule.html">Schedule</a> s, std::vector&lt; <a class="el" href="class_lesson.html">Lesson</a> &gt; l)</td></tr>
+<tr class="separator:ac52a478722fe7adaee7591ed74970523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdf9e3ecbc428f78aa3b94885dfd6be0" id="r_acdf9e3ecbc428f78aa3b94885dfd6be0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#acdf9e3ecbc428f78aa3b94885dfd6be0">merge_students</a> (std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;StudentsLists, int left, int mid, int right)</td></tr>
+<tr class="memdesc:acdf9e3ecbc428f78aa3b94885dfd6be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Junta duas sub-arrays ordenadas dentro do vetor.  <br /></td></tr>
+<tr class="separator:acdf9e3ecbc428f78aa3b94885dfd6be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a908e04d69548573476ec2191efc1ec74" id="r_a908e04d69548573476ec2191efc1ec74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a908e04d69548573476ec2191efc1ec74">merge_sort_students</a> (std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;StudentsLists, int left, int right)</td></tr>
+<tr class="memdesc:a908e04d69548573476ec2191efc1ec74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Função recursiva para realizar a ordenação por merge no vetor de estudantes.  <br /></td></tr>
+<tr class="separator:a908e04d69548573476ec2191efc1ec74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9478046bb53c130155a1ab45f72a7f3" id="r_ae9478046bb53c130155a1ab45f72a7f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ae9478046bb53c130155a1ab45f72a7f3">merge_sort_students</a> (std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;StudentsLists)</td></tr>
+<tr class="memdesc:ae9478046bb53c130155a1ab45f72a7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza a ordenação por merge no vetor de estudantes.  <br /></td></tr>
+<tr class="separator:ae9478046bb53c130155a1ab45f72a7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd24b3cf8bbf5935f951e30f374e7b41" id="r_afd24b3cf8bbf5935f951e30f374e7b41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_student.html">Student</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afd24b3cf8bbf5935f951e30f374e7b41">BinarySearch</a> (std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;list, std::string SC)</td></tr>
+<tr class="memdesc:afd24b3cf8bbf5935f951e30f374e7b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Realiza uma pesquisa binária em uma lista ordenada de objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> pelo código do aluno.  <br /></td></tr>
+<tr class="separator:afd24b3cf8bbf5935f951e30f374e7b41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e7835ff958113b091b81095ff12eb4a" id="r_a1e7835ff958113b091b81095ff12eb4a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a1e7835ff958113b091b81095ff12eb4a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1e7835ff958113b091b81095ff12eb4a">in_vec</a> (std::vector&lt; T &gt; vec, T s)</td></tr>
 <tr class="separator:a1e7835ff958113b091b81095ff12eb4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -129,6 +143,8 @@ Functions</h2></td></tr>
 <tr class="separator:a664dd2ba26b88b815ebc7d2d7f281b4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae2c382151ef7c9aa913361172b30db6" id="r_aae2c382151ef7c9aa913361172b30db6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#aae2c382151ef7c9aa913361172b30db6">save</a> ()</td></tr>
 <tr class="separator:aae2c382151ef7c9aa913361172b30db6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78605d74f97fb7a1e9a86202616fec7f" id="r_a78605d74f97fb7a1e9a86202616fec7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a78605d74f97fb7a1e9a86202616fec7f">set_up_past_actions</a> ()</td></tr>
+<tr class="separator:a78605d74f97fb7a1e9a86202616fec7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc74dc37950d90ca36db7f0dccbdf985" id="r_afc74dc37950d90ca36db7f0dccbdf985"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afc74dc37950d90ca36db7f0dccbdf985">validate_hour</a> (std::string hour)</td></tr>
 <tr class="separator:afc74dc37950d90ca36db7f0dccbdf985"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b361af1aa6e958a72852daf2eee1fa5" id="r_a5b361af1aa6e958a72852daf2eee1fa5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a5b361af1aa6e958a72852daf2eee1fa5">remove_Student</a> (std::string StudentCode)</td></tr>
@@ -158,38 +174,128 @@ Variables</h2></td></tr>
 <tr class="separator:ac92f4d7547363b57a473684c3da758bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ca73688871bd73ffb5c347023ba4693" id="r_a1ca73688871bd73ffb5c347023ba4693"><td class="memItemLeft" align="right" valign="top">std::set&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a1ca73688871bd73ffb5c347023ba4693">StudentsCodes</a></td></tr>
 <tr class="separator:a1ca73688871bd73ffb5c347023ba4693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be98a00378b3f21dbe6cd6d064ecfb3" id="r_a7be98a00378b3f21dbe6cd6d064ecfb3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a7be98a00378b3f21dbe6cd6d064ecfb3">PastActions</a></td></tr>
+<tr class="separator:a7be98a00378b3f21dbe6cd6d064ecfb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcd70502b4bf719eb79ad2a92a077ce1" id="r_afcd70502b4bf719eb79ad2a92a077ce1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#afcd70502b4bf719eb79ad2a92a077ce1">dias</a> ={&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;}</td></tr>
 <tr class="separator:afcd70502b4bf719eb79ad2a92a077ce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab565a0bf56e87fe2cdfbe8b0855d01db" id="r_ab565a0bf56e87fe2cdfbe8b0855d01db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#ab565a0bf56e87fe2cdfbe8b0855d01db">Class_Capacity</a> =30</td></tr>
+<tr class="separator:ab565a0bf56e87fe2cdfbe8b0855d01db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa54a1d6104eec5b43abf71b1ef3b555a" name="aa54a1d6104eec5b43abf71b1ef3b555a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa54a1d6104eec5b43abf71b1ef3b555a">&#9670;&#160;</a></span>checkbalance_Class()</h2>
+<a id="afd24b3cf8bbf5935f951e30f374e7b41" name="afd24b3cf8bbf5935f951e30f374e7b41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd24b3cf8bbf5935f951e30f374e7b41">&#9670;&#160;</a></span>BinarySearch()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool checkbalance_Class </td>
+          <td class="memname"><a class="el" href="class_student.html">Student</a> &amp; BinarySearch </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>SC</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza uma pesquisa binária em uma lista ordenada de objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> pelo código do aluno. </p>
+<p>Esta função implementa um algoritmo de pesquisa binária para encontrar um objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> na lista fornecida com base no código do aluno.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>Vetor contendo a lista de objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> (deve estar ordenado previamente pelo código do aluno). </td></tr>
+    <tr><td class="paramname">SC</td><td>Código do aluno a ser pesquisado.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Referência para o objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> com o código do aluno correspondente.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>Se o <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> com o StudentCode especificado não for encontrado na lista.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>A lista fornecida deve estar ordenada pelo código do aluno para garantir a corretude da pesquisa binária. A complexidade de tempo deste algoritmo é O(log n), onde n é o número total de elementos na lista. </dd></dl>
+
+</div>
+</div>
+<a id="aecc2a035528b95e4a0387f915c5d1170" name="aecc2a035528b95e4a0387f915c5d1170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecc2a035528b95e4a0387f915c5d1170">&#9670;&#160;</a></span>checkbalance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool checkbalance </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>metodo</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>sc</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>cc</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>uc</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>fcc</em> = <code>&quot;&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a8292062abcdddb6f6000b3ec4a536070" name="a8292062abcdddb6f6000b3ec4a536070"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8292062abcdddb6f6000b3ec4a536070">&#9670;&#160;</a></span>checkbalance_UC()</h2>
+<a id="ac52a478722fe7adaee7591ed74970523" name="ac52a478722fe7adaee7591ed74970523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac52a478722fe7adaee7591ed74970523">&#9670;&#160;</a></span>checkbalance_Schedule()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool checkbalance_UC </td>
+          <td class="memname">bool checkbalance_Schedule </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="class_schedule.html">Schedule</a>&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_lesson.html">Lesson</a> &gt;&#160;</td>
+          <td class="paramname"><em>l</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -354,6 +460,132 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ae9478046bb53c130155a1ab45f72a7f3" name="ae9478046bb53c130155a1ab45f72a7f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9478046bb53c130155a1ab45f72a7f3">&#9670;&#160;</a></span>merge_sort_students() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void merge_sort_students </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>StudentsLists</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Realiza a ordenação por merge no vetor de estudantes. </p>
+<p>Esta função inicia o processo de ordenação por merge no vetor dado.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">StudentsLists</td><td>Vetor contendo a lista de objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a908e04d69548573476ec2191efc1ec74" name="a908e04d69548573476ec2191efc1ec74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a908e04d69548573476ec2191efc1ec74">&#9670;&#160;</a></span>merge_sort_students() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void merge_sort_students </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>StudentsLists</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Função recursiva para realizar a ordenação por merge no vetor de estudantes. </p>
+<p>Esta função implementa o algoritmo de ordenação por merge de forma recursiva.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">StudentsLists</td><td>Vetor contendo a lista de objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a>. </td></tr>
+    <tr><td class="paramname">left</td><td>Índice do elemento mais à esquerda da sub-array. </td></tr>
+    <tr><td class="paramname">right</td><td>Índice do elemento mais à direita da sub-array. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>A complexidade de tempo deste algoritmo é O(n log n), onde n é o número total de elementos no vetor. </dd></dl>
+
+</div>
+</div>
+<a id="acdf9e3ecbc428f78aa3b94885dfd6be0" name="acdf9e3ecbc428f78aa3b94885dfd6be0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdf9e3ecbc428f78aa3b94885dfd6be0">&#9670;&#160;</a></span>merge_students()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void merge_students </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_student.html">Student</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>StudentsLists</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mid</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Junta duas sub-arrays ordenadas dentro do vetor. </p>
+<p>Esta função junta duas sub-arrays ordenadas dentro do vetor dado.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">StudentsLists</td><td>Vetor contendo a lista de objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a>. </td></tr>
+    <tr><td class="paramname">left</td><td>Índice do elemento mais à esquerda da primeira sub-array. </td></tr>
+    <tr><td class="paramname">mid</td><td>Índice do último elemento da primeira sub-array. </td></tr>
+    <tr><td class="paramname">right</td><td>Índice do último elemento da segunda sub-array. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>A complexidade de tempo desta operação é O(n), onde n é o número total de elementos a serem unidos. </dd></dl>
+
+</div>
+</div>
 <a id="ad1977b6160cc397bb3e25baf426f2e16" name="ad1977b6160cc397bb3e25baf426f2e16"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad1977b6160cc397bb3e25baf426f2e16">&#9670;&#160;</a></span>remove_Class()</h2>
 
@@ -459,6 +691,23 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a78605d74f97fb7a1e9a86202616fec7f" name="a78605d74f97fb7a1e9a86202616fec7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78605d74f97fb7a1e9a86202616fec7f">&#9670;&#160;</a></span>set_up_past_actions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_up_past_actions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad2a8a0d0044c128d4b6426cc2f756be3" name="ad2a8a0d0044c128d4b6426cc2f756be3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad2a8a0d0044c128d4b6426cc2f756be3">&#9670;&#160;</a></span>set_up_students()</h2>
 
@@ -470,6 +719,86 @@ template&lt;typename T &gt; </div>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a33b34fc0d3867acad23324295f9eaf92" name="a33b34fc0d3867acad23324295f9eaf92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33b34fc0d3867acad23324295f9eaf92">&#9670;&#160;</a></span>Trade_class()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Trade_class </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>sc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>old_class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_class</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>uc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa841ca27d8daf1b0e41887f3b53855f5" name="aa841ca27d8daf1b0e41887f3b53855f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa841ca27d8daf1b0e41887f3b53855f5">&#9670;&#160;</a></span>Trade_UC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Trade_UC </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>sc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>old_uc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>new_uc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>classcode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -747,6 +1076,20 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ab565a0bf56e87fe2cdfbe8b0855d01db" name="ab565a0bf56e87fe2cdfbe8b0855d01db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab565a0bf56e87fe2cdfbe8b0855d01db">&#9670;&#160;</a></span>Class_Capacity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Class_Capacity =30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a60dd3afc4e72f4235481a86e049eb778" name="a60dd3afc4e72f4235481a86e049eb778"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a60dd3afc4e72f4235481a86e049eb778">&#9670;&#160;</a></span>classes</h2>
 
@@ -769,6 +1112,20 @@ template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt;std::string&gt; dias ={&quot;Monday&quot;,&quot;Tuesday&quot;,&quot;Wednesday&quot;,&quot;Thursday&quot;,&quot;Friday&quot;}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7be98a00378b3f21dbe6cd6d064ecfb3" name="a7be98a00378b3f21dbe6cd6d064ecfb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be98a00378b3f21dbe6cd6d064ecfb3">&#9670;&#160;</a></span>PastActions</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::string&gt; PastActions</td>
         </tr>
       </table>
 </div><div class="memdoc">

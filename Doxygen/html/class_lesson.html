@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Schedule Manage System: Lesson Class Reference</title>
+<title>My Project: Lesson Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Schedule Manage System<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">My Project<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">O nosso sistema de gestão de horários organiza diversos horários do curso de Engenharia Informática e Computação, dependendo das escolhas de cada estudante ou docente. Ou seja, consegue adicionar ou remover aulas a um horário, alterar a hora de uma certa aula, alterar a turma pertencente a um estudante e corrigir o seu horário consoante a turma nova</div>
   </td>
  </tr>
  </tbody>
@@ -76,34 +77,50 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Classe que representa uma lição, aula, ou período de ensino.  
+ <a href="class_lesson.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_lesson_8h_source.html">Lesson.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a46d325bd38f88e8b7e6217eb4a722f43" id="r_a46d325bd38f88e8b7e6217eb4a722f43"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#a46d325bd38f88e8b7e6217eb4a722f43">Lesson</a> (float start_hour, float duration, std::string Type, std::string Day, std::string UCcode, std::string ClassCode)</td></tr>
+<tr class="memdesc:a46d325bd38f88e8b7e6217eb4a722f43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que inicializa uma lição com os parâmetros fornecidos.  <br /></td></tr>
 <tr class="separator:a46d325bd38f88e8b7e6217eb4a722f43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6530d1841651365b493c50fb69b5aef8" id="r_a6530d1841651365b493c50fb69b5aef8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#a6530d1841651365b493c50fb69b5aef8">~Lesson</a> ()</td></tr>
+<tr class="memdesc:a6530d1841651365b493c50fb69b5aef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="class_lesson.html" title="Classe que representa uma lição, aula, ou período de ensino.">Lesson</a>.  <br /></td></tr>
 <tr class="separator:a6530d1841651365b493c50fb69b5aef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abde301883d683e9f44bb893beed5b81f" id="r_abde301883d683e9f44bb893beed5b81f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#abde301883d683e9f44bb893beed5b81f">operator==</a> (const <a class="el" href="class_lesson.html">Lesson</a> &amp;l) const</td></tr>
+<tr class="memdesc:abde301883d683e9f44bb893beed5b81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de igualdade para comparar duas lições.  <br /></td></tr>
 <tr class="separator:abde301883d683e9f44bb893beed5b81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abaf059c3355bad76d71d9a1adbe4f8fa" id="r_abaf059c3355bad76d71d9a1adbe4f8fa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#abaf059c3355bad76d71d9a1adbe4f8fa">operator&lt;</a> (const <a class="el" href="class_lesson.html">Lesson</a> &amp;other) const</td></tr>
+<tr class="memdesc:abaf059c3355bad76d71d9a1adbe4f8fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de comparação para determinar a ordem das lições.  <br /></td></tr>
 <tr class="separator:abaf059c3355bad76d71d9a1adbe4f8fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6307e954c3fae741331fd39ef1a8a170" id="r_a6307e954c3fae741331fd39ef1a8a170"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#a6307e954c3fae741331fd39ef1a8a170">print</a> ()</td></tr>
+<tr class="memdesc:a6307e954c3fae741331fd39ef1a8a170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retorna uma representação em cadeia de texto dos dados da lição.  <br /></td></tr>
 <tr class="separator:a6307e954c3fae741331fd39ef1a8a170"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab92d8a7c6229b7cd214db75010788db3" id="r_ab92d8a7c6229b7cd214db75010788db3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#ab92d8a7c6229b7cd214db75010788db3">get_Start_hour</a> ()</td></tr>
+<tr class="memdesc:ab92d8a7c6229b7cd214db75010788db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém a hora de início da lição.  <br /></td></tr>
 <tr class="separator:ab92d8a7c6229b7cd214db75010788db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab642d46ef594b637a4541ec680d49c3" id="r_aab642d46ef594b637a4541ec680d49c3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#aab642d46ef594b637a4541ec680d49c3">get_Duration</a> ()</td></tr>
+<tr class="memdesc:aab642d46ef594b637a4541ec680d49c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém a duração da lição.  <br /></td></tr>
 <tr class="separator:aab642d46ef594b637a4541ec680d49c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29f65554aa09cf8583eb6b1595f272ae" id="r_a29f65554aa09cf8583eb6b1595f272ae"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#a29f65554aa09cf8583eb6b1595f272ae">get_Type</a> ()</td></tr>
+<tr class="memdesc:a29f65554aa09cf8583eb6b1595f272ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o tipo de lição.  <br /></td></tr>
 <tr class="separator:a29f65554aa09cf8583eb6b1595f272ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e792800b4e6564576e54f429195e333" id="r_a8e792800b4e6564576e54f429195e333"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#a8e792800b4e6564576e54f429195e333">get_Day</a> ()</td></tr>
+<tr class="memdesc:a8e792800b4e6564576e54f429195e333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o dia da semana da lição.  <br /></td></tr>
 <tr class="separator:a8e792800b4e6564576e54f429195e333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea494df4e3f3271ec5523bf3ecbfd83c" id="r_aea494df4e3f3271ec5523bf3ecbfd83c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#aea494df4e3f3271ec5523bf3ecbfd83c">get_UCcode</a> ()</td></tr>
+<tr class="memdesc:aea494df4e3f3271ec5523bf3ecbfd83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o código da unidade curricular associada à lição.  <br /></td></tr>
 <tr class="separator:aea494df4e3f3271ec5523bf3ecbfd83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9e84c3aad633a92b90a19b99bdfcbeaf" id="r_a9e84c3aad633a92b90a19b99bdfcbeaf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_lesson.html#a9e84c3aad633a92b90a19b99bdfcbeaf">get_ClassCode</a> ()</td></tr>
+<tr class="memdesc:a9e84c3aad633a92b90a19b99bdfcbeaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o código da turma da lição.  <br /></td></tr>
 <tr class="separator:a9e84c3aad633a92b90a19b99bdfcbeaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe que representa uma lição, aula, ou período de ensino. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a46d325bd38f88e8b7e6217eb4a722f43" name="a46d325bd38f88e8b7e6217eb4a722f43"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a46d325bd38f88e8b7e6217eb4a722f43">&#9670;&#160;</a></span>Lesson()</h2>
 
@@ -154,6 +171,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor que inicializa uma lição com os parâmetros fornecidos. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start_hour</td><td>Hora de início da lição. </td></tr>
+    <tr><td class="paramname">duration</td><td>Duração da lição em horas. </td></tr>
+    <tr><td class="paramname">Type</td><td>Tipo de lição (por exemplo, aula teórica, prática). </td></tr>
+    <tr><td class="paramname">Day</td><td>Dia da semana em que a lição ocorre. </td></tr>
+    <tr><td class="paramname">UCcode</td><td>Código da unidade curricular associada à lição. </td></tr>
+    <tr><td class="paramname">ClassCode</td><td>Código da turma da lição. O Dia é o Dia da semana, o UCcode é o Código da UC e o ClassCode é o Código da turma. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a6530d1841651365b493c50fb69b5aef8" name="a6530d1841651365b493c50fb69b5aef8"></a>
@@ -170,6 +200,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destrutor da classe <a class="el" href="class_lesson.html" title="Classe que representa uma lição, aula, ou período de ensino.">Lesson</a>. </p>
 
 </div>
 </div>
@@ -189,6 +221,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Obtém o código da turma da lição. </p>
+<dl class="section return"><dt>Returns</dt><dd>Código da turma da lição. </dd></dl>
+
 </div>
 </div>
 <a id="a8e792800b4e6564576e54f429195e333" name="a8e792800b4e6564576e54f429195e333"></a>
@@ -205,6 +240,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém o dia da semana da lição. </p>
+<dl class="section return"><dt>Returns</dt><dd>Dia da semana em que a lição ocorre. </dd></dl>
 
 </div>
 </div>
@@ -223,6 +261,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Obtém a duração da lição. </p>
+<dl class="section return"><dt>Returns</dt><dd>Duração da lição em horas. </dd></dl>
+
 </div>
 </div>
 <a id="ab92d8a7c6229b7cd214db75010788db3" name="ab92d8a7c6229b7cd214db75010788db3"></a>
@@ -239,6 +280,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém a hora de início da lição. </p>
+<dl class="section return"><dt>Returns</dt><dd>Hora de início da lição. </dd></dl>
 
 </div>
 </div>
@@ -257,6 +301,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Obtém o tipo de lição. </p>
+<dl class="section return"><dt>Returns</dt><dd>Tipo de lição (por exemplo, aula teórica, prática). </dd></dl>
+
 </div>
 </div>
 <a id="aea494df4e3f3271ec5523bf3ecbfd83c" name="aea494df4e3f3271ec5523bf3ecbfd83c"></a>
@@ -273,6 +320,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém o código da unidade curricular associada à lição. </p>
+<dl class="section return"><dt>Returns</dt><dd>Código da unidade curricular (UC). </dd></dl>
 
 </div>
 </div>
@@ -292,6 +342,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador de comparação para determinar a ordem das lições. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Outra lição com a qual se vai comparar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se a lição atual for anterior à outra, false caso contrário. </dd></dl>
+
 </div>
 </div>
 <a id="abde301883d683e9f44bb893beed5b81f" name="abde301883d683e9f44bb893beed5b81f"></a>
@@ -310,6 +369,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador de igualdade para comparar duas lições. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">l</td><td>Lição com a qual se vai comparar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se as lições forem iguais, false caso contrário. </dd></dl>
+
 </div>
 </div>
 <a id="a6307e954c3fae741331fd39ef1a8a170" name="a6307e954c3fae741331fd39ef1a8a170"></a>
@@ -327,11 +395,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Retorna uma representação em cadeia de texto dos dados da lição. </p>
+<dl class="section return"><dt>Returns</dt><dd>Cadeia de texto com informações sobre a lição. </dd></dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_lesson_8h_source.html">Lesson.h</a></li>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_lesson_8cpp.html">Lesson.cpp</a></li>
+<li>Classes/<a class="el" href="_lesson_8h_source.html">Lesson.h</a></li>
+<li>Classes/<a class="el" href="_lesson_8cpp.html">Lesson.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

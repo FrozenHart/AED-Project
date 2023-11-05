@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['lesson_0',['lesson',['../class_lesson.html',1,'Lesson'],['../class_lesson.html#a46d325bd38f88e8b7e6217eb4a722f43',1,'Lesson::Lesson()']]],
-  ['lesson_2ecpp_1',['Lesson.cpp',['../_lesson_8cpp.html',1,'']]],
-  ['lesson_2ecpp_2eobj_2ed_2',['Lesson.cpp.obj.d',['../_lesson_8cpp_8obj_8d.html',1,'']]],
-  ['lesson_2eh_3',['Lesson.h',['../_lesson_8h.html',1,'']]]
+  ['main_0',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['main_2ecpp_1',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['merge_5fsort_5fstudents_2',['merge_sort_students',['../main_8cpp.html#a908e04d69548573476ec2191efc1ec74',1,'merge_sort_students(std::vector&lt; Student &gt; &amp;StudentsLists, int left, int right):&#160;main.cpp'],['../main_8cpp.html#ae9478046bb53c130155a1ab45f72a7f3',1,'merge_sort_students(std::vector&lt; Student &gt; &amp;StudentsLists):&#160;main.cpp']]],
+  ['merge_5fstudents_3',['merge_students',['../main_8cpp.html#acdf9e3ecbc428f78aa3b94885dfd6be0',1,'main.cpp']]]
 ];

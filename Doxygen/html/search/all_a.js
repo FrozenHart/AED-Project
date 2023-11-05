@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['platform_5fid_0',['platform_id',['../_c_make_c_compiler_id_8c.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCCompilerId.c'],['../_c_make_c_x_x_compiler_id_8cpp.html#adbc5372f40838899018fadbc89bd588b',1,'PLATFORM_ID:&#160;CMakeCXXCompilerId.cpp']]],
-  ['print_1',['print',['../class_lesson.html#a6307e954c3fae741331fd39ef1a8a170',1,'Lesson::print()'],['../class_schedule.html#af346eb379e87b3f6752c6f968f8d18a9',1,'Schedule::print()']]],
-  ['print_5fstudent_2',['print_Student',['../class_student.html#a2ef43074e4bb5a05dd8b1db4bfcb18c5',1,'Student']]],
-  ['project_3',['AED-Project',['../md__c_1_2_users_2_bruno_01_esteves_2_desktop_2_l_d_t_s_2_a_e_d-_project_2_r_e_a_d_m_e.html',1,'']]]
+  ['readme_2emd_0',['README.md',['../_r_e_a_d_m_e_8md.html',1,'']]],
+  ['remove_5fclass_1',['remove_Class',['../main_8cpp.html#ad1977b6160cc397bb3e25baf426f2e16',1,'main.cpp']]],
+  ['remove_5flesson_2',['remove_lesson',['../class_class.html#ac77762e77a95a39684ed5676c30b10c0',1,'Class::remove_lesson()'],['../class_schedule.html#aa08b6eea68690c048fc1bbe3f15e887d',1,'Schedule::remove_Lesson()'],['../class_student.html#acd39358a9aa209af5337cfad71e8b0c5',1,'Student::remove_Lesson()']]],
+  ['remove_5fstudent_3',['remove_Student',['../main_8cpp.html#a5b361af1aa6e958a72852daf2eee1fa5',1,'main.cpp']]],
+  ['remove_5fuc_4',['remove_UC',['../main_8cpp.html#aeec41111cb7c390269349d723571032b',1,'main.cpp']]]
 ];

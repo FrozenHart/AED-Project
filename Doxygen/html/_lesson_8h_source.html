@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Schedule Manage System: C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/Lesson.h Source File</title>
+<title>My Project: Classes/Lesson.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Schedule Manage System<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">My Project<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">O nosso sistema de gestão de horários organiza diversos horários do curso de Engenharia Informática e Computação, dependendo das escolhas de cada estudante ou docente. Ou seja, consegue adicionar ou remover aulas a um horário, alterar a hora de uma certa aula, alterar a turma pertencente a um estudante e corrigir o seu horário consoante a turma nova</div>
   </td>
  </tr>
  </tbody>
@@ -74,60 +75,69 @@ $(document).ready(function() { init_codefold(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_52edaccda629a8747e40f3724db99138.html">LDTS</a></li><li class="navelem"><a class="el" href="dir_bdbcea8f2ed23f0c1eeb80ea6d7d4b52.html">AED-Project</a></li><li class="navelem"><a class="el" href="dir_179a45ef23fa5a4403e363ba9a7bfaef.html">Classes</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_0c68614ac8d8401edbf4146ded722294.html">Classes</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="headertitle"><div class="title">Lesson.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="_lesson_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef AED_PROJECT_LESSON_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define AED_PROJECT_LESSON_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_lesson.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_lesson.html">Lesson</a> {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keywordtype">float</span> start_hour;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">float</span> duration;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    std::string Type;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::string Day;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::string UCcode;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::string ClassCode;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::string formathours(<span class="keywordtype">float</span> hours);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_class" href="class_lesson.html">Lesson</a>(<span class="keywordtype">float</span> start_hour,<span class="keywordtype">float</span> duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_function" href="class_lesson.html#a6530d1841651365b493c50fb69b5aef8">~Lesson</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_lesson.html#abde301883d683e9f44bb893beed5b81f">operator == </a>(<span class="keyword">const</span> <a class="code hl_class" href="class_lesson.html">Lesson</a>&amp; l) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_lesson.html#abaf059c3355bad76d71d9a1adbe4f8fa">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_lesson.html">Lesson</a>&amp; other) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::string <a class="code hl_function" href="class_lesson.html#a6307e954c3fae741331fd39ef1a8a170">print</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="comment">//gets</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_lesson.html#ab92d8a7c6229b7cd214db75010788db3">get_Start_hour</a>();</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_lesson.html#aab642d46ef594b637a4541ec680d49c3">get_Duration</a>();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::string <a class="code hl_function" href="class_lesson.html#a29f65554aa09cf8583eb6b1595f272ae">get_Type</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::string <a class="code hl_function" href="class_lesson.html#a8e792800b4e6564576e54f429195e333">get_Day</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::string <a class="code hl_function" href="class_lesson.html#aea494df4e3f3271ec5523bf3ecbfd83c">get_UCcode</a>();</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::string <a class="code hl_function" href="class_lesson.html#a9e84c3aad633a92b90a19b99bdfcbeaf">get_ClassCode</a>();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-</div>
+<a href="_lesson_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef AED_PROJECT_LESSON_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define AED_PROJECT_LESSON_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="class_lesson.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="class_lesson.html">Lesson</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keywordtype">float</span> start_hour; </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">float</span> duration;   </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::string Type; </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    std::string Day;  </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    std::string UCcode; </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    std::string ClassCode; </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    std::string formathours(<span class="keywordtype">float</span> hours);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="class_lesson.html">Lesson</a>(<span class="keywordtype">float</span> start_hour,<span class="keywordtype">float</span> duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode); </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_function" href="class_lesson.html#a6530d1841651365b493c50fb69b5aef8">~Lesson</a>(); </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#endif </span><span class="comment">//AED_PROJECT_LESSON_H</span></div>
-<div class="ttc" id="aclass_lesson_html"><div class="ttname"><a href="class_lesson.html">Lesson</a></div><div class="ttdef"><b>Definition</b> Lesson.h:7</div></div>
-<div class="ttc" id="aclass_lesson_html_a29f65554aa09cf8583eb6b1595f272ae"><div class="ttname"><a href="class_lesson.html#a29f65554aa09cf8583eb6b1595f272ae">Lesson::get_Type</a></div><div class="ttdeci">std::string get_Type()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:29</div></div>
-<div class="ttc" id="aclass_lesson_html_a6307e954c3fae741331fd39ef1a8a170"><div class="ttname"><a href="class_lesson.html#a6307e954c3fae741331fd39ef1a8a170">Lesson::print</a></div><div class="ttdeci">std::string print()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:49</div></div>
-<div class="ttc" id="aclass_lesson_html_a6530d1841651365b493c50fb69b5aef8"><div class="ttname"><a href="class_lesson.html#a6530d1841651365b493c50fb69b5aef8">Lesson::~Lesson</a></div><div class="ttdeci">~Lesson()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:83</div></div>
-<div class="ttc" id="aclass_lesson_html_a8e792800b4e6564576e54f429195e333"><div class="ttname"><a href="class_lesson.html#a8e792800b4e6564576e54f429195e333">Lesson::get_Day</a></div><div class="ttdeci">std::string get_Day()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:34</div></div>
-<div class="ttc" id="aclass_lesson_html_a9e84c3aad633a92b90a19b99bdfcbeaf"><div class="ttname"><a href="class_lesson.html#a9e84c3aad633a92b90a19b99bdfcbeaf">Lesson::get_ClassCode</a></div><div class="ttdeci">std::string get_ClassCode()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:44</div></div>
-<div class="ttc" id="aclass_lesson_html_aab642d46ef594b637a4541ec680d49c3"><div class="ttname"><a href="class_lesson.html#aab642d46ef594b637a4541ec680d49c3">Lesson::get_Duration</a></div><div class="ttdeci">float get_Duration()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:24</div></div>
-<div class="ttc" id="aclass_lesson_html_ab92d8a7c6229b7cd214db75010788db3"><div class="ttname"><a href="class_lesson.html#ab92d8a7c6229b7cd214db75010788db3">Lesson::get_Start_hour</a></div><div class="ttdeci">float get_Start_hour()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:19</div></div>
-<div class="ttc" id="aclass_lesson_html_abaf059c3355bad76d71d9a1adbe4f8fa"><div class="ttname"><a href="class_lesson.html#abaf059c3355bad76d71d9a1adbe4f8fa">Lesson::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Lesson &amp;other) const</div><div class="ttdef"><b>Definition</b> Lesson.cpp:86</div></div>
-<div class="ttc" id="aclass_lesson_html_abde301883d683e9f44bb893beed5b81f"><div class="ttname"><a href="class_lesson.html#abde301883d683e9f44bb893beed5b81f">Lesson::operator==</a></div><div class="ttdeci">bool operator==(const Lesson &amp;l) const</div><div class="ttdef"><b>Definition</b> Lesson.cpp:13</div></div>
-<div class="ttc" id="aclass_lesson_html_aea494df4e3f3271ec5523bf3ecbfd83c"><div class="ttname"><a href="class_lesson.html#aea494df4e3f3271ec5523bf3ecbfd83c">Lesson::get_UCcode</a></div><div class="ttdeci">std::string get_UCcode()</div><div class="ttdef"><b>Definition</b> Lesson.cpp:39</div></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="comment">// Operadores</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_lesson.html#abde301883d683e9f44bb893beed5b81f">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_lesson.html">Lesson</a>&amp; l) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_lesson.html#abaf059c3355bad76d71d9a1adbe4f8fa">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_lesson.html">Lesson</a>&amp; other) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    std::string <a class="code hl_function" href="class_lesson.html#a6307e954c3fae741331fd39ef1a8a170">print</a>();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// Getters</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_lesson.html#ab92d8a7c6229b7cd214db75010788db3">get_Start_hour</a>();</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_lesson.html#aab642d46ef594b637a4541ec680d49c3">get_Duration</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    std::string <a class="code hl_function" href="class_lesson.html#a29f65554aa09cf8583eb6b1595f272ae">get_Type</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    std::string <a class="code hl_function" href="class_lesson.html#a8e792800b4e6564576e54f429195e333">get_Day</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    std::string <a class="code hl_function" href="class_lesson.html#aea494df4e3f3271ec5523bf3ecbfd83c">get_UCcode</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    std::string <a class="code hl_function" href="class_lesson.html#a9e84c3aad633a92b90a19b99bdfcbeaf">get_ClassCode</a>();</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>};</div>
+</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif </span><span class="comment">// AED_PROJECT_LESSON_H</span></div>
+<div class="ttc" id="aclass_lesson_html"><div class="ttname"><a href="class_lesson.html">Lesson</a></div><div class="ttdoc">Classe que representa uma lição, aula, ou período de ensino.</div><div class="ttdef"><b>Definition</b> Lesson.h:10</div></div>
+<div class="ttc" id="aclass_lesson_html_a29f65554aa09cf8583eb6b1595f272ae"><div class="ttname"><a href="class_lesson.html#a29f65554aa09cf8583eb6b1595f272ae">Lesson::get_Type</a></div><div class="ttdeci">std::string get_Type()</div><div class="ttdoc">Obtém o tipo de lição.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:29</div></div>
+<div class="ttc" id="aclass_lesson_html_a6307e954c3fae741331fd39ef1a8a170"><div class="ttname"><a href="class_lesson.html#a6307e954c3fae741331fd39ef1a8a170">Lesson::print</a></div><div class="ttdeci">std::string print()</div><div class="ttdoc">Retorna uma representação em cadeia de texto dos dados da lição.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:49</div></div>
+<div class="ttc" id="aclass_lesson_html_a6530d1841651365b493c50fb69b5aef8"><div class="ttname"><a href="class_lesson.html#a6530d1841651365b493c50fb69b5aef8">Lesson::~Lesson</a></div><div class="ttdeci">~Lesson()</div><div class="ttdoc">Destrutor da classe Lesson.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:83</div></div>
+<div class="ttc" id="aclass_lesson_html_a8e792800b4e6564576e54f429195e333"><div class="ttname"><a href="class_lesson.html#a8e792800b4e6564576e54f429195e333">Lesson::get_Day</a></div><div class="ttdeci">std::string get_Day()</div><div class="ttdoc">Obtém o dia da semana da lição.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:34</div></div>
+<div class="ttc" id="aclass_lesson_html_a9e84c3aad633a92b90a19b99bdfcbeaf"><div class="ttname"><a href="class_lesson.html#a9e84c3aad633a92b90a19b99bdfcbeaf">Lesson::get_ClassCode</a></div><div class="ttdeci">std::string get_ClassCode()</div><div class="ttdoc">Obtém o código da turma da lição.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:44</div></div>
+<div class="ttc" id="aclass_lesson_html_aab642d46ef594b637a4541ec680d49c3"><div class="ttname"><a href="class_lesson.html#aab642d46ef594b637a4541ec680d49c3">Lesson::get_Duration</a></div><div class="ttdeci">float get_Duration()</div><div class="ttdoc">Obtém a duração da lição.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:24</div></div>
+<div class="ttc" id="aclass_lesson_html_ab92d8a7c6229b7cd214db75010788db3"><div class="ttname"><a href="class_lesson.html#ab92d8a7c6229b7cd214db75010788db3">Lesson::get_Start_hour</a></div><div class="ttdeci">float get_Start_hour()</div><div class="ttdoc">Obtém a hora de início da lição.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:19</div></div>
+<div class="ttc" id="aclass_lesson_html_abaf059c3355bad76d71d9a1adbe4f8fa"><div class="ttname"><a href="class_lesson.html#abaf059c3355bad76d71d9a1adbe4f8fa">Lesson::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Lesson &amp;other) const</div><div class="ttdoc">Sobrecarga do operador de comparação para determinar a ordem das lições.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:86</div></div>
+<div class="ttc" id="aclass_lesson_html_abde301883d683e9f44bb893beed5b81f"><div class="ttname"><a href="class_lesson.html#abde301883d683e9f44bb893beed5b81f">Lesson::operator==</a></div><div class="ttdeci">bool operator==(const Lesson &amp;l) const</div><div class="ttdoc">Sobrecarga do operador de igualdade para comparar duas lições.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:13</div></div>
+<div class="ttc" id="aclass_lesson_html_aea494df4e3f3271ec5523bf3ecbfd83c"><div class="ttname"><a href="class_lesson.html#aea494df4e3f3271ec5523bf3ecbfd83c">Lesson::get_UCcode</a></div><div class="ttdeci">std::string get_UCcode()</div><div class="ttdoc">Obtém o código da unidade curricular associada à lição.</div><div class="ttdef"><b>Definition</b> Lesson.cpp:39</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

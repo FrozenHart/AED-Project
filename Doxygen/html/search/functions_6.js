@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['operator_3c_0',['operator&lt;',['../class_lesson.html#abaf059c3355bad76d71d9a1adbe4f8fa',1,'Lesson']]],
-  ['operator_3d_3d_1',['operator==',['../class_class.html#a493c660f130d7b1f1a34fd786e51838f',1,'Class::operator==()'],['../class_lesson.html#abde301883d683e9f44bb893beed5b81f',1,'Lesson::operator==()'],['../class_schedule.html#ad2e26fe125d7aea41efccf20a685d8cd',1,'Schedule::operator==()'],['../class_student.html#ab63766ec1be00976185a08c063e3e303',1,'Student::operator==()']]]
+  ['main_0',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['merge_5fsort_5fstudents_1',['merge_sort_students',['../main_8cpp.html#a908e04d69548573476ec2191efc1ec74',1,'merge_sort_students(std::vector&lt; Student &gt; &amp;StudentsLists, int left, int right):&#160;main.cpp'],['../main_8cpp.html#ae9478046bb53c130155a1ab45f72a7f3',1,'merge_sort_students(std::vector&lt; Student &gt; &amp;StudentsLists):&#160;main.cpp']]],
+  ['merge_5fstudents_2',['merge_students',['../main_8cpp.html#acdf9e3ecbc428f78aa3b94885dfd6be0',1,'main.cpp']]]
 ];

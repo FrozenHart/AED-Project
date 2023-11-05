@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Schedule Manage System: Student Class Reference</title>
+<title>My Project: Student Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Schedule Manage System<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">My Project<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">O nosso sistema de gestão de horários organiza diversos horários do curso de Engenharia Informática e Computação, dependendo das escolhas de cada estudante ou docente. Ou seja, consegue adicionar ou remover aulas a um horário, alterar a hora de uma certa aula, alterar a turma pertencente a um estudante e corrigir o seu horário consoante a turma nova</div>
   </td>
  </tr>
  </tbody>
@@ -76,36 +77,56 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Classe que representa um estudante com informações sobre o seu código, nome e horário.  
+ <a href="class_student.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_student_8h_source.html">Student.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae3dc3ea48b548de7abf0c1b1f1ee5b5d" id="r_ae3dc3ea48b548de7abf0c1b1f1ee5b5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#ae3dc3ea48b548de7abf0c1b1f1ee5b5d">Student</a> (std::string StudentCode_, std::string StudentName_, <a class="el" href="class_schedule.html">Schedule</a> horario)</td></tr>
+<tr class="memdesc:ae3dc3ea48b548de7abf0c1b1f1ee5b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que inicializa um objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> com código, nome e horário.  <br /></td></tr>
 <tr class="separator:ae3dc3ea48b548de7abf0c1b1f1ee5b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a128acdbf523d73bed57a6c05671e5d85" id="r_a128acdbf523d73bed57a6c05671e5d85"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a128acdbf523d73bed57a6c05671e5d85">Student</a> (std::string StudentCode_, std::string StudentName_)</td></tr>
+<tr class="memdesc:a128acdbf523d73bed57a6c05671e5d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor que inicializa um objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> com código e nome.  <br /></td></tr>
 <tr class="separator:a128acdbf523d73bed57a6c05671e5d85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9168cedbfa5565cf0b20c1a9d3f5c9d" id="r_af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d">Student</a> ()</td></tr>
+<tr class="memdesc:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construtor padrão que inicializa um objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> sem informações.  <br /></td></tr>
 <tr class="separator:af9168cedbfa5565cf0b20c1a9d3f5c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54a8ea060d6cd04222c3a2f89829f105" id="r_a54a8ea060d6cd04222c3a2f89829f105"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a54a8ea060d6cd04222c3a2f89829f105">~Student</a> ()</td></tr>
+<tr class="memdesc:a54a8ea060d6cd04222c3a2f89829f105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destrutor da classe <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a>.  <br /></td></tr>
 <tr class="separator:a54a8ea060d6cd04222c3a2f89829f105"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab63766ec1be00976185a08c063e3e303" id="r_ab63766ec1be00976185a08c063e3e303"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#ab63766ec1be00976185a08c063e3e303">operator==</a> (const <a class="el" href="class_student.html">Student</a> &amp;s) const</td></tr>
+<tr class="memdesc:ab63766ec1be00976185a08c063e3e303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de igualdade para comparar dois objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a>.  <br /></td></tr>
 <tr class="separator:ab63766ec1be00976185a08c063e3e303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44b0dc0efbc95f687706f28363e897db" id="r_a44b0dc0efbc95f687706f28363e897db"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a44b0dc0efbc95f687706f28363e897db">operator&lt;</a> (const <a class="el" href="class_student.html">Student</a> &amp;other) const</td></tr>
+<tr class="memdesc:a44b0dc0efbc95f687706f28363e897db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sobrecarga do operador de comparação para determinar a ordem dos estudantes.  <br /></td></tr>
+<tr class="separator:a44b0dc0efbc95f687706f28363e897db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ef43074e4bb5a05dd8b1db4bfcb18c5" id="r_a2ef43074e4bb5a05dd8b1db4bfcb18c5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a2ef43074e4bb5a05dd8b1db4bfcb18c5">print_Student</a> ()</td></tr>
+<tr class="memdesc:a2ef43074e4bb5a05dd8b1db4bfcb18c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Devolve uma representação em cadeia de texto dos dados do estudante.  <br /></td></tr>
 <tr class="separator:a2ef43074e4bb5a05dd8b1db4bfcb18c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af165a2188eb10e2ce653934c1a25fa5c" id="r_af165a2188eb10e2ce653934c1a25fa5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#af165a2188eb10e2ce653934c1a25fa5c">add_Lesson</a> (<a class="el" href="class_lesson.html">Lesson</a> aula)</td></tr>
+<tr class="memdesc:af165a2188eb10e2ce653934c1a25fa5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adiciona uma lição (<a class="el" href="class_lesson.html" title="Classe que representa uma lição, aula, ou período de ensino.">Lesson</a>) ao horário do estudante.  <br /></td></tr>
 <tr class="separator:af165a2188eb10e2ce653934c1a25fa5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd39358a9aa209af5337cfad71e8b0c5" id="r_acd39358a9aa209af5337cfad71e8b0c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#acd39358a9aa209af5337cfad71e8b0c5">remove_Lesson</a> (<a class="el" href="class_lesson.html">Lesson</a> aula)</td></tr>
+<tr class="memdesc:acd39358a9aa209af5337cfad71e8b0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove uma lição (<a class="el" href="class_lesson.html" title="Classe que representa uma lição, aula, ou período de ensino.">Lesson</a>) do horário do estudante.  <br /></td></tr>
 <tr class="separator:acd39358a9aa209af5337cfad71e8b0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00f13f9f45cb2d03ee1c142f05e38e90" id="r_a00f13f9f45cb2d03ee1c142f05e38e90"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a00f13f9f45cb2d03ee1c142f05e38e90">get_StudentCode</a> ()</td></tr>
+<tr class="memdesc:a00f13f9f45cb2d03ee1c142f05e38e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o código do estudante.  <br /></td></tr>
 <tr class="separator:a00f13f9f45cb2d03ee1c142f05e38e90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a386b941534d6f3ee5663badcf04302a8" id="r_a386b941534d6f3ee5663badcf04302a8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a386b941534d6f3ee5663badcf04302a8">get_StudentName</a> ()</td></tr>
+<tr class="memdesc:a386b941534d6f3ee5663badcf04302a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o nome do estudante.  <br /></td></tr>
 <tr class="separator:a386b941534d6f3ee5663badcf04302a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d08df3e2494207e4e8642fe44138d3b" id="r_a3d08df3e2494207e4e8642fe44138d3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_schedule.html">Schedule</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#a3d08df3e2494207e4e8642fe44138d3b">get_Horario</a> ()</td></tr>
+<tr class="memdesc:a3d08df3e2494207e4e8642fe44138d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o horário do estudante.  <br /></td></tr>
 <tr class="separator:a3d08df3e2494207e4e8642fe44138d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab367772d553754916f2bebd03cf34862" id="r_ab367772d553754916f2bebd03cf34862"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_student.html#ab367772d553754916f2bebd03cf34862">get_classes</a> ()</td></tr>
+<tr class="memdesc:ab367772d553754916f2bebd03cf34862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém uma lista das aulas do estudante.  <br /></td></tr>
 <tr class="separator:ab367772d553754916f2bebd03cf34862"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe que representa um estudante com informações sobre o seu código, nome e horário. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae3dc3ea48b548de7abf0c1b1f1ee5b5d" name="ae3dc3ea48b548de7abf0c1b1f1ee5b5d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae3dc3ea48b548de7abf0c1b1f1ee5b5d">&#9670;&#160;</a></span>Student() <span class="overload">[1/3]</span></h2>
 
@@ -138,6 +159,16 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor que inicializa um objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> com código, nome e horário. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">StudentCode_</td><td>Código do estudante. </td></tr>
+    <tr><td class="paramname">StudentName_</td><td>Nome do estudante. </td></tr>
+    <tr><td class="paramname">horario</td><td>Horário do estudante (objeto <a class="el" href="class_schedule.html" title="Classe que representa um horário de aulas.">Schedule</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a128acdbf523d73bed57a6c05671e5d85" name="a128acdbf523d73bed57a6c05671e5d85"></a>
@@ -166,6 +197,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor que inicializa um objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> com código e nome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">StudentCode_</td><td>Código do estudante. </td></tr>
+    <tr><td class="paramname">StudentName_</td><td>Nome do estudante. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="af9168cedbfa5565cf0b20c1a9d3f5c9d" name="af9168cedbfa5565cf0b20c1a9d3f5c9d"></a>
@@ -183,6 +223,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construtor padrão que inicializa um objeto <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a> sem informações. </p>
+
 </div>
 </div>
 <a id="a54a8ea060d6cd04222c3a2f89829f105" name="a54a8ea060d6cd04222c3a2f89829f105"></a>
@@ -199,6 +241,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destrutor da classe <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a>. </p>
 
 </div>
 </div>
@@ -219,6 +263,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Adiciona uma lição (<a class="el" href="class_lesson.html" title="Classe que representa uma lição, aula, ou período de ensino.">Lesson</a>) ao horário do estudante. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aula</td><td>Lição que se vai adicionar ao horário do estudante. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ab367772d553754916f2bebd03cf34862" name="ab367772d553754916f2bebd03cf34862"></a>
@@ -235,6 +287,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém uma lista das aulas do estudante. </p>
+<dl class="section return"><dt>Returns</dt><dd>Vetor de cadeias de texto que representa as aulas do estudante. </dd></dl>
 
 </div>
 </div>
@@ -253,6 +308,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Obtém o horário do estudante. </p>
+<dl class="section return"><dt>Returns</dt><dd>Horário do estudante (objeto <a class="el" href="class_schedule.html" title="Classe que representa um horário de aulas.">Schedule</a>). </dd></dl>
+
 </div>
 </div>
 <a id="a00f13f9f45cb2d03ee1c142f05e38e90" name="a00f13f9f45cb2d03ee1c142f05e38e90"></a>
@@ -270,6 +328,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Obtém o código do estudante. </p>
+<dl class="section return"><dt>Returns</dt><dd>Código do estudante. </dd></dl>
+
 </div>
 </div>
 <a id="a386b941534d6f3ee5663badcf04302a8" name="a386b941534d6f3ee5663badcf04302a8"></a>
@@ -286,6 +347,36 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Obtém o nome do estudante. </p>
+<dl class="section return"><dt>Returns</dt><dd>Nome do estudante. </dd></dl>
+
+</div>
+</div>
+<a id="a44b0dc0efbc95f687706f28363e897db" name="a44b0dc0efbc95f687706f28363e897db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b0dc0efbc95f687706f28363e897db">&#9670;&#160;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Student::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_student.html">Student</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sobrecarga do operador de comparação para determinar a ordem dos estudantes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Outro estudante com o qual se vai comparar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se o estudante atual for menor do que o outro, false caso contrário. </dd></dl>
 
 </div>
 </div>
@@ -305,6 +396,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sobrecarga do operador de igualdade para comparar dois objetos <a class="el" href="class_student.html" title="Classe que representa um estudante com informações sobre o seu código, nome e horário.">Student</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>Estudante com o qual se vai comparar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true se os estudantes forem iguais, false caso contrário. </dd></dl>
+
 </div>
 </div>
 <a id="a2ef43074e4bb5a05dd8b1db4bfcb18c5" name="a2ef43074e4bb5a05dd8b1db4bfcb18c5"></a>
@@ -321,6 +421,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Devolve uma representação em cadeia de texto dos dados do estudante. </p>
+<dl class="section return"><dt>Returns</dt><dd>Cadeia de texto com os dados do estudante. </dd></dl>
 
 </div>
 </div>
@@ -340,11 +443,19 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Remove uma lição (<a class="el" href="class_lesson.html" title="Classe que representa uma lição, aula, ou período de ensino.">Lesson</a>) do horário do estudante. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aula</td><td>Lição que se vai remover do horário do estudante. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_student_8h_source.html">Student.h</a></li>
-<li>C:/Users/Bruno Esteves/Desktop/LDTS/AED-Project/Classes/<a class="el" href="_student_8cpp.html">Student.cpp</a></li>
+<li>Classes/<a class="el" href="_student_8h_source.html">Student.h</a></li>
+<li>Classes/<a class="el" href="_student_8cpp.html">Student.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

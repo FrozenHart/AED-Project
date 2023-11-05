@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['remove_5fclass_0',['remove_Class',['../main_8cpp.html#ad1977b6160cc397bb3e25baf426f2e16',1,'main.cpp']]],
-  ['remove_5flesson_1',['remove_lesson',['../class_class.html#ac77762e77a95a39684ed5676c30b10c0',1,'Class::remove_lesson()'],['../class_schedule.html#aa08b6eea68690c048fc1bbe3f15e887d',1,'Schedule::remove_Lesson()'],['../class_student.html#acd39358a9aa209af5337cfad71e8b0c5',1,'Student::remove_Lesson()']]],
-  ['remove_5fstudent_2',['remove_Student',['../main_8cpp.html#a5b361af1aa6e958a72852daf2eee1fa5',1,'main.cpp']]],
-  ['remove_5fuc_3',['remove_UC',['../main_8cpp.html#aeec41111cb7c390269349d723571032b',1,'main.cpp']]]
+  ['print_0',['print',['../class_lesson.html#a6307e954c3fae741331fd39ef1a8a170',1,'Lesson::print()'],['../class_schedule.html#af346eb379e87b3f6752c6f968f8d18a9',1,'Schedule::print()']]],
+  ['print_5fstudent_1',['print_Student',['../class_student.html#a2ef43074e4bb5a05dd8b1db4bfcb18c5',1,'Student']]]
 ];

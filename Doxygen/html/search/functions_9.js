@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['save_0',['save',['../main_8cpp.html#aae2c382151ef7c9aa913361172b30db6',1,'main.cpp']]],
-  ['schedule_1',['schedule',['../class_schedule.html#a878716f4043a016224a14f78974edf1d',1,'Schedule::Schedule()'],['../class_schedule.html#a8d67e831638f0911506c39bfdb991927',1,'Schedule::Schedule(std::vector&lt; Lesson &gt; horario)']]],
-  ['set_5fup_5fclasses_2',['set_up_classes',['../main_8cpp.html#a3a52deff2ef73ffdc527a2f49864b5c4',1,'main.cpp']]],
-  ['set_5fup_5fclasses_5fper_5fuc_3',['set_up_classes_per_uc',['../main_8cpp.html#af30a26251a0cfa6018a5bcb569ef8cc7',1,'main.cpp']]],
-  ['set_5fup_5fstudents_4',['set_up_students',['../main_8cpp.html#ad2a8a0d0044c128d4b6426cc2f756be3',1,'main.cpp']]],
-  ['sorted_5',['sorted',['../class_schedule.html#a4408da72a29a9bb2defa81dda007b9ef',1,'Schedule']]],
-  ['student_6',['student',['../class_student.html#ae3dc3ea48b548de7abf0c1b1f1ee5b5d',1,'Student::Student(std::string StudentCode_, std::string StudentName_, Schedule horario)'],['../class_student.html#a128acdbf523d73bed57a6c05671e5d85',1,'Student::Student(std::string StudentCode_, std::string StudentName_)'],['../class_student.html#af9168cedbfa5565cf0b20c1a9d3f5c9d',1,'Student::Student()']]]
+  ['remove_5fclass_0',['remove_Class',['../main_8cpp.html#ad1977b6160cc397bb3e25baf426f2e16',1,'main.cpp']]],
+  ['remove_5flesson_1',['remove_lesson',['../class_class.html#ac77762e77a95a39684ed5676c30b10c0',1,'Class::remove_lesson()'],['../class_schedule.html#aa08b6eea68690c048fc1bbe3f15e887d',1,'Schedule::remove_Lesson()'],['../class_student.html#acd39358a9aa209af5337cfad71e8b0c5',1,'Student::remove_Lesson()']]],
+  ['remove_5fstudent_2',['remove_Student',['../main_8cpp.html#a5b361af1aa6e958a72852daf2eee1fa5',1,'main.cpp']]],
+  ['remove_5fuc_3',['remove_UC',['../main_8cpp.html#aeec41111cb7c390269349d723571032b',1,'main.cpp']]]
 ];
