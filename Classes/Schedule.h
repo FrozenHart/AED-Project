@@ -67,7 +67,7 @@ public:
     void remove_Lesson(Lesson aula);
 
     /**
-     * @brief Ordena as aulas no horário com base em algum critério específico.
+     * @brief Ordena as aulas no horário.
      */
     void sorted();
 };

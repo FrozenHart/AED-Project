@@ -671,9 +671,6 @@ int main(int argc, char *argv[]) {
                                             break;
                                         }
                                     }
-                                    std::cout << s.print()<<'\n';
-                                    std::cout << get_Student(sc).get_Horario().print()<<'\n';
-
                                     if(pode) {
                                         temp += ('/' + sc + '/' + puc + '/' + nuc + '/' + classcode);
                                         ActionQueue.push(temp);
@@ -722,8 +719,6 @@ int main(int argc, char *argv[]) {
                                             break;
                                         }
                                     }
-                                    std::cout << s.print()<<'\n';
-                                    std::cout << get_Student(sc).get_Horario().print()<<'\n';
                                     if(pode) {
                                         temp += ('/' + sc + '/' + pcc + '/' + ncc + '/' + uc);
                                         ActionQueue.push(temp);
@@ -962,7 +957,7 @@ void set_up_students()
 {
     // stores values from students_classes.csv
     std::fstream fin;
-    fin.open("../Original Data/schedule/students_classes.csv",std::ios::in);
+    fin.open("../schedule/students_classes.csv",std::ios::in);
     std::string line,StudentCode,StudentName,UcCode,ClassCode,Type;
     std::getline(fin,line);
     bool nfirst= false;
@@ -1716,13 +1711,11 @@ void Trade_UC(std::string sc,std::string old_uc,std::string new_uc,std::string c
     {
         if(x.get_UCcode()==old_uc)
         {
-            std::cout<<x.print();
             get_Student(sc).remove_Lesson(x);
         }
     }
     for(auto x: get_Lessons(classcode,new_uc,"ALL"))
     {
-        std::cout<<x.print();
         get_Student(sc).add_Lesson(x);
     }
 }
@@ -1733,13 +1726,11 @@ void Trade_class(std::string sc,std::string old_class,std::string new_class,std:
     {
         if(x.get_ClassCode()==old_class)
         {
-            std::cout<<x.print();
             get_Student(sc).remove_Lesson(x);
         }
     }
     for(auto x: get_Lessons(new_class,uc,"ALL"))
     {
-        std::cout<<x.print();
         get_Student(sc).add_Lesson(x);
     }
 }

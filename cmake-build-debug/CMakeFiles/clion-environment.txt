@@ -1,4 +1,0 @@
-ToolSet: w64 11.0 (local)@C:\Users\Bruno Esteves\Desktop\projetos\CLion-2023.2.2.win\bin\mingw
-Options: 
-
-Options:
