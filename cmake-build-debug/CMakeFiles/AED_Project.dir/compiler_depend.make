@@ -615,13 +615,22 @@ CMakeFiles/AED_Project.dir/main.cpp.obj: C:/Users/Bruno\ Esteves/Desktop/LDTS/AE
   C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set \
   C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h \
   C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multiset.h \
-  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
-  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
-  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h \
-  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
-  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
-  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
-  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/math.h \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/gamma.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/special_function_util.h \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/bessel_function.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/beta_function.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/ell_integral.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/exp_integral.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/hypergeometric.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/legendre_function.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/modified_bessel_func.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_laguerre.tcc \
+  C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc
 
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/cpu_defines.h:
@@ -630,11 +639,17 @@ C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x8
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/concept_check.h:
 
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/ell_integral.tcc:
+
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/exp_integral.tcc:
 
 C:/Users/Bruno\ Esteves/Desktop/LDTS/AED-Project/Classes/Class.cpp:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/gamma.tcc:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h:
 
@@ -722,6 +737,8 @@ C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x8
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++allocator.h:
 
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_hermite.tcc:
+
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/new_allocator.h:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new:
@@ -777,6 +794,8 @@ C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/x86_64-w64
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/special_function_util.h:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h:
 
@@ -847,6 +866,8 @@ C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/x86_64-w64
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/modified_bessel_func.tcc:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h:
 
@@ -992,6 +1013,26 @@ C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x8
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h:
 
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/limits:
+
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/set:
 
 C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_set.h:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/x86_64-w64-mingw32/include/math.h:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/bessel_function.tcc:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/beta_function.tcc:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/hypergeometric.tcc:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/legendre_function.tcc:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/poly_laguerre.tcc:
+
+C:/Users/Bruno\ Esteves/Desktop/projetos/CLion-2023.2.2.win/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tr1/riemann_zeta.tcc:
