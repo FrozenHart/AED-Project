@@ -99,8 +99,8 @@ public:
     std::vector<std::string> get_classes();
 
 private:
-    std::string StudentCode;  ///< Código do estudante.
-    std. O nome do estudante é o nome do estudante.
+    std::string StudentCode;   ///< Código do estudante.
+    std::string StudentName;   ///< O nome do estudante é o nome do estudante.
     Schedule horario_student;  ///< Horário do estudante (objeto Schedule).
 };
 

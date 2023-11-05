@@ -27,7 +27,7 @@ public:
      * @param UCcode Código da unidade curricular associada à lição.
      * @param ClassCode Código da turma da lição.
      */
-    Lesson(float start_hour, float duration, std::string Type, std. O Dia é o Dia, o UCcode é o Código da UC e o ClassCode é o Código da turma.
+    Lesson(float start_hour,float duration,std::string Type,std::string Day,std::string UCcode,std::string ClassCode); ///< O Dia é o Dia da semana, o UCcode é o Código da UC e o ClassCode é o Código da turma.
     ~Lesson(); ///< Destrutor da classe Lesson.
 
     // Operadores
