@@ -9,18 +9,27 @@
 #include "Classes/Lesson.h"
 #include <queue>
 #include <set>
+#include <cmath>
+
 std::vector<Class> classes;
 std::map<std::string, std::vector<std::string>> UCs; //map<UCcode,vector<Class Codes>>
 std::vector<Student> StudentsList;
 std::set <std::string> StudentsCodes;
+std::vector<std::string> PastActions;
 std::vector<std::string> dias={"Monday","Tuesday","Wednesday","Thursday","Friday"};
-
+int Class_Capacity=30;
 
 //funcions
 template<typename T, typename A>
 bool in_map( std::map<T ,A> map,T s);
-bool checkbalance_UC();
-bool checkbalance_Class();
+bool checkbalance();
+void Trade_class(std::string sc,std::string old_class,std::string new_class,std::string uc);
+void Trade_UC(std::string sc,std::string old_uc,std::string new_uc,std::string classcode);
+bool checkbalance_Schedule(Schedule s,Lesson l);
+void merge_students(std::vector<Student> &StudentsLists,int left, int mid, int right) ;
+void merge_sort_students(std::vector<Student> &StudentsLists,int left,int right);
+void merge_sort_students(std::vector<Student> &StudentsLists);
+Student &BinarySearch(std::vector<Student> &list,std::string SC);
 template<typename T>
 bool in_vec( std::vector<T> vec, T s);
 void set_up_classes_per_uc();
@@ -36,6 +45,7 @@ bool validate_Lesson_Structure(std::string start_hour,std::string duration,std::
 bool validate_Student_Structure(std::string StudentCode,std::string StudentName);
 bool validate_Lesson(std::string UCcode,std::string ClassCode,std::string Type="T");
 void save();
+void set_up_past_actions();
 bool validate_hour(std::string hour);
 void remove_Student(std::string StudentCode);
 void remove_Class(std::string ClassCode);
@@ -49,7 +59,7 @@ float unformathour(std::string h);
 int main(int argc, char *argv[]) {
     // stores values from classes_per_uc.csv
     set_up_classes_per_uc();
-   /* std::cout << "Classes per uc done" << std::endl;
+    /*std::cout << "Classes per uc done" << std::endl;
     for(auto x:UCs)
     {
         std::cout << x.first << " -> ";
@@ -78,6 +88,9 @@ int main(int argc, char *argv[]) {
     {
         std::cout << x.get_StudentCode()<<" -> "<<x.get_StudentName() << " ; " <<'\n'<< x.get_Horario().print() << '\n';
     }*/
+
+    set_up_past_actions();
+
     //User Interface
     static std::map<std::string,int> OperationValue{{"Check",0},
                                                     {"Add",1},
@@ -123,7 +136,7 @@ int main(int argc, char *argv[]) {
             bool c= true;
             while (c) {
                 c=false;
-                std::cout<<"                          Chose Check Method\n";
+                std::cout<<"                          Choose Check Method\n";
                 std::cout<<"-----------------------------------------------------------------------------\n";
                 std::cout<<"| Student Schedule   -> Checks a Student Schedule                           |\n";
                 std::cout<<"| Class Schedule     -> Checks a Class Schedule                             |\n";
@@ -611,7 +624,7 @@ int main(int argc, char *argv[]) {
                         valids = false;
                         switch (MethodValue[method]) {
                             case 17: {   //UCs
-                                std::string puc,nuc,sc;
+                                std::string puc,nuc,sc,uc;
                                 std::cout << "Student Code: \n";
                                 std::getline(std::cin,sc);
                                 std::cout << "Previous UC Code: \n";
@@ -619,7 +632,10 @@ int main(int argc, char *argv[]) {
                                 std::cout << "New UC Code: \n";
                                 std::getline(std::cin,nuc);
                                 if (validate_UC(puc)&&(validate_UC(nuc))&&(validate_Student(sc))) {
-                                    temp += ('/' + sc+'/'+puc+'/'+nuc);
+                                    std::string classcode;
+                                    std::cout << "Witch Class?(Class Code): \n";
+                                    std::getline(std::cin,classcode);
+                                    temp += ('/' + sc+'/'+puc+'/'+nuc+'/'+classcode);
                                     ActionQueue.push(temp);
                                 }else {
                                     std::cout << "Invalid UC Code/Student Code Try Again\n";
@@ -631,12 +647,15 @@ int main(int argc, char *argv[]) {
                                 std::string pcc,ncc,sc;
                                 std::cout << "Student Code: \n";
                                 std::getline(std::cin,sc);
-                                std::cout << "Previous UC Code: \n";
+                                std::cout << "Previous Class Code: \n";
                                 std::getline(std::cin,pcc);
-                                std::cout << "New UC Code: \n";
+                                std::cout << "New Class Code: \n";
                                 std::getline(std::cin,ncc);
                                 if (validate_Class(pcc)&&(validate_Class(ncc))&&(validate_Student(sc))) {
-                                    temp += ('/' + sc+'/'+pcc+'/'+ncc);
+                                    std::string uc;
+                                    std::cout << "Which UC?(UC Code): \n";
+                                    std::getline(std::cin,uc);
+                                    temp += ('/' + sc+'/'+pcc+'/'+ncc+'/'+uc);
                                     ActionQueue.push(temp);
                                 }else {
                                     std::cout << "Invalid UC Code/Student Code Try Again\n";
@@ -654,21 +673,21 @@ int main(int argc, char *argv[]) {
             continue;
         }else if(inputuser=="Undo Action")
         {
-
+            std::cout <<"Action System Log \n";
+            for(auto x:PastActions) {
+                std::cout << x << '\n';
+            }
         }else if(inputuser=="Run")
         {
-            std::fstream fin;
-            fin.open("../schedule/ActionQueue.txt", std::ofstream::out );
-            std::queue<std::string> temp=ActionQueue;
-            int v=temp.size();
+            std::queue<std::string> tempa=ActionQueue;
+            int v=tempa.size();
             for(int i=0;i<v;i++)
             {
-                fin << temp.front() << '\n';
-                temp.pop();
+                PastActions.push_back(tempa.front());
+                tempa.pop();
             }
-            fin.close();
 
-            std::cout <<"Running Actions: \n";
+            std::cout <<"Running Actions ... \n";
             int nt=ActionQueue.size();
             for (int x = 0; x < nt; x++)
             {
@@ -816,12 +835,29 @@ int main(int argc, char *argv[]) {
                     }
                         break;
                     case 17: //Switch UCs
+                    {
+                        std::string sc, puc, nuc,wcc;
+                        getline(ss, sc, '/');
+                        getline(ss, puc, '/');
+                        getline(ss, nuc, '/');
+                        getline(ss, wcc, '/');
+                        Trade_UC(sc, puc, nuc,wcc);
+                    }
                         break;
                     case 18: //Switch Classes
+                    {
+                        std::string sc, pcc, ncc,wuc;
+                        getline(ss, sc, '/');
+                        getline(ss, pcc, '/');
+                        getline(ss, ncc, '/');
+                        getline(ss, wuc, '/');
+                        Trade_class(sc, pcc, ncc,wuc);
+                    }
                         break;
                 }
                 ActionQueue.pop();
             }
+            std::cout <<"Actions Done \n";
 
         } else if(inputuser=="Queue")
         {
@@ -846,13 +882,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    /*
-    std::cout <<"Action Queue: ";
-    for(int x=0;x<=ActionQueue.size();x++)
-    {
-        std::cout <<ActionQueue.front()<<'\n';
-        ActionQueue.pop();
-    }*/
 
     // stores values back in the files(students_classes.csv,classes.csv,classes_per_uc.csv)
     save();
@@ -918,6 +947,18 @@ void set_up_students()
     }
     fin.close();
 }
+
+void set_up_past_actions()
+{
+    std::fstream fin;
+    fin.open("../schedule/ActionQueue.txt",std::ios::in);
+    std::string line;
+    while(getline(fin, line)) {
+        PastActions.push_back(line);
+    }
+    fin.close();
+}
+
 
 void set_up_classes()
 {
@@ -999,18 +1040,102 @@ Class& get_CLass(std::string ClassCode)
     throw std::runtime_error("Class not found for given ClassCode.");
 }
 
-Student &get_Student(std::string StudentCode)
+Student &BinarySearch(std::vector<Student> &list,std::string SC)
 {
-    for(auto& x:StudentsList)
+    int left = 0;
+    int right = list.size() - 1;
+
+    while (left <= right)
     {
-        if(x.get_StudentCode()==StudentCode)
+        int mid = left + (right - left) / 2;
+
+        // Check if the middle element's StudentCode is equal to the target SC
+        if (list[mid].get_StudentCode() == SC)
         {
-            return x;
+            return list[mid];
+        }
+
+        // If the target SC is smaller, ignore the right half
+        if (list[mid].get_StudentCode() > SC)
+        {
+            right = mid - 1;
+        }
+            // If the target SC is larger, ignore the left half
+        else
+        {
+            left = mid + 1;
         }
     }
 
     // Handle the case where the student with the specified StudentCode is not found
     throw std::runtime_error("Student not found for given StudentCode.");
+}
+
+void merge_students(std::vector<Student> &StudentsLists,int left, int mid, int right) //joins
+{
+    int fsi = mid - left + 1;
+    int ssi = right - mid;
+
+    // vetores q vao ser juntados
+    std::vector<Student> Left_Students(StudentsLists.begin() + left, StudentsLists.begin() + left +fsi);
+    std::vector<Student> Right_Students(StudentsLists.begin() + mid + 1, StudentsLists.begin() + mid + 1 + ssi);
+
+    int indice_1 = 0,indice_2 = 0, indice_3 = left;
+    // juntar os elementos sendo o primeiro o maior
+    while (indice_1 < fsi && indice_2 < ssi) {
+        if (Left_Students[indice_1] < Right_Students[indice_2]) {
+            StudentsLists[indice_3] = Left_Students[indice_1];
+            indice_1++;
+        } else {
+            StudentsLists[indice_3] = Right_Students[indice_2];
+            indice_2++;
+        }
+        indice_3++;
+    }
+
+    //junta os elementos que faltao do vetor da esquerda
+    while (indice_1 < fsi) {
+        StudentsLists[indice_3] = Left_Students[indice_1];
+        indice_1++;
+        indice_3++;
+    }
+
+    //junta os elementos que faltao do vetor da direita
+    while (indice_2 < ssi) {
+        StudentsLists[indice_3] = Right_Students[indice_2];
+        indice_2++;
+        indice_3++;
+    }
+}
+void merge_sort_students(std::vector<Student> &StudentsLists,int left,int right)
+{
+    if(left<right)
+    {
+        int middle=(left+right)/2;
+        merge_sort_students(StudentsLists,left,middle);
+        merge_sort_students(StudentsLists,middle+1,right);
+        merge_students(StudentsLists,left,middle,right);
+    }
+}
+void merge_sort_students(std::vector<Student> &StudentsLists)
+{
+    merge_sort_students(StudentsLists,0,StudentsLists.size()-1);
+
+}
+
+Student &get_Student(std::string StudentCode)
+{
+    merge_sort_students(StudentsList);
+    for(auto x:StudentsList)
+    {
+        std::cout << x.get_StudentCode() << '\n';
+    }
+    try {
+        return  BinarySearch(StudentsList, StudentCode);
+    }
+    catch (std::runtime_error &e) {
+        throw e;
+    }
 }
 
 std::vector<Lesson> get_Lessons(std::string ClassCode,std::string UCcode,std::string Type)
@@ -1083,6 +1208,16 @@ void save() {
                     prevUCcode=y.get_UCcode();
                 }
             }
+        }
+        fin.close();
+    }
+
+    {
+        //stores values from ActionQueue.txt
+        std::fstream fin;
+        fin.open("../schedule/ActionQueue.txt", std::ofstream::out | std::ofstream::trunc);
+        for (auto x: PastActions) {
+            fin << x << "\n";
         }
         fin.close();
     }
@@ -1338,11 +1473,126 @@ bool valdate_StudentCode(std::string StudentCode)
     }
 }
 
-bool checkbalance_UC()
-{
+bool checkbalance(std::string metodo,std::string sc="",std::string cc="",std::string uc="") {
+    std::map<std::string, int> metodos={{"New_UC",0},{"New_UC_class",1},{"Class_Space",2},{"Class_Balance",3},{"One_Class_per_UC",4}};
+    switch (metodos[metodo]) {
+        case 0:
+        {
+            std::set<std::string> ucs;
+            for (auto x: get_Student(sc).get_Horario().get_Schedule()) {
+                ucs.insert(x.get_UCcode());
+            }
+            if(ucs.size()+1>7)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+            break;
+        case 1:
+        {
+            for (auto x: UCs[uc]) {
+                if(checkbalance("Class_Space","",x))
+                {
+                    return true;
+                }
+            }
+        }
+            break;
+        case 2:
+        {
+            if(get_CLass(cc).get_ListStudents().size()<Class_Capacity)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+            break;
+        case 3:
+        {
 
+        }
+        break;
+
+        case 4:
+        {
+            for(auto x:get_Student(sc).get_Horario().get_Schedule())
+            {
+                if(x.)
+            }
+        }
+        break;
+
+        default:
+            // Handle the case where the method is not valid
+            throw std::runtime_error("Invalid Method");
+    }
 }
-bool checkbalance_Class()
-{
 
+
+
+bool checkbalance_Schedule(Schedule s,Lesson l)
+{
+    for(auto x:s.get_Schedule())
+    {
+        if(x==l)
+        {
+            return false;
+        }
+        else if(x.get_Day()==l.get_Day())
+        {
+            if(l.get_Type()!="T")
+            {
+                if(x.get_Start_hour()+x.get_Duration()>l.get_Start_hour()&&x.get_Start_hour()<l.get_Start_hour()+l.get_Duration())
+                {
+                    return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+
+void Trade_UC(std::string sc,std::string old_uc,std::string new_uc,std::string classcode)
+{
+    for(auto x: get_Student(sc).get_Horario().get_Schedule())
+    {
+        if(x.get_UCcode()==old_uc)
+        {
+            std::cout<<x.print();
+            get_Student(sc).remove_Lesson(x);
+        }
+    }
+    std::cout<<"new uc"<<new_uc<<'\n';
+    for(auto x: get_Lessons(classcode,new_uc,"ALL"))
+    {
+        std::cout<<x.print();
+        get_Student(sc).add_Lesson(x);
+    }
+    std::cout<<get_Student(sc).get_Horario().print();
+}
+
+void Trade_class(std::string sc,std::string old_class,std::string new_class,std::string uc)
+{
+    for(auto x: get_Student(sc).get_Horario().get_Schedule())
+    {
+        if(x.get_ClassCode()==old_class)
+        {
+            std::cout<<x.print();
+            get_Student(sc).remove_Lesson(x);
+        }
+    }
+    std::cout<<"new class"<<new_class<<'\n';
+    for(auto x: get_Lessons(new_class,uc,"ALL"))
+    {
+        std::cout<<x.print();
+        get_Student(sc).add_Lesson(x);
+    }
+    std::cout<<get_Student(sc).get_Horario().print();
 }

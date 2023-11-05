@@ -10,7 +10,10 @@ public:
     Student(std::string StudentCode_,std::string StudentName_);
     Student();
     ~Student();
+
+    //operators
     bool operator == (const Student& s) const;
+    bool operator<(const Student& other) const;
     std::string print_Student();
     //methods
     void add_Lesson(Lesson aula);

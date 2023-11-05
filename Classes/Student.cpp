@@ -59,6 +59,7 @@ void Student::add_Lesson(Lesson aula) {
 
 void Student::remove_Lesson(Lesson aula) {
     horario_student.remove_Lesson(aula);
+    horario_student.sorted();
 }
 
 Student::~Student() {
@@ -67,6 +68,12 @@ Student::~Student() {
 
 std::string Student::print_Student() {
     return StudentCode+"->"+StudentName;
+}
+
+bool Student::operator<(const Student &other) const {
+    if(StudentCode<other.StudentCode)
+        return true;
+    return false;
 }
 
 
